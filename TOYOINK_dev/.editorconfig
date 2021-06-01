@@ -1,0 +1,7 @@
+﻿[*.cs]
+
+# CA2241: 為格式化方法提供正確的引數
+dotnet_diagnostic.CA2241.severity = none
+
+# CA1305: 指定 IFormatProvider
+dotnet_diagnostic.CA1305.severity = none
