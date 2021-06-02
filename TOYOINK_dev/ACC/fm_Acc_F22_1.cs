@@ -17,6 +17,11 @@ namespace TOYOINK_dev
     /*
      * 20210202 完成
      * 注意事項：幣別欄位需去除前後空白
+     * 20210602 洪淑雯提出，類型"轉帳"，原幣出帳金額錯誤，查看修正[原幣出帳.本幣出帳]，判別為'81' 有值其餘為0，
+     * ,(case MQ003 when '82' then TG008 else 0 End) as	原幣入帳金額
+	   ,(case MQ003 when '81' then TG008 else 0 End) as	原幣出帳金額  <-修正
+       ,(case MQ003 when '82' then TG019 else 0 End) as 本幣入帳金額
+	   ,(case MQ003 when '81' then TG019 else 0 End) as 本幣出帳金額  <-修正
      */
     public partial class fm_Acc_F22_1 : Form
     {
@@ -202,10 +207,16 @@ NOTMA.UDF01 = '1'
                         , TF003 as 日期, TG018 as 匯率
                         ,(case MQ003 
                         when '82' then TG008
-                        else 0 End) as	原幣入帳金額,0 as	原幣出帳金額
+                        else 0 End) as	原幣入帳金額
+						,(case MQ003 
+                        when '81' then TG008
+                        else 0 End) as	原幣出帳金額
                         ,(case MQ003 
                         when '82' then TG019
-                        else 0 End)	as 本幣入帳金額,0	as 本幣出帳金額
+                        else 0 End)	as 本幣入帳金額
+						,(case MQ003 
+                        when '81' then TG019
+                        else 0 End)	as 本幣出帳金額
                         , '' as 廠商代號, '' as 廠商簡稱
                         , (Rtrim(TG001) + '-' + Rtrim(TG002)) as 單據號碼
                         , '' as 付款銀行, '轉帳'	as 來源類型, TF007 as 備註

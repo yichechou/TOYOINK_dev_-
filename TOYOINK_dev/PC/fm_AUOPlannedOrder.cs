@@ -440,8 +440,7 @@ namespace TOYOINK_dev
         }
         private void btn_AddERP_Add_Click(object sender, EventArgs e)
         {
-            //111
-            if (cbo_AddERP_FAB.Text.Length != 0 && txt_AddERP_TYPE.Text.Length != 0 && txt_AddERP_ERPNO.Text.Length != 0)
+            if (cbo_AddERP_FAB.Text.Length != 0 && txt_AddERP_TYPE.Text.Length != 0 && txt_AddERP_ERPNO.Text.Length != 0 && cbo_Special.Text.Length !=0)
             {
                 //驗證是否新增重複品號
                 DataTable dt_Check_AddRepeat = new DataTable();
@@ -500,10 +499,9 @@ namespace TOYOINK_dev
                 if (dr_AddERP == DialogResult.Yes)
                 {
 
-
                     string sql_AddERP = String.Format(@"insert into [CT_AUO_ERPNO] VALUES('{0}','{1}','{2}','{3}','{4}','{5}');"
                                     , DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"), str_Import建立者ID
-                                    , cbo_AddERP_FAB.Text.ToString().Trim(), txt_AddERP_TYPE.Text.ToString().Trim(), txt_AddERP_ERPNO.Text.ToString().Trim());
+                                    , cbo_AddERP_FAB.Text.ToString().Trim(), txt_AddERP_TYPE.Text.ToString().Trim(), txt_AddERP_ERPNO.Text.ToString().Trim(), cbo_Special.Text.ToString());
                     
                     MyCode.sqlExecuteNonQuery(sql_AddERP, "AD2SERVER");
 
@@ -560,6 +558,7 @@ namespace TOYOINK_dev
                         txt_AddERP_TYPE.Text = "";
                         txt_AddERP_ERPNO.Text = "";
                         lab_AddERP_Status.Text = "";
+                        cbo_Special.Text = "";
                         MessageBox.Show("缺少品號已新增完成" + Environment.NewLine + "請重新[選擇檔案]進行匯入", "警示",MessageBoxButtons.OK,MessageBoxIcon.Information);
                     }
                 }
@@ -2656,6 +2655,21 @@ VALUES({1})", str_sql_columns_d, str_sql_values_d);
             dt_ToExcel = dt;
             //dt_ToExcel.Columns.RemoveAt(0);
             //dt_ToExcel.AcceptChanges();
+
+            //判別專用料加入底色
+            string sql_SPECIAL = String.Format(@"SELECT [ERP_NO],[FAB],[SPECIAL] FROM [A01A].[dbo].[CT_AUO_ERPNO]
+                             where  [SPECIAL] = 'Y' and [FAB] = '{0}'", Line_Name);
+            DataTable dt_SPECIAL = new DataTable();
+            MyCode.Sql_dt(sql_SPECIAL, dt_SPECIAL);
+
+            //dt_SPECIAL.Rows.Cast<DataRow>().Select(x =>
+            //{
+            //    var dict_SPECIAL = new Dictionary<string, string>();
+            //    dict_SPECIAL.Add("ERP_NO", x[0].ToString());
+            //    dict_SPECIAL.Add("FAB", x[1].ToString());
+            //    dict_SPECIAL.Add("SPECIAL", x[2].ToString());
+            //    return dict_SPECIAL;
+            //}).ToList();
 
             //設定數字顯示格式
             for (int k = 2; k < 10; k++)
