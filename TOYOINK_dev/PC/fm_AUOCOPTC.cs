@@ -904,7 +904,7 @@ namespace TOYOINK_dev
                                 //sqlapp log
                                 str_sql_log = String.Format(
                                           @"insert into develop_app_log VALUES('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}')"
-                                          , str_建立者ID, str_建立日期, dt_單頭.Rows[x]["TC001"], dt_單頭.Rows[x]["TC002"], "COPTC", "客戶訂單 匯入", "新增客戶訂單單頭", DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss"));
+                                          , str_建立者ID, str_建立日期, dt_單頭.Rows[x]["TC001"], dt_單頭.Rows[x]["TC002"], "COPTC", "fm_AUOCOPTC", "新增客戶訂單單頭", DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss"));
 
                                 // 上傳ERP Log字串整理後，屆時一次上傳
                                 str_sql_logs += str_sql_log + str_enter;

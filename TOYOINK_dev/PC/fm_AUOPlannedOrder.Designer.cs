@@ -49,6 +49,8 @@
             this.tctl_Import = new System.Windows.Forms.TabControl();
             this.tabP_ImportExcel = new System.Windows.Forms.TabPage();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label19 = new System.Windows.Forms.Label();
+            this.cbo_AddERP_SPECIAL = new System.Windows.Forms.ComboBox();
             this.btn_AddERP_Clean = new System.Windows.Forms.Button();
             this.label16 = new System.Windows.Forms.Label();
             this.lab_AddERP_Status = new System.Windows.Forms.Label();
@@ -142,8 +144,6 @@
             this.sqlDataAdapter1 = new System.Data.SqlClient.SqlDataAdapter();
             this.sqlInsertCommand1 = new System.Data.SqlClient.SqlCommand();
             this.sqlCommand1 = new System.Data.SqlClient.SqlCommand();
-            this.cbo_Special = new System.Windows.Forms.ComboBox();
-            this.label19 = new System.Windows.Forms.Label();
             this.tabControl2.SuspendLayout();
             this.tabPage8.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -380,7 +380,7 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.PowderBlue;
             this.panel1.Controls.Add(this.label19);
-            this.panel1.Controls.Add(this.cbo_Special);
+            this.panel1.Controls.Add(this.cbo_AddERP_SPECIAL);
             this.panel1.Controls.Add(this.btn_AddERP_Clean);
             this.panel1.Controls.Add(this.label16);
             this.panel1.Controls.Add(this.lab_AddERP_Status);
@@ -399,6 +399,28 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(294, 320);
             this.panel1.TabIndex = 102;
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label19.Location = new System.Drawing.Point(143, 197);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(72, 25);
+            this.label19.TabIndex = 118;
+            this.label19.Text = "專用料";
+            // 
+            // cbo_AddERP_SPECIAL
+            // 
+            this.cbo_AddERP_SPECIAL.FormattingEnabled = true;
+            this.cbo_AddERP_SPECIAL.Items.AddRange(new object[] {
+            "",
+            "N",
+            "Y"});
+            this.cbo_AddERP_SPECIAL.Location = new System.Drawing.Point(216, 193);
+            this.cbo_AddERP_SPECIAL.Name = "cbo_AddERP_SPECIAL";
+            this.cbo_AddERP_SPECIAL.Size = new System.Drawing.Size(65, 33);
+            this.cbo_AddERP_SPECIAL.TabIndex = 117;
             // 
             // btn_AddERP_Clean
             // 
@@ -1431,28 +1453,6 @@
             this.sqlCommand1.CommandText = "SELECT  * FROM [CT_AUO_TOERP_Temp]";
             this.sqlCommand1.Connection = this.sqlConnection1;
             // 
-            // cbo_Special
-            // 
-            this.cbo_Special.FormattingEnabled = true;
-            this.cbo_Special.Items.AddRange(new object[] {
-            "",
-            "N",
-            "Y"});
-            this.cbo_Special.Location = new System.Drawing.Point(216, 193);
-            this.cbo_Special.Name = "cbo_Special";
-            this.cbo_Special.Size = new System.Drawing.Size(65, 33);
-            this.cbo_Special.TabIndex = 117;
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label19.Location = new System.Drawing.Point(143, 197);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(72, 25);
-            this.label19.TabIndex = 118;
-            this.label19.Text = "專用料";
-            // 
             // fm_AUOPlannedOrder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
@@ -1463,7 +1463,7 @@
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "fm_AUOPlannedOrder";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "客戶計劃訂單匯入(20210505 1540)";
+            this.Text = "客戶計劃訂單匯入(20210603 1700)";
             this.Load += new System.EventHandler(this.fm_AUOPlannedOrder_Load);
             this.tabControl2.ResumeLayout(false);
             this.tabPage8.ResumeLayout(false);
@@ -1626,6 +1626,6 @@
         private System.Data.SqlClient.SqlCommand sqlCommand1;
         private System.Windows.Forms.Button btn_ERPUP_TOExcel;
         private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.ComboBox cbo_Special;
+        private System.Windows.Forms.ComboBox cbo_AddERP_SPECIAL;
     }
 }
