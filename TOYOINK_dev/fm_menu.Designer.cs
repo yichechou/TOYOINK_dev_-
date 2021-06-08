@@ -38,7 +38,7 @@
             this.btn_Acc_5b = new System.Windows.Forms.Button();
             this.btn_Package7b = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btn_AUO_NF_COPTC = new System.Windows.Forms.Button();
             this.btn_AUOCOPTC = new System.Windows.Forms.Button();
             this.btn_AUOPlannedOrderUpdate = new System.Windows.Forms.Button();
             this.btn_AUOPlannedOrderInput = new System.Windows.Forms.Button();
@@ -162,7 +162,7 @@
             // 
             // tabPage2
             // 
-            this.tabPage2.Controls.Add(this.button1);
+            this.tabPage2.Controls.Add(this.btn_AUO_NF_COPTC);
             this.tabPage2.Controls.Add(this.btn_AUOCOPTC);
             this.tabPage2.Controls.Add(this.btn_AUOPlannedOrderUpdate);
             this.tabPage2.Controls.Add(this.btn_AUOPlannedOrderInput);
@@ -176,15 +176,16 @@
             this.tabPage2.Text = "生管相關";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // btn_AUO_NF_COPTC
             // 
-            this.button1.Location = new System.Drawing.Point(253, 171);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(210, 60);
-            this.button1.TabIndex = 6;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btn_AUO_NF_COPTC.Font = new System.Drawing.Font("微軟正黑體", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.btn_AUO_NF_COPTC.Location = new System.Drawing.Point(253, 171);
+            this.btn_AUO_NF_COPTC.Name = "btn_AUO_NF_COPTC";
+            this.btn_AUO_NF_COPTC.Size = new System.Drawing.Size(210, 60);
+            this.btn_AUO_NF_COPTC.TabIndex = 6;
+            this.btn_AUO_NF_COPTC.Text = "AUO北廠";
+            this.btn_AUO_NF_COPTC.UseVisualStyleBackColor = true;
+            this.btn_AUO_NF_COPTC.Click += new System.EventHandler(this.btn_AUO_NF_COPTC_Click);
             // 
             // btn_AUOCOPTC
             // 
@@ -278,7 +279,7 @@
         private System.Windows.Forms.Button btn_AUOPlannedOrderInput;
         private System.Windows.Forms.Button btn_AUOCOPTC;
         private System.Windows.Forms.Button btn_Acc_5b;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btn_AUO_NF_COPTC;
         private System.Windows.Forms.Button btn_Acc_F22_1;
         private System.Windows.Forms.Button btn_Acc_RelatedVOU;
     }

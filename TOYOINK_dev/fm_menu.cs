@@ -22,6 +22,7 @@ namespace TOYOINK_dev
         TOYOINK_dev.fm_Acc_F22_1 fm_Acc_F22_1 = new TOYOINK_dev.fm_Acc_F22_1();
         TOYOINK_dev.fm_Acc_RelatedVOU fm_Acc_RelatedVOU = new TOYOINK_dev.fm_Acc_RelatedVOU();
         TOYOINK_dev.fm_trycode fm_trycode = new TOYOINK_dev.fm_trycode();
+        TOYOINK_dev.fm_AUO_NF_COPTC fm_AUO_NF_COPTC = new TOYOINK_dev.fm_AUO_NF_COPTC();
 
         public fm_menu()
         {
@@ -188,12 +189,6 @@ namespace TOYOINK_dev
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-           
-            fm_trycode.Show();
-            this.Hide();
-        }
 
         private void btn_Acc_F22_1_Click(object sender, EventArgs e)
         {
@@ -222,6 +217,14 @@ namespace TOYOINK_dev
             fm_login.Show();
         }
 
+        private void btn_AUO_NF_COPTC_Click(object sender, EventArgs e)
+        {
+            this.Hide(); //隱藏父視窗
+            fm_login.show_fmlogin_FormName("fm_AUO_NF_COPTC");
+            fm_login.Show();
+        }
+
+        //fm_AUO_NF_COPTC
         private void btn_AUOCOPTC_Click(object sender, EventArgs e)
         {
             this.Hide(); //隱藏父視窗

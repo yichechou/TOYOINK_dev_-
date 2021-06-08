@@ -110,6 +110,12 @@ namespace TOYOINK_dev
                                 return;
                             }
                             break;
+                        case "fm_AUO_NF_COPTC":
+                            fm_AUO_NF_COPTC fm_AUO_NF_COPTC = new fm_AUO_NF_COPTC();
+                            fm_AUO_NF_COPTC.show_fmlogin_loginName(loginName);
+                            fm_AUO_NF_COPTC.show_fmlogin_CheckForm(1);
+                            fm_AUO_NF_COPTC.Show();
+                            break;
 
                         default:
                             break;

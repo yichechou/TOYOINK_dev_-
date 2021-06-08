@@ -81,11 +81,11 @@ namespace TOYOINK_dev
         {
             InitializeComponent();
             MyCode = new Myclass.MyClass();
-            MyCode.strDbCon = MyCode.strDbConLeader;
-            this.sqlConnection1.ConnectionString = MyCode.strDbConLeader;
+            //MyCode.strDbCon = MyCode.strDbConLeader;
+            //this.sqlConnection1.ConnectionString = MyCode.strDbConLeader;
 
-            //MyCode.strDbCon = MyCode.strDbConA01A;
-            //this.sqlConnection1.ConnectionString = MyCode.strDbConA01A;
+            MyCode.strDbCon = MyCode.strDbConA01A;
+            this.sqlConnection1.ConnectionString = MyCode.strDbConA01A;
         }
 
         //接收form1資料，並顯示
