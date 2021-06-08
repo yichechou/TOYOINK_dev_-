@@ -288,8 +288,17 @@ namespace TOYOINK_dev
 
             dgv_excel.DataSource = MyClass.ReadExcelToTable("fm_AUO_NF_COPTC",txt_path.Text.ToString(),"1=1");
 
+            DataTable dt_All_Line = new DataTable();
+            dt_All_Line = (DataTable)this.dgv_excel.DataSource;
+
+            //使用Linq進行查詢北廠線別
+            string[] Array_NF = new string[] { "M01", "M02", "M11", "L7A", "M12", "L8B" };
+
+            var Linq_NF = from r in dt_All_Line.AsEnumerable()
+                              where Array_NF.Contains(r.Field<string>("Org"))
+                              select r;
             DataTable dt_訂單 = new DataTable();
-            dt_訂單 = (DataTable)this.dgv_excel.DataSource;
+            dt_訂單 = Linq_NF.CopyToDataTable();
 
             this.lab_status.Text = " 轉換中，請稍後";
             this.to_ExecuteNonQuery("delete from CFIPO"); //MIS建立的暫存table
@@ -331,7 +340,7 @@ namespace TOYOINK_dev
                                     {
                                         str_sql_value = this.get_sql_value(data_type, x.ToString());
                                     }
-                                    else if ((dt_訂單.Rows[i][2].ToString().Trim()) == (dt_訂單.Rows[i - 1][2].ToString().Trim()))
+                                    else if ((dt_訂單.Rows[i][0].ToString().Trim()) == (dt_訂單.Rows[i - 1][0].ToString().Trim()))
                                     {
                                         str_sql_value = this.get_sql_value(data_type, x.ToString());
                                     }
@@ -348,7 +357,7 @@ namespace TOYOINK_dev
                                     {
                                         str_sql_value = this.get_sql_value(data_type, y.ToString().PadLeft(4, '0').ToString());
                                     }
-                                    else if ((dt_訂單.Rows[i][2].ToString().Trim()) == (dt_訂單.Rows[i - 1][2].ToString().Trim()))
+                                    else if ((dt_訂單.Rows[i][0].ToString().Trim()) == (dt_訂單.Rows[i - 1][0].ToString().Trim()))
                                     {
                                         y += 1;
                                         str_sql_value = this.get_sql_value(data_type, (y.ToString()).PadLeft(4, '0'));
@@ -362,27 +371,29 @@ namespace TOYOINK_dev
 
                                 //ERP 客戶代號
                                 case 2:
-                                    if ((dt_訂單.Rows[i][0].ToString().Trim()) == "C5E")
+                                    if ((dt_訂單.Rows[i][3].ToString().Trim()) == "M01")
                                     {
-                                        str_sql_value = this.get_sql_value(data_type, "AU-TK");
+                                        str_sql_value = this.get_sql_value(data_type, "AU-TY");
                                     }
                                     else
                                     {
-                                        str_sql_value = this.get_sql_value(data_type, "AU-TN");
+                                        str_sql_value = this.get_sql_value(data_type, "AU-TC");
                                     }
                                     break;
 
                                 //ERP 客戶單號
                                 case 3:
-                                    if ((dt_訂單.Rows[i][0].ToString().Trim()) == "C5E")
-                                    {
-                                        //[線別]+'-'+[Number]+'-HC' 
-                                        str_sql_value = this.get_sql_value(data_type, (dt_訂單.Rows[i][0].ToString().Trim() + '-' + dt_訂單.Rows[i][2].ToString().Trim() + "-HC"));
-                                    }
-                                    else
-                                    {
-                                        str_sql_value = this.get_sql_value(data_type, (dt_訂單.Rows[i][0].ToString().Trim() + '-' + dt_訂單.Rows[i][2].ToString().Trim() + "-LT"));
-                                    }
+                                    //if ((dt_訂單.Rows[i][0].ToString().Trim()) == "C5E")
+                                    //{
+                                    //    //[線別]+'-'+[Number]+'-HC' 
+                                    //    str_sql_value = this.get_sql_value(data_type, (dt_訂單.Rows[i][0].ToString().Trim() + '-' + dt_訂單.Rows[i][2].ToString().Trim() + "-HC"));
+                                    //}
+                                    //else
+                                    //{
+                                        //str_sql_value = this.get_sql_value(data_type, (dt_訂單.Rows[i][0].ToString().Trim() + '-' + dt_訂單.Rows[i][2].ToString().Trim() + "-LT"));
+                                    //}
+
+                                    str_sql_value = this.get_sql_value(data_type, (dt_訂單.Rows[i][0].ToString().Trim()));
 
                                     //判別 客戶單號有沒有重複
                                     string str_TC012 = str_sql_value.Substring(1);
@@ -424,22 +435,22 @@ namespace TOYOINK_dev
 
                                 //ERP 幣別
                                 case 4:
-                                    if (dt_訂單.Rows[i]["Currency"].ToString().Trim() == "TWD")
+                                    if (dt_訂單.Rows[i]["Cur"].ToString().Trim() == "TWD")
                                     {
                                         str_sql_value = this.get_sql_value(data_type, "NTD");
                                     }
                                     else
                                     {
-                                        lab_status.Text = " 警告：請檢查【來源檔案-[Currency]】重新上傳!!";
+                                        lab_status.Text = " 警告：請檢查【來源檔案-[Cur]】重新上傳!!";
                                         MessageBox.Show("來源 第" + (i + 1) + "筆 " + "，轉換失敗!!" + Environment.NewLine +
                                                         "幣別 不等於 TWD 無法轉換為 NTD" + Environment.NewLine +
-                                                        "請先檢查【來源Excel-[Currency]欄位】重新上傳 或 連絡MIS", "警告訊息", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                                                        "請先檢查【來源Excel-[Cur]欄位】重新上傳 或 連絡MIS", "警告訊息", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 
                                         txterr.Text += Environment.NewLine +
                                                        DateTime.Now.ToString() + Environment.NewLine +
                                                        "來源 第" + (i + 1) + "筆 " + "，轉換失敗!!" + Environment.NewLine +
                                                        "幣別 不等於 TWD 無法轉換為 NTD" + Environment.NewLine +
-                                                       "請先檢查【來源Excel-[Currency]欄位】重新上傳 或 連絡MIS" + Environment.NewLine +
+                                                       "請先檢查【來源Excel-[Cur]欄位】重新上傳 或 連絡MIS" + Environment.NewLine +
                                                        "===========";
 
                                         txt_path.Text = "";
@@ -448,7 +459,7 @@ namespace TOYOINK_dev
                                         btn_toerp.Enabled = false;
                                         btn_toerp.BackColor = System.Drawing.SystemColors.Control;
                                         btn_toerp.ForeColor = System.Drawing.SystemColors.ControlText;
-                                        dgv_excel.CurrentCell = dgv_excel.Rows[i].Cells["Currency"];
+                                        dgv_excel.CurrentCell = dgv_excel.Rows[i].Cells["Cur"];
 
                                         //dt_訂單.Rows[i].RowState;
 
