@@ -35,11 +35,7 @@ namespace TOYOINK_dev
         double ft_sum採購金額 = 0, ft_sum數量合計 = 0, ft_sum包裝數量合計 = 0;
 
         //TODO: 右上角訊息視窗，自動捲動置底
-        private void txterr_TextChanged(object sender, EventArgs e)
-        {
-            txterr.SelectionStart = txterr.Text.Length;
-            txterr.ScrollToCaret();  //跳到遊標處 
-        }
+       
         public fm_AUO_NF_COPTC()
         {
             InitializeComponent();
@@ -101,6 +97,58 @@ namespace TOYOINK_dev
         {
             this.str_建立者ID = this.dt_建立者.Rows[this.cob_建立者.SelectedIndex]["MF001"].ToString().Trim();
             this.str_建立者GP = this.dt_建立者.Rows[this.cob_建立者.SelectedIndex]["MF004"].ToString().Trim();
+        }
+
+        private void btn_NeedDate_Click(object sender, EventArgs e)
+        {
+            //TODO:單頭及單身若不為空值，表示已轉換ERP格式，需重新轉換 或 資料已上傳ERP，需重新選擇日期
+            //資料上傳ERP後，dgv_excel會清空
+            //if (dgv_tc.DataSource != null || dgv_td.DataSource != null || dgv_excel.DataSource != null)
+            if (btn_toerp.Enabled == true || btn_erpup.Enabled == true)
+
+            {
+                DialogResult Result = MessageBox.Show("修改 需求日期 後，需重新【選擇檔案】", "Excel檔案已匯入", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button2);
+
+                if (Result == DialogResult.OK)
+                {
+                    lab_status.Text = "請 選擇檔案";
+                    txt_path.Text = "";
+                    dgv_excel.DataSource = null;
+                    dgv_cfipo.DataSource = null;
+                    tabCtl_data.SelectedIndex = 0;
+                    btn_toerp.Enabled = false;
+                    btn_toerp.BackColor = System.Drawing.SystemColors.Control;
+                    btn_toerp.ForeColor = System.Drawing.SystemColors.ControlText;
+                    btn_erpup.Enabled = false;
+                    btn_erpup.BackColor = System.Drawing.SystemColors.Control;
+                    btn_erpup.ForeColor = System.Drawing.SystemColors.ControlText;
+                    dgv_tc.DataSource = null;
+                    dgv_td.DataSource = null;
+
+                    txterr.Text += Environment.NewLine +
+                               DateTime.Now.ToString() + Environment.NewLine +
+                               " 修改需求日期，請重新【選擇檔案】" + Environment.NewLine +
+                               "===========";
+
+                    this.fm_月曆 = new 月曆(this.txt_NeedDate, this.btn_NeedDate, "需求日期");
+                }
+                else if (Result == DialogResult.Cancel)
+                {
+                    return;
+                }
+            }
+            else
+            {
+                this.fm_月曆 = new 月曆(this.txt_NeedDate, this.btn_NeedDate, "需求日期");
+                btn_file.Enabled = true;
+                lab_status.Text = "請 選擇檔案";
+
+            }
+        }
+        private void txterr_TextChanged(object sender, EventArgs e)
+        {
+            txterr.SelectionStart = txterr.Text.Length;
+            txterr.ScrollToCaret();  //跳到遊標處 
         }
 
         private void textBox_單據日期_TextChanged(object sender, EventArgs e)
@@ -268,6 +316,11 @@ namespace TOYOINK_dev
                     return;
                 }
             }
+            else if (txt_NeedDate.Text.Length == 0)
+            {
+                MessageBox.Show("需先選擇【需求日期】");
+                return;
+            }
             else
             {
                 lab_status.Text = "請 選擇檔案";
@@ -340,7 +393,7 @@ namespace TOYOINK_dev
                                     {
                                         str_sql_value = this.get_sql_value(data_type, x.ToString());
                                     }
-                                    else if ((dt_訂單.Rows[i][0].ToString().Trim()) == (dt_訂單.Rows[i - 1][0].ToString().Trim()))
+                                    else if ((dt_訂單.Rows[i]["PO NO"].ToString().Trim()) == (dt_訂單.Rows[i - 1]["PO NO"].ToString().Trim()))
                                     {
                                         str_sql_value = this.get_sql_value(data_type, x.ToString());
                                     }
@@ -357,7 +410,7 @@ namespace TOYOINK_dev
                                     {
                                         str_sql_value = this.get_sql_value(data_type, y.ToString().PadLeft(4, '0').ToString());
                                     }
-                                    else if ((dt_訂單.Rows[i][0].ToString().Trim()) == (dt_訂單.Rows[i - 1][0].ToString().Trim()))
+                                    else if ((dt_訂單.Rows[i]["PO NO"].ToString().Trim()) == (dt_訂單.Rows[i - 1]["PO NO"].ToString().Trim()))
                                     {
                                         y += 1;
                                         str_sql_value = this.get_sql_value(data_type, (y.ToString()).PadLeft(4, '0'));
@@ -371,7 +424,7 @@ namespace TOYOINK_dev
 
                                 //ERP 客戶代號
                                 case 2:
-                                    if ((dt_訂單.Rows[i][3].ToString().Trim()) == "M01")
+                                    if ((dt_訂單.Rows[i]["Org"].ToString().Trim()) == "M01")
                                     {
                                         str_sql_value = this.get_sql_value(data_type, "AU-TY");
                                     }
@@ -393,7 +446,7 @@ namespace TOYOINK_dev
                                         //str_sql_value = this.get_sql_value(data_type, (dt_訂單.Rows[i][0].ToString().Trim() + '-' + dt_訂單.Rows[i][2].ToString().Trim() + "-LT"));
                                     //}
 
-                                    str_sql_value = this.get_sql_value(data_type, (dt_訂單.Rows[i][0].ToString().Trim()));
+                                    str_sql_value = this.get_sql_value(data_type, (dt_訂單.Rows[i]["PO NO"].ToString().Trim()));
 
                                     //判別 客戶單號有沒有重複
                                     string str_TC012 = str_sql_value.Substring(1);
@@ -412,14 +465,14 @@ namespace TOYOINK_dev
                                         MessageBox.Show("來源 第" + (i + 1) + "筆 " + "，轉換失敗!!" + Environment.NewLine +
                                                         "與【單據：" + dt_TC012.Rows[0]["TC001"].ToString().Trim() + "-" + dt_TC012.Rows[0]["TC002"].ToString().Trim() + "】，" + Environment.NewLine +
                                                         "【客戶單號：" + str_TC012 + "】重複!!" + Environment.NewLine +
-                                                        "請先檢查【來源Excel-[Number]欄位】重新上傳 或 連絡MIS", "警告訊息", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                                                        "請先檢查【來源Excel-[PO NO]欄位】重新上傳 或 連絡MIS", "警告訊息", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 
                                         txterr.Text += Environment.NewLine +
                                                        DateTime.Now.ToString() + Environment.NewLine +
                                                        "來源 第" + (i + 1) + "筆 " + "，轉換失敗!!" + Environment.NewLine +
                                                         "與【單據：" + dt_TC012.Rows[0]["TC001"].ToString().Trim() + "-" + dt_TC012.Rows[0]["TC002"].ToString().Trim() + "】，" +
                                                        "【客戶單號：" + str_TC012 + "】重複!!" + Environment.NewLine +
-                                                       "請先檢查【來源Excel-[Number]欄位】重新上傳 或 連絡MIS" + Environment.NewLine +
+                                                       "請先檢查【來源Excel-[PO NO]欄位】重新上傳 或 連絡MIS" + Environment.NewLine +
                                                        "===========";
 
                                         dgv_cfipo.DataSource = null;
@@ -427,13 +480,13 @@ namespace TOYOINK_dev
                                         btn_toerp.Enabled = false;
                                         btn_toerp.BackColor = System.Drawing.SystemColors.Control;
                                         btn_toerp.ForeColor = System.Drawing.SystemColors.ControlText;
-                                        dgv_excel.CurrentCell = dgv_excel.Rows[i].Cells["Number"];
+                                        dgv_excel.CurrentCell = dgv_excel.Rows[i].Cells["PO NO"];
 
                                         return;
                                     }
                                     break;
 
-                                //ERP 幣別
+                                //ERP 幣別 Cur
                                 case 4:
                                     if (dt_訂單.Rows[i]["Cur"].ToString().Trim() == "TWD")
                                     {
@@ -467,16 +520,74 @@ namespace TOYOINK_dev
                                     }
                                     break;
 
-                                //線別
+                                //線別 / Location
                                 case 5:
-                                    str_sql_value = this.get_sql_value(data_type, dt_訂單.Rows[i][0].ToString().Trim());
+                                    switch (dt_訂單.Rows[i]["Location"].ToString().Trim()) 
+                                    {
+                                        case "M01":
+                                        case "M01-L5A":
+                                            str_sql_value = this.get_sql_value(data_type, "C5A-B");
+                                            break;
+                                        case "M02":
+                                        case "M02-L6B":
+                                            str_sql_value = this.get_sql_value(data_type, "C6B");
+                                            break;
+                                        case "M11":
+                                        case "M11-L6A":
+                                        case "M11-C6A":
+                                            str_sql_value = this.get_sql_value(data_type, "C6A");
+                                            break;
+                                        case "L7A-L5C":
+                                        case "L7A-C5C":
+                                            str_sql_value = this.get_sql_value(data_type, "C5C");
+                                            break;
+                                        case "L7A":
+                                            str_sql_value = this.get_sql_value(data_type, "C7A");
+                                            break;
+                                        case "M12":
+                                        case "M12-L7B":
+                                            str_sql_value = this.get_sql_value(data_type, "C7B");
+                                            break;
+                                        case "M12-L8A":
+                                            str_sql_value = this.get_sql_value(data_type, "C8A");
+                                            break;
+                                        case "L8B":
+                                            str_sql_value = this.get_sql_value(data_type, "C8B");
+                                            break;
+                                        default:
+                                            break;
+                                    }
                                     break;
 
+                                //Number 客戶單號
+                                case 7:
+                                    str_sql_value = this.get_sql_value(data_type, (dt_訂單.Rows[i]["PO NO"].ToString().Trim()));
+                                    break;
+                                //Item 客戶品號
+                                case 8:
+                                    str_sql_value = this.get_sql_value(data_type, (dt_訂單.Rows[i]["Item No"].ToString().Trim()));
+                                    break;
+                                //Item Description 客戶品號名稱
+                                case 9:
+                                    str_sql_value = this.get_sql_value(data_type, (dt_訂單.Rows[i]["Item Desc)"].ToString().Trim()));
+                                    break;
+                                //UOM 重量
+                                case 10:
+                                    str_sql_value = this.get_sql_value(data_type, "KG");
+                                    break;
+                                //Quantity
+                                case 12:
+                                    str_sql_value = this.get_sql_value(data_type, (dt_訂單.Rows[i]["Qty(Order Quantity)"].ToString().Trim()));
+                                    break;
+                                //Currency 幣別
+                                case 14:
+                                    str_sql_value = this.get_sql_value(data_type, (dt_訂單.Rows[i]["Cur"].ToString().Trim()));
+                                    break;
                                 //客戶需求日期
                                 case 15:
-                                    str_sql_value = Convert.ToDateTime(dt_訂單.Rows[i][str_sql_column]).ToString("yyyyMMdd");//格式转换
+                                    str_sql_value = this.get_sql_value(data_type, txt_NeedDate.Text.ToString().Trim());
 
-                                    DateTime needdate = DateTime.ParseExact(str_sql_value, "yyyyMMdd", null, System.Globalization.DateTimeStyles.AllowWhiteSpaces);
+                                    DateTime needdate = DateTime.ParseExact(txt_NeedDate.Text.ToString().Trim(), "yyyyMMdd", null, System.Globalization.DateTimeStyles.AllowWhiteSpaces);
                                     DateTime keydate = DateTime.ParseExact(textBox_單據日期.Text.ToString(), "yyyyMMdd", null, System.Globalization.DateTimeStyles.AllowWhiteSpaces);
 
                                     //判別 單據日期 大於 預交日期 則中斷，並關閉 轉換ERP格式按鈕
@@ -500,35 +611,23 @@ namespace TOYOINK_dev
                                         btn_toerp.Enabled = false;
                                         btn_toerp.BackColor = System.Drawing.SystemColors.Control;
                                         btn_toerp.ForeColor = System.Drawing.SystemColors.ControlText;
-                                        dgv_excel.CurrentCell = dgv_excel.Rows[i].Cells["Need By Date"];
 
                                         return;
                                     }
                                     break;
 
+                                //Sample
+                                case 6:
+                                //Supplier
+                                case 13:
                                 //備註
                                 case 16:
-                                    if (dt_訂單.Columns.Count == 13)
-                                    {
-                                        //最多13欄，判別最後一欄不是日期，
-                                        if (dt_訂單.Rows[i][12].GetType() != typeof(DateTime))
-                                        {
-                                            str_sql_value = this.get_sql_value(data_type, dt_訂單.Rows[i][12].ToString().Trim());
-                                        }
-                                        else
-                                        {
-                                            str_sql_value = "''";
-                                        }
-                                    }
-                                    //最後一欄有備註
-                                    else if (dt_訂單.Columns.Count == 12 && dt_訂單.Rows[i][11].GetType() != typeof(DateTime))
-                                    {
-                                        str_sql_value = this.get_sql_value(data_type, dt_訂單.Rows[i][11].ToString().Trim());
-                                    }
-                                    else
-                                    {
-                                        str_sql_value = "''";
-                                    }
+                                    str_sql_value = "''";
+                                    break;
+
+                                //Shipment Amount
+                                case 11:
+                                    str_sql_value = this.get_sql_value(data_type, "0") ;
                                     break;
 
                                 default:

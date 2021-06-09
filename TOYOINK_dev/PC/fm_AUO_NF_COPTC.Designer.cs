@@ -41,6 +41,9 @@
             this.txterr = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btn_NeedDate = new System.Windows.Forms.Button();
+            this.txt_NeedDate = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.txt_path = new System.Windows.Forms.TextBox();
@@ -184,6 +187,7 @@
             this.txterr.ScrollBars = System.Windows.Forms.ScrollBars.Both;
             this.txterr.Size = new System.Drawing.Size(232, 143);
             this.txterr.TabIndex = 0;
+            this.txterr.TextChanged += new System.EventHandler(this.txterr_TextChanged);
             // 
             // panel2
             // 
@@ -195,6 +199,9 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.btn_NeedDate);
+            this.panel1.Controls.Add(this.txt_NeedDate);
+            this.panel1.Controls.Add(this.label7);
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Controls.Add(this.lab_Nowdate);
             this.panel1.Controls.Add(this.label6);
@@ -217,6 +224,36 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1169, 162);
             this.panel1.TabIndex = 17;
+            // 
+            // btn_NeedDate
+            // 
+            this.btn_NeedDate.Image = ((System.Drawing.Image)(resources.GetObject("btn_NeedDate.Image")));
+            this.btn_NeedDate.Location = new System.Drawing.Point(727, 11);
+            this.btn_NeedDate.Name = "btn_NeedDate";
+            this.btn_NeedDate.Size = new System.Drawing.Size(35, 33);
+            this.btn_NeedDate.TabIndex = 29;
+            this.btn_NeedDate.Click += new System.EventHandler(this.btn_NeedDate_Click);
+            // 
+            // txt_NeedDate
+            // 
+            this.txt_NeedDate.BackColor = System.Drawing.Color.LightGoldenrodYellow;
+            this.txt_NeedDate.Cursor = System.Windows.Forms.Cursors.No;
+            this.txt_NeedDate.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.txt_NeedDate.Location = new System.Drawing.Point(607, 11);
+            this.txt_NeedDate.Name = "txt_NeedDate";
+            this.txt_NeedDate.ReadOnly = true;
+            this.txt_NeedDate.Size = new System.Drawing.Size(114, 34);
+            this.txt_NeedDate.TabIndex = 30;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label7.Location = new System.Drawing.Point(516, 16);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(92, 25);
+            this.label7.TabIndex = 28;
+            this.label7.Text = "需求日期";
             // 
             // label3
             // 
@@ -482,7 +519,7 @@
             this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "fm_AUO_NF_COPTC";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "客戶訂單匯入 For 友達北廠 (20210608 1600)";
+            this.Text = "客戶訂單匯入 For 友達北廠 (20210609 1300)";
             this.Load += new System.EventHandler(this.fm_AUO_NF_COPTC_Load);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
@@ -537,5 +574,8 @@
         private System.Windows.Forms.DataGridView dgv_tc;
         private System.Windows.Forms.TabPage tabPage_td;
         private System.Windows.Forms.DataGridView dgv_td;
+        private System.Windows.Forms.Button btn_NeedDate;
+        private System.Windows.Forms.TextBox txt_NeedDate;
+        private System.Windows.Forms.Label label7;
     }
 }
