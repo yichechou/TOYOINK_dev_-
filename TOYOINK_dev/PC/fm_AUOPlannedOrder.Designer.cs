@@ -714,7 +714,7 @@
             this.panel3.Controls.Add(this.dgv_LastReport);
             this.panel3.Location = new System.Drawing.Point(4, 65);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1191, 387);
+            this.panel3.Size = new System.Drawing.Size(1191, 432);
             this.panel3.TabIndex = 0;
             // 
             // dgv_LastReport
@@ -728,7 +728,7 @@
             this.dgv_LastReport.ReadOnly = true;
             this.dgv_LastReport.RowHeadersWidth = 51;
             this.dgv_LastReport.RowTemplate.Height = 24;
-            this.dgv_LastReport.Size = new System.Drawing.Size(1191, 387);
+            this.dgv_LastReport.Size = new System.Drawing.Size(1191, 432);
             this.dgv_LastReport.TabIndex = 0;
             // 
             // btn_Export_Excel
@@ -1463,7 +1463,7 @@
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "fm_AUOPlannedOrder";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "客戶計劃訂單匯入(20210604 0815)";
+            this.Text = "客戶計劃訂單匯入(20210610 1240)";
             this.Load += new System.EventHandler(this.fm_AUOPlannedOrder_Load);
             this.tabControl2.ResumeLayout(false);
             this.tabPage8.ResumeLayout(false);
