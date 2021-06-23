@@ -16,6 +16,10 @@ namespace TOYOINK_dev
 
     public partial class fm_AUO_NF_COPTC : Form
     {
+        /*
+         * 20210623 開發完成，生管林玲禎提出，參考 客戶訂單For 友達(fm_AUOCOPTC)，修改來源Excel判別
+         * 
+         */
         /// <summary>
         /// 設計工具所需的變數。
         /// </summary>
@@ -41,11 +45,11 @@ namespace TOYOINK_dev
             InitializeComponent();
             MyCode = new Myclass.MyClass();
 
-            MyCode.strDbCon = MyCode.strDbConLeader;
-            this.sqlConnection1.ConnectionString = MyCode.strDbConLeader;
+            //MyCode.strDbCon = MyCode.strDbConLeader;
+            //this.sqlConnection1.ConnectionString = MyCode.strDbConLeader;
 
-            //MyCode.strDbCon = MyCode.strDbConA01A;
-            //this.sqlConnection1.ConnectionString = MyCode.strDbConA01A;
+            MyCode.strDbCon = MyCode.strDbConA01A;
+            this.sqlConnection1.ConnectionString = MyCode.strDbConA01A;
 
             //MyCode.strDbCon = "packet size=4096;user id=pwuser;password=sqlmis003;data source=192.168.128.219;persist security info=False;initial catalog=A01A;";
             ////MyCode.strDbCon = "packet size=4096;user id=yj.chou;password=yjchou3369;data source=192.168.128.219;persist security info=False;initial catalog=Leader;";
