@@ -29,6 +29,12 @@ namespace TOYOINK_dev
             MyCode = new Myclass.MyClass();
             MyCode.strDbCon = "packet size=4096;user id=pwuser;password=sqlmis003;data source=192.168.128.219;persist security info=False;initial catalog=A01B;";
 
+            //MyCode.strDbCon = MyCode.strDbConLeader;
+            //this.sqlConnection1.ConnectionString = MyCode.strDbConLeader;
+
+            //MyCode.strDbCon = MyCode.strDbConA01A;
+            //this.sqlConnection1.ConnectionString = MyCode.strDbConA01A;
+
         }
         public void show_fmlogin_FormName(string data_LoginFormName)
         {
