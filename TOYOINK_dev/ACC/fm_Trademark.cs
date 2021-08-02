@@ -22,6 +22,7 @@ namespace TOYOINK_dev
          * 20210303 2月份有新增銷貨單別:2SHT佣金-關係人，故要修改新增商標權程式中2個工作表勞務收入(佣金)總表、 銷貨單_勞務收入(佣金)關係人) 資料
          * 20210305 除查詢需加入2SHT外，Excel轉出仍需加入單別
          * 20210513 更改查詢條件，不指定單別，改套代號cond及判別客戶基本資料COPMA-MA124關係人代號不為空值及開頭9
+         * 20210802 財務邱鈺婷20210729提出，本社報表格式修改，【關聯方銷貨彙總表】加入【關係人代號】欄位；改連線方式從MyClass代入；修改日期錯誤
          */
         public MyClass MyCode;
         string str_enter = ((char)13).ToString() + ((char)10).ToString();
@@ -56,7 +57,14 @@ namespace TOYOINK_dev
         {
             InitializeComponent();
             MyCode = new Myclass.MyClass();
-            MyCode.strDbCon = "packet size=4096;user id=pwuser;password=sqlmis003;data source=192.168.128.219;persist security info=False;initial catalog=A01A;";
+
+            //MyCode.strDbCon = MyCode.strDbConLeader;
+            //this.sqlConnection1.ConnectionString = MyCode.strDbConLeader;
+
+            MyCode.strDbCon = MyCode.strDbConA01A;
+            //this.sqlConnection1.ConnectionString = MyCode.strDbConA01A;
+
+            //MyCode.strDbCon = "packet size=4096;user id=pwuser;password=sqlmis003;data source=192.168.128.219;persist security info=False;initial catalog=A01A;";
             temp_excel = @"\\192.168.128.219\Company\MIS自開發主檔\會計報表公版\商標權報表_temp.xlsx";
             //temp_excel = @"D:\商標權報表_temp.xlsx";
         }
@@ -193,9 +201,11 @@ namespace TOYOINK_dev
             //txt_date_e.Text = DateTime.Parse(DateTime.Now.ToString("yyyy-MM-01")).AddDays(-1).ToString("yyyyMMdd");
             //DateTime.Parse(DateTime.Now.Year.ToString() + DateTime.Now.Month.ToString() + "1").AddMonths(1).AddDays(-1).ToShortDateString();
 
-            if (int.Parse(DateTime.Now.ToString("MM")) > 6)
+            //TODO:分上下年度查詢，當3月執行程式，日期為20210101-20210228、4月執行，日期為20210101-20210331；
+            //當下半年度9月執行，日期為20210701-20210831
+            if (int.Parse(DateTime.Now.ToString("MM")) >= 8)
             {
-                txt_date_s.Text = DateTime.Parse(DateTime.Now.ToString("yyyy-01-01")).AddMonths(6).ToString("yyyyMMdd");
+                txt_date_s.Text = DateTime.Parse(DateTime.Now.ToString("yyyy-07-01")).ToString("yyyyMMdd");
                 txt_date_e.Text = DateTime.Parse(DateTime.Now.ToString("yyyy-MM-01")).AddDays(-1).ToString("yyyyMMdd");
             }
             else
@@ -320,10 +330,10 @@ namespace TOYOINK_dev
                 MyCode.Sql_dgv(sql_str_Order, dt_Order, dgv_Order);
 
                 //關聯方銷貨彙總表 年度客戶別銷售金額統計表 清單
-                
+                // 20210729 財務邱鈺婷提出，本社報表格式修改，【關聯方銷貨彙總表】加入【關係人代號】欄位
                 string sql_str_CustOrderList = String.Format(
-                    @"select 客戶代號,客戶簡稱,品種別,sum(數量) as 全期銷貨量,sum(本幣未稅金額) as 全期金額
-                    from (select   TG004 as 客戶代號 , MA002 as 客戶簡稱
+                    @"select 客戶代號,客戶簡稱,關係人代號,品種別,sum(數量) as 全期銷貨量,sum(本幣未稅金額) as 全期金額
+                    from (select   TG004 as 客戶代號 , MA002 as 客戶簡稱, MA124 as 關係人代號
                     , SUBSTRING(TG003,1,4) 年份 , SUBSTRING(TG003,5,2) 月份 , SUBSTRING(TG003,1,6) 年月
                     , MB006 as 品種別, TH004 as 品號, TH005 as 品名 , TH009 as 單位, sum(TH008) as 數量, sum(TH037) as 本幣未稅金額
                     , TH020 as 確認碼 , TH026 as 結帳碼
@@ -331,9 +341,9 @@ namespace TOYOINK_dev
                     left join COPTG on COPTG.TG001 = COPTH.TH001 and  COPTG.TG002 = COPTH.TH002 
                     left join COPMA on COPMA.MA001 = COPTG.TG004 
                     left join INVMB on INVMB.MB001=COPTH.TH004
-                    group by COPTG.TG004,MA002,MB006,TH004,TH005,TH009,SUBSTRING(TG003,5,2) , SUBSTRING(TG003,1,4), SUBSTRING(TG003,1,6),TH020,TH026
+                    group by COPTG.TG004,MA002,MA124,MB006,TH004,TH005,TH009,SUBSTRING(TG003,5,2) , SUBSTRING(TG003,1,4), SUBSTRING(TG003,1,6),TH020,TH026
                      UNION 
-                    select   TI004 as 客戶代號 , MA002 as 客戶簡稱
+                    select   TI004 as 客戶代號 , MA002 as 客戶簡稱, MA124 as 關係人代號
                     ,SUBSTRING(TI003,1,4) 年份,SUBSTRING(TI003,5,2) 月份,SUBSTRING(TI003,1,6) 年月
                     , MB006 as 品種別, TJ004 as 品號
                     , TJ005 as 品名, TJ008 as 單位, sum(-TJ007) as 數量 , sum(-TJ033) as 本幣未稅金額
@@ -342,11 +352,11 @@ namespace TOYOINK_dev
                     left join COPTI on COPTI.TI001 = COPTJ.TJ001 and  COPTI.TI002 = COPTJ.TJ002 
                     left join COPMA on COPMA.MA001 = COPTI.TI004 
                     left join INVMB on INVMB.MB001=COPTJ.TJ004
-                    group by COPTI.TI004,MA002,MB006,TJ004,TJ005,TJ008,SUBSTRING(TI003,5,2),SUBSTRING(TI003,1,4),SUBSTRING(TI003,1,6),TJ021,TJ024 ) a
+                    group by COPTI.TI004,MA002,MA124,MB006,TJ004,TJ005,TJ008,SUBSTRING(TI003,5,2),SUBSTRING(TI003,1,4),SUBSTRING(TI003,1,6),TJ021,TJ024 ) a
                     left join COPMA on COPMA.MA001 = 客戶代號
                     where {0}
                     and 年月 >= '{1}' and 年月 <= '{2}'
-                    group by 客戶代號,客戶簡稱,品種別", sql_str_cond_CustOrder, str_date_y_e + "01", str_date_m_e);
+                    group by 客戶代,關係人代號,客戶簡稱,品種別", sql_str_cond_CustOrder, str_date_y_e + "01", str_date_m_e);
 
                 MyCode.Sql_dt(sql_str_CustOrderList, dt_CustOrderList);
 
