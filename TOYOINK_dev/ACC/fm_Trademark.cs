@@ -22,7 +22,7 @@ namespace TOYOINK_dev
          * 20210303 2月份有新增銷貨單別:2SHT佣金-關係人，故要修改新增商標權程式中2個工作表勞務收入(佣金)總表、 銷貨單_勞務收入(佣金)關係人) 資料
          * 20210305 除查詢需加入2SHT外，Excel轉出仍需加入單別
          * 20210513 更改查詢條件，不指定單別，改套代號cond及判別客戶基本資料COPMA-MA124關係人代號不為空值及開頭9
-         * 20210802  財務邱鈺婷20210729提出，本社報表格式修改，【關聯方銷貨彙總表】【年度客戶別銷售金額統計表】加入【關係人代號】欄位
+         * 20210802 財務邱鈺婷20210729提出，本社報表格式修改，【關聯方銷貨彙總表】【年度客戶別銷售金額統計表】加入【關係人代號】欄位
          */
         public MyClass MyCode;
         string str_enter = ((char)13).ToString() + ((char)10).ToString();
@@ -65,7 +65,7 @@ namespace TOYOINK_dev
             //this.sqlConnection1.ConnectionString = MyCode.strDbConA01A;
 
             //MyCode.strDbCon = "packet size=4096;user id=pwuser;password=sqlmis003;data source=192.168.128.219;persist security info=False;initial catalog=A01A;";
-            temp_excel = @"\\192.168.128.219\Company\MIS自開發主檔\會計報表公版\商標權報表_temp.xlsx";
+            temp_excel = @"\\192.168.128.219\Conductor\Company\MIS自開發主檔\會計報表公版\商標權報表_temp.xlsx";
             //temp_excel = @"D:\商標權報表_temp.xlsx";
         }
 
