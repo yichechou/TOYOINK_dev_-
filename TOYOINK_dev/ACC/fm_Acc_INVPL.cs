@@ -139,9 +139,7 @@ namespace TOYOINK_dev.ACC
             btn_5aTotal.Enabled = false;
             btn_5aMT.Enabled = false;
 
-            btn_8aMonth.Enabled = false;
-            btn_8aTotal.Enabled = false;
-            btn_8aMT.Enabled = false;
+           
         }
         private void BtnTrue()
         {
@@ -149,9 +147,7 @@ namespace TOYOINK_dev.ACC
             btn_5aTotal.Enabled = true;
             btn_5aMT.Enabled = true;
 
-            btn_8aMonth.Enabled = true;
-            btn_8aTotal.Enabled = true;
-            btn_8aMT.Enabled = true;
+        
         }
         private void btn_search_Click(object sender, EventArgs e)
         {

@@ -315,11 +315,6 @@
     <Compile Include="月曆.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="月曆.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>月曆.resx</DependentUpon>
-    </Compile>
     <EmbeddedResource Include="ACC\fm_Acc_5b.resx">
       <DependentUpon>fm_Acc_5b.cs</DependentUpon>
     </EmbeddedResource>

@@ -140,6 +140,7 @@
             this.btn_Search.TabIndex = 3;
             this.btn_Search.Text = "查詢";
             this.btn_Search.UseVisualStyleBackColor = true;
+            this.btn_Search.Click += new System.EventHandler(this.btn_Search_Click);
             // 
             // txt_Value
             // 
