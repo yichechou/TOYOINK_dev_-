@@ -32,8 +32,6 @@ namespace TOYOINK_dev.ACC
         DataTable dt_8aCOPTH = new DataTable();  //8a品種彙總表
         DataTable dt_5aCOPTH = new DataTable();  //5a明細表
         DataTable dt_COPTH = new DataTable();  //銷貨單
-
-
         public fm_Acc_INVPL()
         {
             InitializeComponent();
@@ -48,14 +46,13 @@ namespace TOYOINK_dev.ACC
             temp_excel_5a = @"\\192.168.128.219\Company\MIS自開發主檔\會計報表公版\銷貨成本分析月報5a_temp.xlsx";
         }
 
-       
-
         private void Btn_date_s_Click(object sender, EventArgs e)
         {
             str_date_s = txt_date_s.Text.Trim();
             this.fm_月曆 = new 月曆(this.txt_date_s, this.Btn_date_s, "單據起始日期");
 
         }
+
 
 
         private void Btn_date_e_Click(object sender, EventArgs e)
@@ -356,7 +353,54 @@ namespace TOYOINK_dev.ACC
         //    }
 
         //}
+        public string loginid = "";
+        public string loginName = "", LoginFormName = "", loginDep = "";
+        
+        public void show_fmlogin_FormName(string data_LoginFormName)
+        {
+            LoginFormName = data_LoginFormName;
+        }
 
+        public string QP_Item = "", QP_Value = "", QP_SQL = "";
+        public Dictionary<string, string> QP_dict_Item = new Dictionary<string, string>();
+        public Dictionary<string, string> QP_dict_Result = new Dictionary<string, string>();
+        public void show_fm_QueryPublic_QP_Item(Dictionary<string, string> data_QP_dict_Item)
+        {
+            QP_dict_Item = data_QP_dict_Item;
+        }
+        public void show_fm_QueryPublic_QP_dict_Result(Dictionary<string, string> data_QP_dict_Result)
+        {
+            QP_dict_Result = data_QP_dict_Result;
+        }
+        //public void show_fm_QueryPublic_QP_Item(string data_QP_Item)
+        //{
+        //    QP_Item = data_QP_Item;
+        //}
+        public void show_fm_QueryPublic_QP_Value(string data_QP_Value)
+        {
+            QP_Value = data_QP_Value;
+        }
+        public void show_fm_QueryPublic_QP_SQL(string data_QP_SQL)
+        {
+            QP_SQL = data_QP_SQL;
+        }
+
+        private void btn_IP_CustID_Click(object sender, EventArgs e)
+        {
+            QP_dict_Item.Clear();
+            QP_Value = txt_IP_CustID.Text.ToString();
+            QP_dict_Item.Add("客戶代號","MA001");
+
+            QP_SQL = @"select MA001 as '客戶代號',MA002 as '客戶簡稱',MA031 as '付款條件'
+,MA048 as '運輸方式',MA051 as '目的地',MA052 as '海運港口',MA109 as '交易條件' 
+from COPMA where 1=1";
+
+            SingleQuery.fm_QueryPublic fm_QueryPublic = new SingleQuery.fm_QueryPublic();
+            fm_QueryPublic.show_fm_QueryPublic_QP_Item(QP_dict_Item);
+            fm_QueryPublic.show_fm_QueryPublic_QP_Value(QP_Value);
+            fm_QueryPublic.show_fm_QueryPublic_QP_SQL(QP_SQL);
+            fm_QueryPublic.Show();
+        }
 
         bool IsToForm1 = false; //紀錄是否要回到Form1
         protected override void OnClosing(CancelEventArgs e) //在視窗關閉時觸發
@@ -365,24 +409,26 @@ namespace TOYOINK_dev.ACC
             //    , MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
             //if (dr == DialogResult.Yes)
             //{
-            IsToForm1 = true;
-            //}
-            //else if (dr == DialogResult.Cancel) 
+            //IsToForm1 = true;
+            ////}
+            ////else if (dr == DialogResult.Cancel) 
+            ////{
+
+            ////}
+
+            //base.OnClosing(e);
+            //if (IsToForm1) //判斷是否要回到Form1
             //{
-
+            //    this.DialogResult = DialogResult.Yes; //利用DialogResult傳遞訊息
+            //    fm_menu fm_menu = (fm_menu)this.Owner; //取得父視窗的參考
             //}
-
-            base.OnClosing(e);
-            if (IsToForm1) //判斷是否要回到Form1
-            {
-                this.DialogResult = DialogResult.Yes; //利用DialogResult傳遞訊息
-                fm_menu fm_menu = (fm_menu)this.Owner; //取得父視窗的參考
-            }
-            else
-            {
-                this.DialogResult = DialogResult.No;
-            }
+            //else
+            //{
+            //    this.DialogResult = DialogResult.No;
+            //}
+            Environment.Exit(Environment.ExitCode);
         }
+
 
     }
 }

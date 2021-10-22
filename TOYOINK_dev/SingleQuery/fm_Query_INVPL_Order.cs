@@ -22,5 +22,32 @@ namespace TOYOINK_dev.SingleQuery
         {
 
         }
+
+        private void btn_Clear_Click(object sender, EventArgs e)
+        {
+            //尋找panel1內的控制鍵
+            foreach (Control p1 in panel1.Controls)
+            {
+                //判別為Textbox
+                if (p1 is TextBox)
+                {
+                    TextBox tb = p1 as TextBox;
+                    tb.Text = "";
+                }
+                //判別為Combobox
+                else if (p1 is ComboBox)
+                {
+                    ComboBox cob = p1 as ComboBox;
+                    //判別名稱前八碼為為[cob_Cond]回到預設
+                    if (cob.Name.Substring(0,8) == "cbo_Cond") 
+                    {
+                        cob.SelectedIndex = 0;
+
+                    }
+                }
+
+            }
+
+        }
     }
 }

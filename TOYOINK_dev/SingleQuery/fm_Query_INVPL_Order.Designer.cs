@@ -30,33 +30,35 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fm_Query_INVPL_Order));
             this.panel1 = new System.Windows.Forms.Panel();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
-            this.comboBox4 = new System.Windows.Forms.ComboBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.txt_Value3 = new System.Windows.Forms.TextBox();
+            this.cbo_Cond3 = new System.Windows.Forms.ComboBox();
+            this.cbo_Item3 = new System.Windows.Forms.ComboBox();
+            this.txt_Value2 = new System.Windows.Forms.TextBox();
+            this.cbo_Cond2 = new System.Windows.Forms.ComboBox();
+            this.cbo_Item2 = new System.Windows.Forms.ComboBox();
             this.btn_Search = new System.Windows.Forms.Button();
             this.txt_Value = new System.Windows.Forms.TextBox();
             this.cbo_Cond = new System.Windows.Forms.ComboBox();
             this.cbo_Item = new System.Windows.Forms.ComboBox();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgv_Result = new System.Windows.Forms.DataGridView();
             this.btn_Save = new System.Windows.Forms.Button();
             this.btn_Exit = new System.Windows.Forms.Button();
+            this.btn_Clear = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_Result)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.textBox2);
-            this.panel1.Controls.Add(this.comboBox3);
-            this.panel1.Controls.Add(this.comboBox4);
-            this.panel1.Controls.Add(this.textBox1);
-            this.panel1.Controls.Add(this.comboBox1);
-            this.panel1.Controls.Add(this.comboBox2);
+            this.panel1.Controls.Add(this.btn_Clear);
+            this.panel1.Controls.Add(this.txt_Value3);
+            this.panel1.Controls.Add(this.cbo_Cond3);
+            this.panel1.Controls.Add(this.cbo_Item3);
+            this.panel1.Controls.Add(this.txt_Value2);
+            this.panel1.Controls.Add(this.cbo_Cond2);
+            this.panel1.Controls.Add(this.cbo_Item2);
             this.panel1.Controls.Add(this.btn_Search);
             this.panel1.Controls.Add(this.txt_Value);
             this.panel1.Controls.Add(this.cbo_Cond);
@@ -66,77 +68,77 @@
             this.panel1.Size = new System.Drawing.Size(693, 121);
             this.panel1.TabIndex = 4;
             // 
-            // textBox2
+            // txt_Value3
             // 
-            this.textBox2.Location = new System.Drawing.Point(272, 81);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(288, 34);
-            this.textBox2.TabIndex = 9;
+            this.txt_Value3.Location = new System.Drawing.Point(272, 81);
+            this.txt_Value3.Name = "txt_Value3";
+            this.txt_Value3.Size = new System.Drawing.Size(288, 34);
+            this.txt_Value3.TabIndex = 9;
             // 
-            // comboBox3
+            // cbo_Cond3
             // 
-            this.comboBox3.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Items.AddRange(new object[] {
+            this.cbo_Cond3.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.cbo_Cond3.FormattingEnabled = true;
+            this.cbo_Cond3.Items.AddRange(new object[] {
             "=",
             ">=",
             "<=",
             "like%",
             "%like",
             "%like%"});
-            this.comboBox3.Location = new System.Drawing.Point(168, 81);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(98, 33);
-            this.comboBox3.TabIndex = 8;
-            this.comboBox3.Text = "=";
+            this.cbo_Cond3.Location = new System.Drawing.Point(168, 81);
+            this.cbo_Cond3.Name = "cbo_Cond3";
+            this.cbo_Cond3.Size = new System.Drawing.Size(98, 33);
+            this.cbo_Cond3.TabIndex = 8;
+            this.cbo_Cond3.Text = "=";
             // 
-            // comboBox4
+            // cbo_Item3
             // 
-            this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Location = new System.Drawing.Point(5, 81);
-            this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(157, 33);
-            this.comboBox4.TabIndex = 7;
-            this.comboBox4.Text = "單據日期";
+            this.cbo_Item3.FormattingEnabled = true;
+            this.cbo_Item3.Location = new System.Drawing.Point(5, 81);
+            this.cbo_Item3.Name = "cbo_Item3";
+            this.cbo_Item3.Size = new System.Drawing.Size(157, 33);
+            this.cbo_Item3.TabIndex = 7;
+            this.cbo_Item3.Text = "單據日期";
             // 
-            // textBox1
+            // txt_Value2
             // 
-            this.textBox1.Location = new System.Drawing.Point(272, 42);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(288, 34);
-            this.textBox1.TabIndex = 6;
+            this.txt_Value2.Location = new System.Drawing.Point(272, 42);
+            this.txt_Value2.Name = "txt_Value2";
+            this.txt_Value2.Size = new System.Drawing.Size(288, 34);
+            this.txt_Value2.TabIndex = 6;
             // 
-            // comboBox1
+            // cbo_Cond2
             // 
-            this.comboBox1.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.cbo_Cond2.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.cbo_Cond2.FormattingEnabled = true;
+            this.cbo_Cond2.Items.AddRange(new object[] {
             "=",
             ">=",
             "<=",
             "like%",
             "%like",
             "%like%"});
-            this.comboBox1.Location = new System.Drawing.Point(168, 42);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(98, 33);
-            this.comboBox1.TabIndex = 5;
-            this.comboBox1.Text = "=";
+            this.cbo_Cond2.Location = new System.Drawing.Point(168, 42);
+            this.cbo_Cond2.Name = "cbo_Cond2";
+            this.cbo_Cond2.Size = new System.Drawing.Size(98, 33);
+            this.cbo_Cond2.TabIndex = 5;
+            this.cbo_Cond2.Text = "=";
             // 
-            // comboBox2
+            // cbo_Item2
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(5, 42);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(157, 33);
-            this.comboBox2.TabIndex = 4;
-            this.comboBox2.Text = "客戶代號";
+            this.cbo_Item2.FormattingEnabled = true;
+            this.cbo_Item2.Location = new System.Drawing.Point(5, 42);
+            this.cbo_Item2.Name = "cbo_Item2";
+            this.cbo_Item2.Size = new System.Drawing.Size(157, 33);
+            this.cbo_Item2.TabIndex = 4;
+            this.cbo_Item2.Text = "客戶代號";
             // 
             // btn_Search
             // 
-            this.btn_Search.Location = new System.Drawing.Point(565, 3);
+            this.btn_Search.Location = new System.Drawing.Point(568, 3);
             this.btn_Search.Name = "btn_Search";
-            this.btn_Search.Size = new System.Drawing.Size(115, 73);
+            this.btn_Search.Size = new System.Drawing.Size(115, 72);
             this.btn_Search.TabIndex = 3;
             this.btn_Search.Text = "查詢";
             this.btn_Search.UseVisualStyleBackColor = true;
@@ -177,26 +179,26 @@
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.dataGridView1);
+            this.panel2.Controls.Add(this.dgv_Result);
             this.panel2.Location = new System.Drawing.Point(3, 124);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(694, 341);
             this.panel2.TabIndex = 5;
             // 
-            // dataGridView1
+            // dgv_Result
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 0);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 27;
-            this.dataGridView1.Size = new System.Drawing.Size(694, 341);
-            this.dataGridView1.TabIndex = 2;
+            this.dgv_Result.AllowUserToAddRows = false;
+            this.dgv_Result.AllowUserToDeleteRows = false;
+            this.dgv_Result.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dgv_Result.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_Result.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgv_Result.Location = new System.Drawing.Point(0, 0);
+            this.dgv_Result.Name = "dgv_Result";
+            this.dgv_Result.ReadOnly = true;
+            this.dgv_Result.RowHeadersWidth = 51;
+            this.dgv_Result.RowTemplate.Height = 27;
+            this.dgv_Result.Size = new System.Drawing.Size(694, 341);
+            this.dgv_Result.TabIndex = 2;
             // 
             // btn_Save
             // 
@@ -222,6 +224,16 @@
             this.btn_Exit.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btn_Exit.UseVisualStyleBackColor = true;
             // 
+            // btn_Clear
+            // 
+            this.btn_Clear.Location = new System.Drawing.Point(568, 79);
+            this.btn_Clear.Name = "btn_Clear";
+            this.btn_Clear.Size = new System.Drawing.Size(115, 34);
+            this.btn_Clear.TabIndex = 10;
+            this.btn_Clear.Text = "清除欄位";
+            this.btn_Clear.UseVisualStyleBackColor = true;
+            this.btn_Clear.Click += new System.EventHandler(this.btn_Clear_Click);
+            // 
             // fm_Query_INVPL_Order
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
@@ -238,7 +250,7 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_Result)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -246,19 +258,20 @@
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.ComboBox comboBox3;
-        private System.Windows.Forms.ComboBox comboBox4;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.TextBox txt_Value3;
+        private System.Windows.Forms.ComboBox cbo_Cond3;
+        private System.Windows.Forms.ComboBox cbo_Item3;
+        private System.Windows.Forms.TextBox txt_Value2;
+        private System.Windows.Forms.ComboBox cbo_Cond2;
+        private System.Windows.Forms.ComboBox cbo_Item2;
         private System.Windows.Forms.Button btn_Search;
         private System.Windows.Forms.TextBox txt_Value;
         private System.Windows.Forms.ComboBox cbo_Cond;
         private System.Windows.Forms.ComboBox cbo_Item;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgv_Result;
         private System.Windows.Forms.Button btn_Save;
         private System.Windows.Forms.Button btn_Exit;
+        private System.Windows.Forms.Button btn_Clear;
     }
 }

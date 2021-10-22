@@ -31,30 +31,59 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fm_Acc_INVPL));
             this.tabControl2 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.tsp_Order = new System.Windows.Forms.ToolStrip();
+            this.tspbtn_Order_Add = new System.Windows.Forms.ToolStripButton();
+            this.tspbtn_Order_Del = new System.Windows.Forms.ToolStripButton();
+            this.tspbtn_Order_Save = new System.Windows.Forms.ToolStripButton();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.tsp_IP = new System.Windows.Forms.ToolStrip();
+            this.tspbtn_IP_Build = new System.Windows.Forms.ToolStripButton();
+            this.tspbtn_IP_Search = new System.Windows.Forms.ToolStripButton();
+            this.tspbtn_IP_Edit = new System.Windows.Forms.ToolStripButton();
+            this.tspbtn_IP_Save = new System.Windows.Forms.ToolStripButton();
+            this.tspbtn_IP_Del = new System.Windows.Forms.ToolStripButton();
+            this.tspbtn_IP_Print = new System.Windows.Forms.ToolStripButton();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label22 = new System.Windows.Forms.Label();
+            this.cbo_ERPUP建立者 = new System.Windows.Forms.ComboBox();
+            this.lbl_IP_Ship = new System.Windows.Forms.Label();
+            this.lbl_IP_Destn = new System.Windows.Forms.Label();
+            this.lbl_IP_SD = new System.Windows.Forms.Label();
+            this.lbl_IP_SO = new System.Windows.Forms.Label();
+            this.txt_IP_SD = new System.Windows.Forms.TextBox();
+            this.lbl_IP_Pay = new System.Windows.Forms.Label();
+            this.lbl_IP_Trade = new System.Windows.Forms.Label();
+            this.btn_IP_SO = new System.Windows.Forms.Button();
+            this.btn_IP_SD = new System.Windows.Forms.Button();
+            this.btn_IP_Destn = new System.Windows.Forms.Button();
+            this.btn_IP_Ship = new System.Windows.Forms.Button();
+            this.btn_IP_CustID = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btn_IP_SDate = new System.Windows.Forms.Button();
+            this.btn_IP_ODate = new System.Windows.Forms.Button();
             this.label14 = new System.Windows.Forms.Label();
-            this.textBox11 = new System.Windows.Forms.TextBox();
+            this.txt_IP_SO = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
-            this.textBox12 = new System.Windows.Forms.TextBox();
+            this.txt_IP_Ship = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.txt_IP_SNum = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.txt_IP_Destn = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.txt_IP_Pay = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
-            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.txt_IP_Trade = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.txt_IP_SDate = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txt_IP_ODate = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txt_IP_CustID = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txt_IP_BNum = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tabControl1 = new System.Windows.Forms.TabControl();
@@ -87,38 +116,14 @@
             this.label5 = new System.Windows.Forms.Label();
             this.txt_date_s = new System.Windows.Forms.TextBox();
             this.Btn_date_s = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
-            this.textBox9 = new System.Windows.Forms.TextBox();
-            this.label18 = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
-            this.label20 = new System.Windows.Forms.Label();
-            this.label21 = new System.Windows.Forms.Label();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton5 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton6 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton7 = new System.Windows.Forms.ToolStripButton();
-            this.label22 = new System.Windows.Forms.Label();
-            this.cbo_ERPUP建立者 = new System.Windows.Forms.ComboBox();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.toolStrip2 = new System.Windows.Forms.ToolStrip();
-            this.toolStripButton8 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton9 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton10 = new System.Windows.Forms.ToolStripButton();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.tabControl2.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            this.panel6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.panel5.SuspendLayout();
+            this.tsp_Order.SuspendLayout();
+            this.panel4.SuspendLayout();
+            this.tsp_IP.SuspendLayout();
             this.panel1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -132,12 +137,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgv_QuarterDetails)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
-            this.panel4.SuspendLayout();
-            this.toolStrip1.SuspendLayout();
-            this.panel5.SuspendLayout();
-            this.toolStrip2.SuspendLayout();
-            this.panel6.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl2
@@ -164,50 +163,342 @@
             this.tabPage1.Text = "免表新增查詢";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // panel6
+            // 
+            this.panel6.Controls.Add(this.dataGridView1);
+            this.panel6.Location = new System.Drawing.Point(10, 271);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(1191, 479);
+            this.panel6.TabIndex = 3;
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView1.Location = new System.Drawing.Point(0, 0);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.RowHeadersWidth = 51;
+            this.dataGridView1.RowTemplate.Height = 27;
+            this.dataGridView1.Size = new System.Drawing.Size(1191, 479);
+            this.dataGridView1.TabIndex = 1;
+            // 
+            // panel5
+            // 
+            this.panel5.Controls.Add(this.tsp_Order);
+            this.panel5.Location = new System.Drawing.Point(7, 234);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(1188, 35);
+            this.panel5.TabIndex = 2;
+            // 
+            // tsp_Order
+            // 
+            this.tsp_Order.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tsp_Order.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.tsp_Order.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tspbtn_Order_Add,
+            this.tspbtn_Order_Del,
+            this.tspbtn_Order_Save});
+            this.tsp_Order.Location = new System.Drawing.Point(0, 0);
+            this.tsp_Order.Name = "tsp_Order";
+            this.tsp_Order.Size = new System.Drawing.Size(1188, 35);
+            this.tsp_Order.TabIndex = 0;
+            this.tsp_Order.Text = "toolStrip2";
+            // 
+            // tspbtn_Order_Add
+            // 
+            this.tspbtn_Order_Add.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tspbtn_Order_Add.Image = ((System.Drawing.Image)(resources.GetObject("tspbtn_Order_Add.Image")));
+            this.tspbtn_Order_Add.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tspbtn_Order_Add.Name = "tspbtn_Order_Add";
+            this.tspbtn_Order_Add.Size = new System.Drawing.Size(29, 32);
+            this.tspbtn_Order_Add.Text = "toolStripButton8";
+            // 
+            // tspbtn_Order_Del
+            // 
+            this.tspbtn_Order_Del.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tspbtn_Order_Del.Image = ((System.Drawing.Image)(resources.GetObject("tspbtn_Order_Del.Image")));
+            this.tspbtn_Order_Del.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tspbtn_Order_Del.Name = "tspbtn_Order_Del";
+            this.tspbtn_Order_Del.Size = new System.Drawing.Size(29, 32);
+            this.tspbtn_Order_Del.Text = "toolStripButton9";
+            // 
+            // tspbtn_Order_Save
+            // 
+            this.tspbtn_Order_Save.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tspbtn_Order_Save.Image = ((System.Drawing.Image)(resources.GetObject("tspbtn_Order_Save.Image")));
+            this.tspbtn_Order_Save.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tspbtn_Order_Save.Name = "tspbtn_Order_Save";
+            this.tspbtn_Order_Save.Size = new System.Drawing.Size(29, 32);
+            this.tspbtn_Order_Save.Text = "toolStripButton10";
+            // 
+            // panel4
+            // 
+            this.panel4.Controls.Add(this.tsp_IP);
+            this.panel4.Location = new System.Drawing.Point(6, 5);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(1190, 38);
+            this.panel4.TabIndex = 1;
+            // 
+            // tsp_IP
+            // 
+            this.tsp_IP.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tsp_IP.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.tsp_IP.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tspbtn_IP_Build,
+            this.tspbtn_IP_Search,
+            this.tspbtn_IP_Edit,
+            this.tspbtn_IP_Save,
+            this.tspbtn_IP_Del,
+            this.tspbtn_IP_Print});
+            this.tsp_IP.Location = new System.Drawing.Point(0, 0);
+            this.tsp_IP.Name = "tsp_IP";
+            this.tsp_IP.Size = new System.Drawing.Size(1190, 38);
+            this.tsp_IP.TabIndex = 0;
+            this.tsp_IP.Text = "toolStrip1";
+            // 
+            // tspbtn_IP_Build
+            // 
+            this.tspbtn_IP_Build.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tspbtn_IP_Build.Image = ((System.Drawing.Image)(resources.GetObject("tspbtn_IP_Build.Image")));
+            this.tspbtn_IP_Build.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tspbtn_IP_Build.Name = "tspbtn_IP_Build";
+            this.tspbtn_IP_Build.Size = new System.Drawing.Size(29, 35);
+            this.tspbtn_IP_Build.Text = "toolStripButton1";
+            // 
+            // tspbtn_IP_Search
+            // 
+            this.tspbtn_IP_Search.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tspbtn_IP_Search.Image = ((System.Drawing.Image)(resources.GetObject("tspbtn_IP_Search.Image")));
+            this.tspbtn_IP_Search.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tspbtn_IP_Search.Name = "tspbtn_IP_Search";
+            this.tspbtn_IP_Search.Size = new System.Drawing.Size(29, 35);
+            this.tspbtn_IP_Search.Text = "toolStripButton2";
+            // 
+            // tspbtn_IP_Edit
+            // 
+            this.tspbtn_IP_Edit.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tspbtn_IP_Edit.Image = ((System.Drawing.Image)(resources.GetObject("tspbtn_IP_Edit.Image")));
+            this.tspbtn_IP_Edit.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tspbtn_IP_Edit.Name = "tspbtn_IP_Edit";
+            this.tspbtn_IP_Edit.Size = new System.Drawing.Size(29, 35);
+            this.tspbtn_IP_Edit.Text = "toolStripButton3";
+            // 
+            // tspbtn_IP_Save
+            // 
+            this.tspbtn_IP_Save.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tspbtn_IP_Save.Image = ((System.Drawing.Image)(resources.GetObject("tspbtn_IP_Save.Image")));
+            this.tspbtn_IP_Save.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tspbtn_IP_Save.Name = "tspbtn_IP_Save";
+            this.tspbtn_IP_Save.Size = new System.Drawing.Size(29, 35);
+            this.tspbtn_IP_Save.Text = "toolStripButton4";
+            // 
+            // tspbtn_IP_Del
+            // 
+            this.tspbtn_IP_Del.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tspbtn_IP_Del.Image = ((System.Drawing.Image)(resources.GetObject("tspbtn_IP_Del.Image")));
+            this.tspbtn_IP_Del.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tspbtn_IP_Del.Name = "tspbtn_IP_Del";
+            this.tspbtn_IP_Del.Size = new System.Drawing.Size(29, 35);
+            this.tspbtn_IP_Del.Text = "toolStripButton5";
+            // 
+            // tspbtn_IP_Print
+            // 
+            this.tspbtn_IP_Print.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tspbtn_IP_Print.Image = ((System.Drawing.Image)(resources.GetObject("tspbtn_IP_Print.Image")));
+            this.tspbtn_IP_Print.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tspbtn_IP_Print.Name = "tspbtn_IP_Print";
+            this.tspbtn_IP_Print.Size = new System.Drawing.Size(29, 35);
+            this.tspbtn_IP_Print.Text = "toolStripButton6";
+            // 
             // panel1
             // 
             this.panel1.Controls.Add(this.label22);
             this.panel1.Controls.Add(this.cbo_ERPUP建立者);
-            this.panel1.Controls.Add(this.label21);
-            this.panel1.Controls.Add(this.label20);
-            this.panel1.Controls.Add(this.label19);
-            this.panel1.Controls.Add(this.label18);
-            this.panel1.Controls.Add(this.textBox9);
-            this.panel1.Controls.Add(this.label17);
-            this.panel1.Controls.Add(this.label13);
-            this.panel1.Controls.Add(this.button7);
-            this.panel1.Controls.Add(this.button8);
-            this.panel1.Controls.Add(this.button6);
-            this.panel1.Controls.Add(this.button5);
-            this.panel1.Controls.Add(this.button4);
+            this.panel1.Controls.Add(this.lbl_IP_Ship);
+            this.panel1.Controls.Add(this.lbl_IP_Destn);
+            this.panel1.Controls.Add(this.lbl_IP_SD);
+            this.panel1.Controls.Add(this.lbl_IP_SO);
+            this.panel1.Controls.Add(this.txt_IP_SD);
+            this.panel1.Controls.Add(this.lbl_IP_Pay);
+            this.panel1.Controls.Add(this.lbl_IP_Trade);
+            this.panel1.Controls.Add(this.btn_IP_SO);
+            this.panel1.Controls.Add(this.btn_IP_SD);
+            this.panel1.Controls.Add(this.btn_IP_Destn);
+            this.panel1.Controls.Add(this.btn_IP_Ship);
+            this.panel1.Controls.Add(this.btn_IP_CustID);
             this.panel1.Controls.Add(this.button3);
-            this.panel1.Controls.Add(this.button2);
-            this.panel1.Controls.Add(this.button1);
+            this.panel1.Controls.Add(this.btn_IP_SDate);
+            this.panel1.Controls.Add(this.btn_IP_ODate);
             this.panel1.Controls.Add(this.label14);
-            this.panel1.Controls.Add(this.textBox11);
+            this.panel1.Controls.Add(this.txt_IP_SO);
             this.panel1.Controls.Add(this.label15);
-            this.panel1.Controls.Add(this.textBox12);
+            this.panel1.Controls.Add(this.txt_IP_Ship);
             this.panel1.Controls.Add(this.label16);
-            this.panel1.Controls.Add(this.textBox5);
+            this.panel1.Controls.Add(this.txt_IP_SNum);
             this.panel1.Controls.Add(this.label9);
-            this.panel1.Controls.Add(this.textBox6);
+            this.panel1.Controls.Add(this.txt_IP_Destn);
             this.panel1.Controls.Add(this.label10);
-            this.panel1.Controls.Add(this.textBox7);
+            this.panel1.Controls.Add(this.txt_IP_Pay);
             this.panel1.Controls.Add(this.label11);
-            this.panel1.Controls.Add(this.textBox8);
+            this.panel1.Controls.Add(this.txt_IP_Trade);
             this.panel1.Controls.Add(this.label12);
-            this.panel1.Controls.Add(this.textBox4);
+            this.panel1.Controls.Add(this.txt_IP_SDate);
             this.panel1.Controls.Add(this.label8);
-            this.panel1.Controls.Add(this.textBox3);
+            this.panel1.Controls.Add(this.txt_IP_ODate);
             this.panel1.Controls.Add(this.label7);
-            this.panel1.Controls.Add(this.textBox2);
+            this.panel1.Controls.Add(this.txt_IP_CustID);
             this.panel1.Controls.Add(this.label6);
-            this.panel1.Controls.Add(this.textBox1);
+            this.panel1.Controls.Add(this.txt_IP_BNum);
             this.panel1.Controls.Add(this.label4);
             this.panel1.Location = new System.Drawing.Point(6, 49);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1190, 183);
             this.panel1.TabIndex = 0;
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label22.Location = new System.Drawing.Point(860, 145);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(72, 25);
+            this.label22.TabIndex = 65;
+            this.label22.Text = "建立者";
+            // 
+            // cbo_ERPUP建立者
+            // 
+            this.cbo_ERPUP建立者.BackColor = System.Drawing.SystemColors.Control;
+            this.cbo_ERPUP建立者.Enabled = false;
+            this.cbo_ERPUP建立者.FormattingEnabled = true;
+            this.cbo_ERPUP建立者.Location = new System.Drawing.Point(935, 140);
+            this.cbo_ERPUP建立者.Name = "cbo_ERPUP建立者";
+            this.cbo_ERPUP建立者.Size = new System.Drawing.Size(148, 33);
+            this.cbo_ERPUP建立者.TabIndex = 66;
+            // 
+            // lbl_IP_Ship
+            // 
+            this.lbl_IP_Ship.BackColor = System.Drawing.SystemColors.Info;
+            this.lbl_IP_Ship.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.lbl_IP_Ship.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lbl_IP_Ship.Location = new System.Drawing.Point(651, 91);
+            this.lbl_IP_Ship.Name = "lbl_IP_Ship";
+            this.lbl_IP_Ship.Size = new System.Drawing.Size(203, 34);
+            this.lbl_IP_Ship.TabIndex = 64;
+            this.lbl_IP_Ship.Text = " 請先選";
+            this.lbl_IP_Ship.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // lbl_IP_Destn
+            // 
+            this.lbl_IP_Destn.BackColor = System.Drawing.SystemColors.Info;
+            this.lbl_IP_Destn.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.lbl_IP_Destn.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lbl_IP_Destn.Location = new System.Drawing.Point(270, 91);
+            this.lbl_IP_Destn.Name = "lbl_IP_Destn";
+            this.lbl_IP_Destn.Size = new System.Drawing.Size(174, 34);
+            this.lbl_IP_Destn.TabIndex = 63;
+            this.lbl_IP_Destn.Text = " 請先選";
+            this.lbl_IP_Destn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // lbl_IP_SD
+            // 
+            this.lbl_IP_SD.BackColor = System.Drawing.SystemColors.Info;
+            this.lbl_IP_SD.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.lbl_IP_SD.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lbl_IP_SD.Location = new System.Drawing.Point(651, 141);
+            this.lbl_IP_SD.Name = "lbl_IP_SD";
+            this.lbl_IP_SD.Size = new System.Drawing.Size(203, 34);
+            this.lbl_IP_SD.TabIndex = 62;
+            this.lbl_IP_SD.Text = " 請先選";
+            this.lbl_IP_SD.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // lbl_IP_SO
+            // 
+            this.lbl_IP_SO.BackColor = System.Drawing.SystemColors.Info;
+            this.lbl_IP_SO.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.lbl_IP_SO.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lbl_IP_SO.Location = new System.Drawing.Point(226, 140);
+            this.lbl_IP_SO.Name = "lbl_IP_SO";
+            this.lbl_IP_SO.Size = new System.Drawing.Size(218, 34);
+            this.lbl_IP_SO.TabIndex = 61;
+            this.lbl_IP_SO.Text = " 請先選";
+            this.lbl_IP_SO.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // txt_IP_SD
+            // 
+            this.txt_IP_SD.Location = new System.Drawing.Point(538, 143);
+            this.txt_IP_SD.Name = "txt_IP_SD";
+            this.txt_IP_SD.Size = new System.Drawing.Size(66, 34);
+            this.txt_IP_SD.TabIndex = 60;
+            this.txt_IP_SD.Text = "S0001";
+            // 
+            // lbl_IP_Pay
+            // 
+            this.lbl_IP_Pay.BackColor = System.Drawing.SystemColors.Info;
+            this.lbl_IP_Pay.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.lbl_IP_Pay.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lbl_IP_Pay.Location = new System.Drawing.Point(406, 47);
+            this.lbl_IP_Pay.Name = "lbl_IP_Pay";
+            this.lbl_IP_Pay.Size = new System.Drawing.Size(327, 34);
+            this.lbl_IP_Pay.TabIndex = 59;
+            this.lbl_IP_Pay.Text = " 請先選";
+            this.lbl_IP_Pay.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // lbl_IP_Trade
+            // 
+            this.lbl_IP_Trade.BackColor = System.Drawing.SystemColors.Info;
+            this.lbl_IP_Trade.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.lbl_IP_Trade.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lbl_IP_Trade.Location = new System.Drawing.Point(156, 46);
+            this.lbl_IP_Trade.Name = "lbl_IP_Trade";
+            this.lbl_IP_Trade.Size = new System.Drawing.Size(67, 34);
+            this.lbl_IP_Trade.TabIndex = 58;
+            this.lbl_IP_Trade.Text = "DAP";
+            this.lbl_IP_Trade.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // btn_IP_SO
+            // 
+            this.btn_IP_SO.Image = ((System.Drawing.Image)(resources.GetObject("btn_IP_SO.Image")));
+            this.btn_IP_SO.Location = new System.Drawing.Point(185, 141);
+            this.btn_IP_SO.Name = "btn_IP_SO";
+            this.btn_IP_SO.Size = new System.Drawing.Size(35, 33);
+            this.btn_IP_SO.TabIndex = 57;
+            // 
+            // btn_IP_SD
+            // 
+            this.btn_IP_SD.Image = ((System.Drawing.Image)(resources.GetObject("btn_IP_SD.Image")));
+            this.btn_IP_SD.Location = new System.Drawing.Point(610, 142);
+            this.btn_IP_SD.Name = "btn_IP_SD";
+            this.btn_IP_SD.Size = new System.Drawing.Size(35, 33);
+            this.btn_IP_SD.TabIndex = 56;
+            // 
+            // btn_IP_Destn
+            // 
+            this.btn_IP_Destn.Image = ((System.Drawing.Image)(resources.GetObject("btn_IP_Destn.Image")));
+            this.btn_IP_Destn.Location = new System.Drawing.Point(229, 92);
+            this.btn_IP_Destn.Name = "btn_IP_Destn";
+            this.btn_IP_Destn.Size = new System.Drawing.Size(35, 33);
+            this.btn_IP_Destn.TabIndex = 55;
+            // 
+            // btn_IP_Ship
+            // 
+            this.btn_IP_Ship.Image = ((System.Drawing.Image)(resources.GetObject("btn_IP_Ship.Image")));
+            this.btn_IP_Ship.Location = new System.Drawing.Point(606, 92);
+            this.btn_IP_Ship.Name = "btn_IP_Ship";
+            this.btn_IP_Ship.Size = new System.Drawing.Size(35, 33);
+            this.btn_IP_Ship.TabIndex = 54;
+            // 
+            // btn_IP_CustID
+            // 
+            this.btn_IP_CustID.Image = ((System.Drawing.Image)(resources.GetObject("btn_IP_CustID.Image")));
+            this.btn_IP_CustID.Location = new System.Drawing.Point(446, 7);
+            this.btn_IP_CustID.Name = "btn_IP_CustID";
+            this.btn_IP_CustID.Size = new System.Drawing.Size(35, 33);
+            this.btn_IP_CustID.TabIndex = 53;
+            this.btn_IP_CustID.Click += new System.EventHandler(this.btn_IP_CustID_Click);
             // 
             // button3
             // 
@@ -217,21 +508,21 @@
             this.button3.Size = new System.Drawing.Size(35, 33);
             this.button3.TabIndex = 52;
             // 
-            // button2
+            // btn_IP_SDate
             // 
-            this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
-            this.button2.Location = new System.Drawing.Point(953, 8);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(35, 33);
-            this.button2.TabIndex = 51;
+            this.btn_IP_SDate.Image = ((System.Drawing.Image)(resources.GetObject("btn_IP_SDate.Image")));
+            this.btn_IP_SDate.Location = new System.Drawing.Point(953, 8);
+            this.btn_IP_SDate.Name = "btn_IP_SDate";
+            this.btn_IP_SDate.Size = new System.Drawing.Size(35, 33);
+            this.btn_IP_SDate.TabIndex = 51;
             // 
-            // button1
+            // btn_IP_ODate
             // 
-            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-            this.button1.Location = new System.Drawing.Point(698, 7);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(35, 33);
-            this.button1.TabIndex = 50;
+            this.btn_IP_ODate.Image = ((System.Drawing.Image)(resources.GetObject("btn_IP_ODate.Image")));
+            this.btn_IP_ODate.Location = new System.Drawing.Point(698, 7);
+            this.btn_IP_ODate.Name = "btn_IP_ODate";
+            this.btn_IP_ODate.Size = new System.Drawing.Size(35, 33);
+            this.btn_IP_ODate.TabIndex = 50;
             // 
             // label14
             // 
@@ -243,13 +534,13 @@
             this.label14.TabIndex = 48;
             this.label14.Text = "目的港口";
             // 
-            // textBox11
+            // txt_IP_SO
             // 
-            this.textBox11.Location = new System.Drawing.Point(110, 140);
-            this.textBox11.Name = "textBox11";
-            this.textBox11.Size = new System.Drawing.Size(66, 34);
-            this.textBox11.TabIndex = 47;
-            this.textBox11.Text = "S0001";
+            this.txt_IP_SO.Location = new System.Drawing.Point(110, 140);
+            this.txt_IP_SO.Name = "txt_IP_SO";
+            this.txt_IP_SO.Size = new System.Drawing.Size(66, 34);
+            this.txt_IP_SO.TabIndex = 47;
+            this.txt_IP_SO.Text = "S0001";
             // 
             // label15
             // 
@@ -261,12 +552,12 @@
             this.label15.TabIndex = 46;
             this.label15.Text = "出口港口";
             // 
-            // textBox12
+            // txt_IP_Ship
             // 
-            this.textBox12.Location = new System.Drawing.Point(548, 93);
-            this.textBox12.Name = "textBox12";
-            this.textBox12.Size = new System.Drawing.Size(52, 34);
-            this.textBox12.TabIndex = 45;
+            this.txt_IP_Ship.Location = new System.Drawing.Point(548, 93);
+            this.txt_IP_Ship.Name = "txt_IP_Ship";
+            this.txt_IP_Ship.Size = new System.Drawing.Size(52, 34);
+            this.txt_IP_Ship.TabIndex = 45;
             // 
             // label16
             // 
@@ -278,13 +569,13 @@
             this.label16.TabIndex = 44;
             this.label16.Text = "運輸方式";
             // 
-            // textBox5
+            // txt_IP_SNum
             // 
-            this.textBox5.Location = new System.Drawing.Point(834, 47);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(154, 34);
-            this.textBox5.TabIndex = 43;
-            this.textBox5.Text = "4500240756";
+            this.txt_IP_SNum.Location = new System.Drawing.Point(834, 47);
+            this.txt_IP_SNum.Name = "txt_IP_SNum";
+            this.txt_IP_SNum.Size = new System.Drawing.Size(154, 34);
+            this.txt_IP_SNum.TabIndex = 43;
+            this.txt_IP_SNum.Text = "4500240756";
             // 
             // label9
             // 
@@ -296,12 +587,12 @@
             this.label9.TabIndex = 42;
             this.label9.Text = "樣品單號";
             // 
-            // textBox6
+            // txt_IP_Destn
             // 
-            this.textBox6.Location = new System.Drawing.Point(110, 91);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(113, 34);
-            this.textBox6.TabIndex = 41;
+            this.txt_IP_Destn.Location = new System.Drawing.Point(110, 91);
+            this.txt_IP_Destn.Name = "txt_IP_Destn";
+            this.txt_IP_Destn.Size = new System.Drawing.Size(113, 34);
+            this.txt_IP_Destn.TabIndex = 41;
             // 
             // label10
             // 
@@ -313,12 +604,12 @@
             this.label10.TabIndex = 40;
             this.label10.Text = "目的地";
             // 
-            // textBox7
+            // txt_IP_Pay
             // 
-            this.textBox7.Location = new System.Drawing.Point(327, 47);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(73, 34);
-            this.textBox7.TabIndex = 39;
+            this.txt_IP_Pay.Location = new System.Drawing.Point(327, 47);
+            this.txt_IP_Pay.Name = "txt_IP_Pay";
+            this.txt_IP_Pay.Size = new System.Drawing.Size(73, 34);
+            this.txt_IP_Pay.TabIndex = 39;
             // 
             // label11
             // 
@@ -330,12 +621,12 @@
             this.label11.TabIndex = 38;
             this.label11.Text = "付款條件";
             // 
-            // textBox8
+            // txt_IP_Trade
             // 
-            this.textBox8.Location = new System.Drawing.Point(110, 46);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(40, 34);
-            this.textBox8.TabIndex = 37;
+            this.txt_IP_Trade.Location = new System.Drawing.Point(110, 46);
+            this.txt_IP_Trade.Name = "txt_IP_Trade";
+            this.txt_IP_Trade.Size = new System.Drawing.Size(40, 34);
+            this.txt_IP_Trade.TabIndex = 37;
             // 
             // label12
             // 
@@ -347,12 +638,12 @@
             this.label12.TabIndex = 36;
             this.label12.Text = "交易條件";
             // 
-            // textBox4
+            // txt_IP_SDate
             // 
-            this.textBox4.Location = new System.Drawing.Point(834, 7);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(113, 34);
-            this.textBox4.TabIndex = 35;
+            this.txt_IP_SDate.Location = new System.Drawing.Point(834, 7);
+            this.txt_IP_SDate.Name = "txt_IP_SDate";
+            this.txt_IP_SDate.Size = new System.Drawing.Size(113, 34);
+            this.txt_IP_SDate.TabIndex = 35;
             // 
             // label8
             // 
@@ -364,12 +655,12 @@
             this.label8.TabIndex = 34;
             this.label8.Text = "開航日期";
             // 
-            // textBox3
+            // txt_IP_ODate
             // 
-            this.textBox3.Location = new System.Drawing.Point(579, 7);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(113, 34);
-            this.textBox3.TabIndex = 33;
+            this.txt_IP_ODate.Location = new System.Drawing.Point(579, 7);
+            this.txt_IP_ODate.Name = "txt_IP_ODate";
+            this.txt_IP_ODate.Size = new System.Drawing.Size(113, 34);
+            this.txt_IP_ODate.TabIndex = 33;
             // 
             // label7
             // 
@@ -381,12 +672,13 @@
             this.label7.TabIndex = 32;
             this.label7.Text = "單據日期";
             // 
-            // textBox2
+            // txt_IP_CustID
             // 
-            this.textBox2.Location = new System.Drawing.Point(327, 6);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(113, 34);
-            this.textBox2.TabIndex = 31;
+            this.txt_IP_CustID.Location = new System.Drawing.Point(327, 6);
+            this.txt_IP_CustID.Name = "txt_IP_CustID";
+            this.txt_IP_CustID.Size = new System.Drawing.Size(113, 34);
+            this.txt_IP_CustID.TabIndex = 31;
+            this.txt_IP_CustID.Text = "WCSOT";
             // 
             // label6
             // 
@@ -398,12 +690,12 @@
             this.label6.TabIndex = 30;
             this.label6.Text = "客戶代號";
             // 
-            // textBox1
+            // txt_IP_BNum
             // 
-            this.textBox1.Location = new System.Drawing.Point(110, 6);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(113, 34);
-            this.textBox1.TabIndex = 29;
+            this.txt_IP_BNum.Location = new System.Drawing.Point(110, 6);
+            this.txt_IP_BNum.Name = "txt_IP_BNum";
+            this.txt_IP_BNum.Size = new System.Drawing.Size(113, 34);
+            this.txt_IP_BNum.TabIndex = 29;
             // 
             // label4
             // 
@@ -786,307 +1078,6 @@
             this.Btn_date_s.Size = new System.Drawing.Size(35, 33);
             this.Btn_date_s.TabIndex = 11;
             // 
-            // button4
-            // 
-            this.button4.Image = ((System.Drawing.Image)(resources.GetObject("button4.Image")));
-            this.button4.Location = new System.Drawing.Point(446, 7);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(35, 33);
-            this.button4.TabIndex = 53;
-            // 
-            // button5
-            // 
-            this.button5.Image = ((System.Drawing.Image)(resources.GetObject("button5.Image")));
-            this.button5.Location = new System.Drawing.Point(606, 92);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(35, 33);
-            this.button5.TabIndex = 54;
-            // 
-            // button6
-            // 
-            this.button6.Image = ((System.Drawing.Image)(resources.GetObject("button6.Image")));
-            this.button6.Location = new System.Drawing.Point(229, 92);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(35, 33);
-            this.button6.TabIndex = 55;
-            // 
-            // button7
-            // 
-            this.button7.Image = ((System.Drawing.Image)(resources.GetObject("button7.Image")));
-            this.button7.Location = new System.Drawing.Point(185, 141);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(35, 33);
-            this.button7.TabIndex = 57;
-            // 
-            // button8
-            // 
-            this.button8.Image = ((System.Drawing.Image)(resources.GetObject("button8.Image")));
-            this.button8.Location = new System.Drawing.Point(610, 142);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(35, 33);
-            this.button8.TabIndex = 56;
-            // 
-            // label13
-            // 
-            this.label13.BackColor = System.Drawing.SystemColors.Info;
-            this.label13.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label13.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label13.Location = new System.Drawing.Point(156, 46);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(67, 34);
-            this.label13.TabIndex = 58;
-            this.label13.Text = "DAP";
-            this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // label17
-            // 
-            this.label17.BackColor = System.Drawing.SystemColors.Info;
-            this.label17.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label17.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label17.Location = new System.Drawing.Point(406, 47);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(327, 34);
-            this.label17.TabIndex = 59;
-            this.label17.Text = " 請先選";
-            this.label17.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // textBox9
-            // 
-            this.textBox9.Location = new System.Drawing.Point(538, 143);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(66, 34);
-            this.textBox9.TabIndex = 60;
-            this.textBox9.Text = "S0001";
-            // 
-            // label18
-            // 
-            this.label18.BackColor = System.Drawing.SystemColors.Info;
-            this.label18.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label18.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label18.Location = new System.Drawing.Point(226, 140);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(218, 34);
-            this.label18.TabIndex = 61;
-            this.label18.Text = " 請先選";
-            this.label18.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // label19
-            // 
-            this.label19.BackColor = System.Drawing.SystemColors.Info;
-            this.label19.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label19.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label19.Location = new System.Drawing.Point(651, 141);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(203, 34);
-            this.label19.TabIndex = 62;
-            this.label19.Text = " 請先選";
-            this.label19.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // label20
-            // 
-            this.label20.BackColor = System.Drawing.SystemColors.Info;
-            this.label20.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label20.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label20.Location = new System.Drawing.Point(270, 91);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(174, 34);
-            this.label20.TabIndex = 63;
-            this.label20.Text = " 請先選";
-            this.label20.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // label21
-            // 
-            this.label21.BackColor = System.Drawing.SystemColors.Info;
-            this.label21.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label21.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label21.Location = new System.Drawing.Point(651, 91);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(203, 34);
-            this.label21.TabIndex = 64;
-            this.label21.Text = " 請先選";
-            this.label21.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // panel4
-            // 
-            this.panel4.Controls.Add(this.toolStrip1);
-            this.panel4.Location = new System.Drawing.Point(6, 5);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(1190, 38);
-            this.panel4.TabIndex = 1;
-            // 
-            // toolStrip1
-            // 
-            this.toolStrip1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.toolStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripButton1,
-            this.toolStripButton2,
-            this.toolStripButton3,
-            this.toolStripButton4,
-            this.toolStripButton5,
-            this.toolStripButton6,
-            this.toolStripButton7});
-            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
-            this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(1190, 38);
-            this.toolStrip1.TabIndex = 0;
-            this.toolStrip1.Text = "toolStrip1";
-            // 
-            // toolStripButton1
-            // 
-            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
-            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(29, 35);
-            this.toolStripButton1.Text = "toolStripButton1";
-            // 
-            // toolStripButton2
-            // 
-            this.toolStripButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton2.Image")));
-            this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton2.Name = "toolStripButton2";
-            this.toolStripButton2.Size = new System.Drawing.Size(29, 35);
-            this.toolStripButton2.Text = "toolStripButton2";
-            // 
-            // toolStripButton3
-            // 
-            this.toolStripButton3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton3.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton3.Image")));
-            this.toolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton3.Name = "toolStripButton3";
-            this.toolStripButton3.Size = new System.Drawing.Size(29, 35);
-            this.toolStripButton3.Text = "toolStripButton3";
-            // 
-            // toolStripButton4
-            // 
-            this.toolStripButton4.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton4.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton4.Image")));
-            this.toolStripButton4.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton4.Name = "toolStripButton4";
-            this.toolStripButton4.Size = new System.Drawing.Size(29, 35);
-            this.toolStripButton4.Text = "toolStripButton4";
-            // 
-            // toolStripButton5
-            // 
-            this.toolStripButton5.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton5.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton5.Image")));
-            this.toolStripButton5.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton5.Name = "toolStripButton5";
-            this.toolStripButton5.Size = new System.Drawing.Size(29, 35);
-            this.toolStripButton5.Text = "toolStripButton5";
-            // 
-            // toolStripButton6
-            // 
-            this.toolStripButton6.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton6.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton6.Image")));
-            this.toolStripButton6.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton6.Name = "toolStripButton6";
-            this.toolStripButton6.Size = new System.Drawing.Size(29, 35);
-            this.toolStripButton6.Text = "toolStripButton6";
-            // 
-            // toolStripButton7
-            // 
-            this.toolStripButton7.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton7.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton7.Image")));
-            this.toolStripButton7.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton7.Name = "toolStripButton7";
-            this.toolStripButton7.Size = new System.Drawing.Size(29, 35);
-            this.toolStripButton7.Text = "toolStripButton7";
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label22.Location = new System.Drawing.Point(860, 145);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(72, 25);
-            this.label22.TabIndex = 65;
-            this.label22.Text = "建立者";
-            // 
-            // cbo_ERPUP建立者
-            // 
-            this.cbo_ERPUP建立者.BackColor = System.Drawing.SystemColors.Control;
-            this.cbo_ERPUP建立者.Enabled = false;
-            this.cbo_ERPUP建立者.FormattingEnabled = true;
-            this.cbo_ERPUP建立者.Location = new System.Drawing.Point(935, 140);
-            this.cbo_ERPUP建立者.Name = "cbo_ERPUP建立者";
-            this.cbo_ERPUP建立者.Size = new System.Drawing.Size(148, 33);
-            this.cbo_ERPUP建立者.TabIndex = 66;
-            // 
-            // panel5
-            // 
-            this.panel5.Controls.Add(this.toolStrip2);
-            this.panel5.Location = new System.Drawing.Point(7, 234);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(1188, 35);
-            this.panel5.TabIndex = 2;
-            // 
-            // toolStrip2
-            // 
-            this.toolStrip2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.toolStrip2.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.toolStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripButton8,
-            this.toolStripButton9,
-            this.toolStripButton10});
-            this.toolStrip2.Location = new System.Drawing.Point(0, 0);
-            this.toolStrip2.Name = "toolStrip2";
-            this.toolStrip2.Size = new System.Drawing.Size(1188, 35);
-            this.toolStrip2.TabIndex = 0;
-            this.toolStrip2.Text = "toolStrip2";
-            // 
-            // toolStripButton8
-            // 
-            this.toolStripButton8.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton8.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton8.Image")));
-            this.toolStripButton8.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton8.Name = "toolStripButton8";
-            this.toolStripButton8.Size = new System.Drawing.Size(29, 32);
-            this.toolStripButton8.Text = "toolStripButton8";
-            // 
-            // toolStripButton9
-            // 
-            this.toolStripButton9.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton9.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton9.Image")));
-            this.toolStripButton9.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton9.Name = "toolStripButton9";
-            this.toolStripButton9.Size = new System.Drawing.Size(29, 32);
-            this.toolStripButton9.Text = "toolStripButton9";
-            // 
-            // toolStripButton10
-            // 
-            this.toolStripButton10.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton10.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton10.Image")));
-            this.toolStripButton10.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton10.Name = "toolStripButton10";
-            this.toolStripButton10.Size = new System.Drawing.Size(29, 32);
-            this.toolStripButton10.Text = "toolStripButton10";
-            // 
-            // panel6
-            // 
-            this.panel6.Controls.Add(this.dataGridView1);
-            this.panel6.Location = new System.Drawing.Point(10, 271);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(1191, 479);
-            this.panel6.TabIndex = 3;
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 0);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 27;
-            this.dataGridView1.Size = new System.Drawing.Size(1191, 479);
-            this.dataGridView1.TabIndex = 1;
-            // 
             // fm_Acc_INVPL
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
@@ -1096,9 +1087,20 @@
             this.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.Name = "fm_Acc_INVPL";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "保稅INV與PL列印 (20211020 1530)";
             this.tabControl2.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
+            this.panel6.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.panel5.ResumeLayout(false);
+            this.panel5.PerformLayout();
+            this.tsp_Order.ResumeLayout(false);
+            this.tsp_Order.PerformLayout();
+            this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
+            this.tsp_IP.ResumeLayout(false);
+            this.tsp_IP.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.tabPage2.ResumeLayout(false);
@@ -1115,16 +1117,6 @@
             this.panel2.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            this.panel4.ResumeLayout(false);
-            this.panel4.PerformLayout();
-            this.toolStrip1.ResumeLayout(false);
-            this.toolStrip1.PerformLayout();
-            this.panel5.ResumeLayout(false);
-            this.panel5.PerformLayout();
-            this.toolStrip2.ResumeLayout(false);
-            this.toolStrip2.PerformLayout();
-            this.panel6.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1135,28 +1127,28 @@
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btn_IP_SDate;
+        private System.Windows.Forms.Button btn_IP_ODate;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.TextBox textBox11;
+        private System.Windows.Forms.TextBox txt_IP_SO;
         private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.TextBox textBox12;
+        private System.Windows.Forms.TextBox txt_IP_Ship;
         private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox txt_IP_SNum;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox txt_IP_Destn;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.TextBox txt_IP_Pay;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.TextBox textBox8;
+        private System.Windows.Forms.TextBox txt_IP_Trade;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox txt_IP_SDate;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox txt_IP_ODate;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txt_IP_CustID;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txt_IP_BNum;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.TabControl tabControl1;
@@ -1190,33 +1182,32 @@
         private System.Windows.Forms.TextBox txt_date_s;
         private System.Windows.Forms.Button Btn_date_s;
         private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.Label label21;
-        private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.TextBox textBox9;
-        private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.Button button8;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.ToolStrip toolStrip1;
-        private System.Windows.Forms.ToolStripButton toolStripButton1;
-        private System.Windows.Forms.ToolStripButton toolStripButton2;
-        private System.Windows.Forms.ToolStripButton toolStripButton3;
-        private System.Windows.Forms.ToolStripButton toolStripButton4;
-        private System.Windows.Forms.ToolStripButton toolStripButton5;
-        private System.Windows.Forms.ToolStripButton toolStripButton6;
-        private System.Windows.Forms.ToolStripButton toolStripButton7;
+        private System.Windows.Forms.Label lbl_IP_Ship;
+        private System.Windows.Forms.Label lbl_IP_Destn;
+        private System.Windows.Forms.Label lbl_IP_SD;
+        private System.Windows.Forms.Label lbl_IP_SO;
+        private System.Windows.Forms.TextBox txt_IP_SD;
+        private System.Windows.Forms.Label lbl_IP_Pay;
+        private System.Windows.Forms.Label lbl_IP_Trade;
+        private System.Windows.Forms.Button btn_IP_SO;
+        private System.Windows.Forms.Button btn_IP_SD;
+        private System.Windows.Forms.Button btn_IP_Destn;
+        private System.Windows.Forms.Button btn_IP_Ship;
+        private System.Windows.Forms.Button btn_IP_CustID;
+        private System.Windows.Forms.ToolStrip tsp_IP;
+        private System.Windows.Forms.ToolStripButton tspbtn_IP_Build;
+        private System.Windows.Forms.ToolStripButton tspbtn_IP_Search;
+        private System.Windows.Forms.ToolStripButton tspbtn_IP_Edit;
+        private System.Windows.Forms.ToolStripButton tspbtn_IP_Save;
+        private System.Windows.Forms.ToolStripButton tspbtn_IP_Del;
+        private System.Windows.Forms.ToolStripButton tspbtn_IP_Print;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.ToolStrip toolStrip2;
-        private System.Windows.Forms.ToolStripButton toolStripButton8;
-        private System.Windows.Forms.ToolStripButton toolStripButton9;
-        private System.Windows.Forms.ToolStripButton toolStripButton10;
+        private System.Windows.Forms.ToolStrip tsp_Order;
+        private System.Windows.Forms.ToolStripButton tspbtn_Order_Add;
+        private System.Windows.Forms.ToolStripButton tspbtn_Order_Del;
+        private System.Windows.Forms.ToolStripButton tspbtn_Order_Save;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.ComboBox cbo_ERPUP建立者;
     }

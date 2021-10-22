@@ -17,8 +17,8 @@ namespace TOYOINK_dev
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new fm_login());
-            Application.Run(new fm_menu());
-            //Application.Run(new SingleQuery.fm_Query_INVPL_Order());
+            //Application.Run(new fm_menu());
+            Application.Run(new ACC.fm_Acc_INVPL());
 
         }
 

@@ -35,12 +35,12 @@
             this.cbo_Cond = new System.Windows.Forms.ComboBox();
             this.cbo_Item = new System.Windows.Forms.ComboBox();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgv_Result = new System.Windows.Forms.DataGridView();
             this.btn_Exit = new System.Windows.Forms.Button();
             this.btn_Save = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_Result)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -62,6 +62,7 @@
             this.btn_Search.TabIndex = 3;
             this.btn_Search.Text = "查詢";
             this.btn_Search.UseVisualStyleBackColor = true;
+            this.btn_Search.Click += new System.EventHandler(this.btn_Search_Click);
             // 
             // txt_Value
             // 
@@ -97,26 +98,26 @@
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.dataGridView1);
+            this.panel2.Controls.Add(this.dgv_Result);
             this.panel2.Location = new System.Drawing.Point(2, 47);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(694, 419);
             this.panel2.TabIndex = 1;
             // 
-            // dataGridView1
+            // dgv_Result
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 0);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 27;
-            this.dataGridView1.Size = new System.Drawing.Size(694, 419);
-            this.dataGridView1.TabIndex = 2;
+            this.dgv_Result.AllowUserToAddRows = false;
+            this.dgv_Result.AllowUserToDeleteRows = false;
+            this.dgv_Result.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dgv_Result.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_Result.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgv_Result.Location = new System.Drawing.Point(0, 0);
+            this.dgv_Result.Name = "dgv_Result";
+            this.dgv_Result.ReadOnly = true;
+            this.dgv_Result.RowHeadersWidth = 51;
+            this.dgv_Result.RowTemplate.Height = 27;
+            this.dgv_Result.Size = new System.Drawing.Size(694, 419);
+            this.dgv_Result.TabIndex = 2;
             // 
             // btn_Exit
             // 
@@ -141,6 +142,7 @@
             this.btn_Save.Text = "確認";
             this.btn_Save.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btn_Save.UseVisualStyleBackColor = true;
+            this.btn_Save.Click += new System.EventHandler(this.btn_Save_Click);
             // 
             // fm_QueryPublic
             // 
@@ -154,11 +156,13 @@
             this.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "fm_QueryPublic";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "查詢";
+            this.Load += new System.EventHandler(this.fm_QueryPublic_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_Result)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -171,7 +175,7 @@
         private System.Windows.Forms.ComboBox cbo_Item;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button btn_Search;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgv_Result;
         private System.Windows.Forms.Button btn_Exit;
         private System.Windows.Forms.Button btn_Save;
     }
