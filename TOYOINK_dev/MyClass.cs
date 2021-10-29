@@ -66,6 +66,8 @@ namespace Myclass
         public String str_enter = ((char)13).ToString() + ((char)10).ToString();
         public String DIRNAME = Application.StartupPath + @"\Log\";
 
+
+
         SqlConnection objCon, appCon, DBconn;
         SqlCommand objCmd;
 
@@ -544,6 +546,15 @@ namespace Myclass
             }
             return dt;
         }
+
+        //public string QP_ItemKey = "", QP_ItemValue = "", QP_Value = "", QP_SQL = ""/*, str_QP_Cond = "", str_QP_Value = ""*/;
+        //public Dictionary<string, string> QP_dict_Item { get; set; } = new Dictionary<string, string>();
+        //public Dictionary<string, string> QP_dict_Result { get; set; } = new Dictionary<string, string>();
+        //public Dictionary<string, string> QP_dict_Result_Temp { get; set; } = new Dictionary<string, string>();
+       
+
+
+
         //--------------------------------------------------------------------------
         // //保存成文件
         //using (XLWorkbook wb = new XLWorkbook())

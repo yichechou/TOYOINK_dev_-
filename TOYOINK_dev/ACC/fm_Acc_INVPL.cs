@@ -445,7 +445,6 @@ left join CMSNK on NK001 = MA109 where 1=1";
                     case "出貨港口":
                         txt_IP_SO.Text = OneItem.Value;
                         break;
-
                 }
             }
 
