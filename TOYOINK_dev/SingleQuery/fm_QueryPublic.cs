@@ -40,6 +40,19 @@ namespace TOYOINK_dev.SingleQuery
 
         }
 
+        private void dgv_Result_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            QP_dict_Result.Clear();
+            int a = dgv_Result.CurrentRow.Index;
+            int i = 0;
+
+            foreach (DataGridViewColumn dgv_Result_col in dgv_Result.Columns)
+            {
+                QP_dict_Result.Add(dgv_Result.Columns[i].HeaderText.ToString(),dgv_Result.Rows[a].Cells[i].Value.ToString().Trim());
+                i += 1;
+            }
+        }
+
         public void show_fm_QueryPublic_QP_dict_Result(Dictionary<string, string> data_QP_dict_Result)
         {
             QP_dict_Result = data_QP_dict_Result;

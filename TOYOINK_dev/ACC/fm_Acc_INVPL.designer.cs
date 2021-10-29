@@ -116,6 +116,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.txt_date_s = new System.Windows.Forms.TextBox();
             this.Btn_date_s = new System.Windows.Forms.Button();
+            this.lbl_IP_CustID = new System.Windows.Forms.Label();
             this.tabControl2.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panel6.SuspendLayout();
@@ -316,6 +317,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.lbl_IP_CustID);
             this.panel1.Controls.Add(this.label22);
             this.panel1.Controls.Add(this.cbo_ERPUP建立者);
             this.panel1.Controls.Add(this.lbl_IP_Ship);
@@ -503,7 +505,7 @@
             // button3
             // 
             this.button3.Image = ((System.Drawing.Image)(resources.GetObject("button3.Image")));
-            this.button3.Location = new System.Drawing.Point(1131, 6);
+            this.button3.Location = new System.Drawing.Point(1152, 137);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(35, 33);
             this.button3.TabIndex = 52;
@@ -511,7 +513,7 @@
             // btn_IP_SDate
             // 
             this.btn_IP_SDate.Image = ((System.Drawing.Image)(resources.GetObject("btn_IP_SDate.Image")));
-            this.btn_IP_SDate.Location = new System.Drawing.Point(953, 8);
+            this.btn_IP_SDate.Location = new System.Drawing.Point(1120, 9);
             this.btn_IP_SDate.Name = "btn_IP_SDate";
             this.btn_IP_SDate.Size = new System.Drawing.Size(35, 33);
             this.btn_IP_SDate.TabIndex = 51;
@@ -519,7 +521,7 @@
             // btn_IP_ODate
             // 
             this.btn_IP_ODate.Image = ((System.Drawing.Image)(resources.GetObject("btn_IP_ODate.Image")));
-            this.btn_IP_ODate.Location = new System.Drawing.Point(698, 7);
+            this.btn_IP_ODate.Location = new System.Drawing.Point(865, 8);
             this.btn_IP_ODate.Name = "btn_IP_ODate";
             this.btn_IP_ODate.Size = new System.Drawing.Size(35, 33);
             this.btn_IP_ODate.TabIndex = 50;
@@ -640,7 +642,7 @@
             // 
             // txt_IP_SDate
             // 
-            this.txt_IP_SDate.Location = new System.Drawing.Point(834, 7);
+            this.txt_IP_SDate.Location = new System.Drawing.Point(1001, 8);
             this.txt_IP_SDate.Name = "txt_IP_SDate";
             this.txt_IP_SDate.Size = new System.Drawing.Size(113, 34);
             this.txt_IP_SDate.TabIndex = 35;
@@ -649,7 +651,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label8.Location = new System.Drawing.Point(736, 10);
+            this.label8.Location = new System.Drawing.Point(903, 11);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(92, 25);
             this.label8.TabIndex = 34;
@@ -657,7 +659,7 @@
             // 
             // txt_IP_ODate
             // 
-            this.txt_IP_ODate.Location = new System.Drawing.Point(579, 7);
+            this.txt_IP_ODate.Location = new System.Drawing.Point(746, 8);
             this.txt_IP_ODate.Name = "txt_IP_ODate";
             this.txt_IP_ODate.Size = new System.Drawing.Size(113, 34);
             this.txt_IP_ODate.TabIndex = 33;
@@ -666,7 +668,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label7.Location = new System.Drawing.Point(481, 10);
+            this.label7.Location = new System.Drawing.Point(648, 11);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(92, 25);
             this.label7.TabIndex = 32;
@@ -1078,6 +1080,18 @@
             this.Btn_date_s.Size = new System.Drawing.Size(35, 33);
             this.Btn_date_s.TabIndex = 11;
             // 
+            // lbl_IP_CustID
+            // 
+            this.lbl_IP_CustID.BackColor = System.Drawing.SystemColors.Info;
+            this.lbl_IP_CustID.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.lbl_IP_CustID.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lbl_IP_CustID.Location = new System.Drawing.Point(487, 6);
+            this.lbl_IP_CustID.Name = "lbl_IP_CustID";
+            this.lbl_IP_CustID.Size = new System.Drawing.Size(149, 34);
+            this.lbl_IP_CustID.TabIndex = 67;
+            this.lbl_IP_CustID.Text = " 請先選";
+            this.lbl_IP_CustID.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // fm_Acc_INVPL
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
@@ -1210,5 +1224,6 @@
         private System.Windows.Forms.ToolStripButton tspbtn_Order_Save;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.ComboBox cbo_ERPUP建立者;
+        private System.Windows.Forms.Label lbl_IP_CustID;
     }
 }

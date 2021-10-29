@@ -118,6 +118,7 @@
             this.dgv_Result.RowTemplate.Height = 27;
             this.dgv_Result.Size = new System.Drawing.Size(694, 419);
             this.dgv_Result.TabIndex = 2;
+            this.dgv_Result.RowHeaderMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgv_Result_RowHeaderMouseDoubleClick);
             // 
             // btn_Exit
             // 
