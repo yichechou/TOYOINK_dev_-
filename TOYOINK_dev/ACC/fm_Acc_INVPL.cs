@@ -387,9 +387,88 @@ namespace TOYOINK_dev.ACC
 
         private void btn_IP_CustID_Click(object sender, EventArgs e)
         {
+            QP_SQL_Return("客戶代號", "MA001");
+            //            QP_dict_Item.Clear();
+            //            QP_Value = txt_IP_CustID.Text.ToString();
+            //            QP_dict_Item.Add("客戶代號","MA001");
+
+            //            QP_SQL = @"select MA001 as '客戶代號',MA002 as '客戶簡稱',MA083 as '付款條件代號',NA003 as '付款條件'
+            //,MA048 as '運輸方式代號',NJ002 as '運輸方式中文',MA051 as '目的地',MA052 as '海運港口',MA109 as '交易條件代號' ,NK002 as '交易條件名稱' 
+            //from COPMA 
+            //left join CMSNJ on NJ001 = MA048 
+            //left join CMSNA on NA002 = MA083 and NA001 = '2'
+            //left join CMSNK on NK001 = MA109 where 1=1";
+
+            //            SingleQuery.fm_QueryPublic fm_QueryPublic = new SingleQuery.fm_QueryPublic();
+            //            fm_QueryPublic.show_fm_QueryPublic_QP_Item(QP_dict_Item);
+            //            fm_QueryPublic.show_fm_QueryPublic_QP_Value(QP_Value);
+            //            fm_QueryPublic.show_fm_QueryPublic_QP_SQL(QP_SQL);
+            //            fm_QueryPublic.ShowDialog(this);
+
+            //            //QP_dict_Result
+            //            foreach (var OneItem in QP_dict_Result)
+            //            {
+            //                switch (OneItem.Key)
+            //                {
+            //                    case "客戶代號":
+            //                        txt_IP_CustID.Text = OneItem.Value;
+            //                        break;
+            //                    case "客戶簡稱":
+            //                        lbl_IP_CustID.Text = OneItem.Value;
+            //                        break;
+            //                    case "付款條件代號":
+            //                        txt_IP_Pay.Text = OneItem.Value;
+            //                        break;
+            //                    case "付款條件":
+            //                        lbl_IP_Pay.Text = OneItem.Value;
+            //                        break;
+            //                    case "運輸方式代號":
+            //                        txt_IP_Ship.Text = OneItem.Value;
+            //                        break;
+            //                    case "運輸方式中文":
+            //                        lbl_IP_Ship.Text = OneItem.Value;
+            //                        break;
+            //                    case "交易條件代號":
+            //                        txt_IP_Trade.Text = OneItem.Value;
+            //                        break;
+            //                    case "交易條件名稱":
+            //                        lbl_IP_Trade.Text = OneItem.Value;
+            //                        break;
+            //                    case "目的地":
+            //                        txt_IP_Destn.Text = OneItem.Value;
+            //                        break;
+            //                    case "海運港口":
+            //                        lbl_IP_Trade.Text = OneItem.Value;
+            //                        break;
+            //                    case "目的港口":
+            //                        txt_IP_SD.Text = OneItem.Value;
+            //                        break;
+            //                    case "出貨港口":
+            //                        txt_IP_SO.Text = OneItem.Value;
+            //                        break;
+            //                }
+            //            }
+
+            //txt_IP_CustID.Text = "";
+            //lbl_IP_CustID.Text = "";
+            //txt_IP_Trade.Text = "";
+            //lbl_IP_Trade.Text = "";
+            //txt_IP_Pay.Text = "";
+            //lbl_IP_Pay.Text = "";
+            //txt_IP_Ship.Text = "";
+            //lbl_IP_Ship.Text = "";
+            //txt_IP_Destn.Text = "";
+            //txt_IP_SD.Text = "";
+            //txt_IP_SO.Text = "";
+
+
+        }
+
+        public void QP_SQL_Return(string str_Name, string str_ID)
+        {
             QP_dict_Item.Clear();
             QP_Value = txt_IP_CustID.Text.ToString();
-            QP_dict_Item.Add("客戶代號","MA001");
+            QP_dict_Item.Add(str_Name, str_ID);
 
             QP_SQL = @"select MA001 as '客戶代號',MA002 as '客戶簡稱',MA083 as '付款條件代號',NA003 as '付款條件'
 ,MA048 as '運輸方式代號',NJ002 as '運輸方式中文',MA051 as '目的地',MA052 as '海運港口',MA109 as '交易條件代號' ,NK002 as '交易條件名稱' 
@@ -402,7 +481,7 @@ left join CMSNK on NK001 = MA109 where 1=1";
             fm_QueryPublic.show_fm_QueryPublic_QP_Item(QP_dict_Item);
             fm_QueryPublic.show_fm_QueryPublic_QP_Value(QP_Value);
             fm_QueryPublic.show_fm_QueryPublic_QP_SQL(QP_SQL);
-            fm_QueryPublic.ShowDialog();
+            fm_QueryPublic.ShowDialog(this);
 
             //QP_dict_Result
             foreach (var OneItem in QP_dict_Result)
@@ -447,20 +526,6 @@ left join CMSNK on NK001 = MA109 where 1=1";
                         break;
                 }
             }
-
-            //txt_IP_CustID.Text = "";
-            //lbl_IP_CustID.Text = "";
-            //txt_IP_Trade.Text = "";
-            //lbl_IP_Trade.Text = "";
-            //txt_IP_Pay.Text = "";
-            //lbl_IP_Pay.Text = "";
-            //txt_IP_Ship.Text = "";
-            //lbl_IP_Ship.Text = "";
-            //txt_IP_Destn.Text = "";
-            //txt_IP_SD.Text = "";
-            //txt_IP_SO.Text = "";
-
-
         }
 
         bool IsToForm1 = false; //紀錄是否要回到Form1

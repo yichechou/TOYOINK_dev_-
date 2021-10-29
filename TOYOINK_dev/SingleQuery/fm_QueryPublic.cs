@@ -40,9 +40,10 @@ namespace TOYOINK_dev.SingleQuery
         private void btn_Save_Click(object sender, EventArgs e)
         {
             QP_dict_Result = QP_dict_Result_Temp;
-            ACC.fm_Acc_INVPL fm_Acc_INVPL = new ACC.fm_Acc_INVPL();
-            //fm_Acc_INVPL.show_fm_QueryPublic_QP_dict_Result(QP_dict_Result);
-            Application.Exit();
+            ACC.fm_Acc_INVPL fm_Acc_INVPL = (ACC.fm_Acc_INVPL)this.Owner;
+            fm_Acc_INVPL.show_fm_QueryPublic_QP_dict_Result(QP_dict_Result);
+            //Application.Exit();
+            this.Close();
         }
 
         private void dgv_Result_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
