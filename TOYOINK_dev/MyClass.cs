@@ -62,6 +62,8 @@ namespace Myclass
         //private String strDbCon = "packet size=4096;user id=yj.chou;password=yjchou3369;data source=192.168.128.219;persist security info=False;initial catalog=Leader;";
         public String strDbConA01A = "packet size=4096;user id=pwuser;password=sqlmis003;data source=192.168.128.219;persist security info=False;initial catalog=A01A;";
         public String strDbConLeader = "packet size=4096;user id=yj.chou;password=asdf0000;data source=192.168.128.219;persist security info=False;initial catalog=Leader;";
+        public String strDbConTemp = "packet size=4096;user id=yj.chou;password=asdf0000;data source=192.168.128.219;persist security info=False;initial catalog=Temp;";
+
         public String prefix_table_name = "S2008X64.A01A.dbo.";
         public String str_enter = ((char)13).ToString() + ((char)10).ToString();
         public String DIRNAME = Application.StartupPath + @"\Log\";

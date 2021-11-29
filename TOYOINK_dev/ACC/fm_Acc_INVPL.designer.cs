@@ -32,7 +32,7 @@
             this.tabControl2 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.panel6 = new System.Windows.Forms.Panel();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgv_IP_Order = new System.Windows.Forms.DataGridView();
             this.panel5 = new System.Windows.Forms.Panel();
             this.tsp_Order = new System.Windows.Forms.ToolStrip();
             this.tspbtn_Order_Add = new System.Windows.Forms.ToolStripButton();
@@ -46,32 +46,33 @@
             this.tspbtn_IP_Save = new System.Windows.Forms.ToolStripButton();
             this.tspbtn_IP_Del = new System.Windows.Forms.ToolStripButton();
             this.tspbtn_IP_Print = new System.Windows.Forms.ToolStripButton();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel_IP_Search = new System.Windows.Forms.Panel();
+            this.lbl_IP_FROM = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.txt_IP_FROM = new System.Windows.Forms.TextBox();
+            this.btn_IP_CITY = new System.Windows.Forms.Button();
+            this.btn_IP_FROM = new System.Windows.Forms.Button();
+            this.lbl_IP_CustID = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
             this.cbo_ERPUP建立者 = new System.Windows.Forms.ComboBox();
             this.lbl_IP_Ship = new System.Windows.Forms.Label();
-            this.lbl_IP_Destn = new System.Windows.Forms.Label();
-            this.lbl_IP_SD = new System.Windows.Forms.Label();
-            this.lbl_IP_SO = new System.Windows.Forms.Label();
-            this.txt_IP_SD = new System.Windows.Forms.TextBox();
+            this.lbl_IP_TO = new System.Windows.Forms.Label();
+            this.lbl_IP_CITY = new System.Windows.Forms.Label();
+            this.txt_IP_CITY = new System.Windows.Forms.TextBox();
             this.lbl_IP_Pay = new System.Windows.Forms.Label();
             this.lbl_IP_Trade = new System.Windows.Forms.Label();
-            this.btn_IP_SO = new System.Windows.Forms.Button();
-            this.btn_IP_SD = new System.Windows.Forms.Button();
-            this.btn_IP_Destn = new System.Windows.Forms.Button();
+            this.btn_IP_TO = new System.Windows.Forms.Button();
             this.btn_IP_Ship = new System.Windows.Forms.Button();
             this.btn_IP_CustID = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.btn_IP_SDate = new System.Windows.Forms.Button();
             this.btn_IP_ODate = new System.Windows.Forms.Button();
             this.label14 = new System.Windows.Forms.Label();
-            this.txt_IP_SO = new System.Windows.Forms.TextBox();
-            this.label15 = new System.Windows.Forms.Label();
             this.txt_IP_Ship = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
             this.txt_IP_SNum = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.txt_IP_Destn = new System.Windows.Forms.TextBox();
+            this.txt_IP_TO = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.txt_IP_Pay = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
@@ -116,16 +117,15 @@
             this.label5 = new System.Windows.Forms.Label();
             this.txt_date_s = new System.Windows.Forms.TextBox();
             this.Btn_date_s = new System.Windows.Forms.Button();
-            this.lbl_IP_CustID = new System.Windows.Forms.Label();
             this.tabControl2.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panel6.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_IP_Order)).BeginInit();
             this.panel5.SuspendLayout();
             this.tsp_Order.SuspendLayout();
             this.panel4.SuspendLayout();
             this.tsp_IP.SuspendLayout();
-            this.panel1.SuspendLayout();
+            this.panel_IP_Search.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tab_MonthSum.SuspendLayout();
@@ -155,7 +155,7 @@
             this.tabPage1.Controls.Add(this.panel6);
             this.tabPage1.Controls.Add(this.panel5);
             this.tabPage1.Controls.Add(this.panel4);
-            this.tabPage1.Controls.Add(this.panel1);
+            this.tabPage1.Controls.Add(this.panel_IP_Search);
             this.tabPage1.Location = new System.Drawing.Point(4, 34);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
@@ -166,26 +166,26 @@
             // 
             // panel6
             // 
-            this.panel6.Controls.Add(this.dataGridView1);
+            this.panel6.Controls.Add(this.dgv_IP_Order);
             this.panel6.Location = new System.Drawing.Point(10, 271);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(1191, 479);
             this.panel6.TabIndex = 3;
             // 
-            // dataGridView1
+            // dgv_IP_Order
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 0);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 27;
-            this.dataGridView1.Size = new System.Drawing.Size(1191, 479);
-            this.dataGridView1.TabIndex = 1;
+            this.dgv_IP_Order.AllowUserToAddRows = false;
+            this.dgv_IP_Order.AllowUserToDeleteRows = false;
+            this.dgv_IP_Order.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dgv_IP_Order.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_IP_Order.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgv_IP_Order.Location = new System.Drawing.Point(0, 0);
+            this.dgv_IP_Order.Name = "dgv_IP_Order";
+            this.dgv_IP_Order.ReadOnly = true;
+            this.dgv_IP_Order.RowHeadersWidth = 51;
+            this.dgv_IP_Order.RowTemplate.Height = 27;
+            this.dgv_IP_Order.Size = new System.Drawing.Size(1191, 479);
+            this.dgv_IP_Order.TabIndex = 1;
             // 
             // panel5
             // 
@@ -216,7 +216,8 @@
             this.tspbtn_Order_Add.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tspbtn_Order_Add.Name = "tspbtn_Order_Add";
             this.tspbtn_Order_Add.Size = new System.Drawing.Size(29, 32);
-            this.tspbtn_Order_Add.Text = "toolStripButton8";
+            this.tspbtn_Order_Add.Text = "新增訂單";
+            this.tspbtn_Order_Add.Click += new System.EventHandler(this.tspbtn_Order_Add_Click);
             // 
             // tspbtn_Order_Del
             // 
@@ -225,7 +226,7 @@
             this.tspbtn_Order_Del.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tspbtn_Order_Del.Name = "tspbtn_Order_Del";
             this.tspbtn_Order_Del.Size = new System.Drawing.Size(29, 32);
-            this.tspbtn_Order_Del.Text = "toolStripButton9";
+            this.tspbtn_Order_Del.Text = "刪除訂單";
             // 
             // tspbtn_Order_Save
             // 
@@ -234,7 +235,7 @@
             this.tspbtn_Order_Save.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tspbtn_Order_Save.Name = "tspbtn_Order_Save";
             this.tspbtn_Order_Save.Size = new System.Drawing.Size(29, 32);
-            this.tspbtn_Order_Save.Text = "toolStripButton10";
+            this.tspbtn_Order_Save.Text = "儲存訂單";
             // 
             // panel4
             // 
@@ -269,6 +270,7 @@
             this.tspbtn_IP_Build.Name = "tspbtn_IP_Build";
             this.tspbtn_IP_Build.Size = new System.Drawing.Size(29, 35);
             this.tspbtn_IP_Build.Text = "toolStripButton1";
+            this.tspbtn_IP_Build.Click += new System.EventHandler(this.tspbtn_IP_Build_Click);
             // 
             // tspbtn_IP_Search
             // 
@@ -296,6 +298,7 @@
             this.tspbtn_IP_Save.Name = "tspbtn_IP_Save";
             this.tspbtn_IP_Save.Size = new System.Drawing.Size(29, 35);
             this.tspbtn_IP_Save.Text = "toolStripButton4";
+            this.tspbtn_IP_Save.Click += new System.EventHandler(this.tspbtn_IP_Save_Click);
             // 
             // tspbtn_IP_Del
             // 
@@ -315,51 +318,110 @@
             this.tspbtn_IP_Print.Size = new System.Drawing.Size(29, 35);
             this.tspbtn_IP_Print.Text = "toolStripButton6";
             // 
-            // panel1
+            // panel_IP_Search
             // 
-            this.panel1.Controls.Add(this.lbl_IP_CustID);
-            this.panel1.Controls.Add(this.label22);
-            this.panel1.Controls.Add(this.cbo_ERPUP建立者);
-            this.panel1.Controls.Add(this.lbl_IP_Ship);
-            this.panel1.Controls.Add(this.lbl_IP_Destn);
-            this.panel1.Controls.Add(this.lbl_IP_SD);
-            this.panel1.Controls.Add(this.lbl_IP_SO);
-            this.panel1.Controls.Add(this.txt_IP_SD);
-            this.panel1.Controls.Add(this.lbl_IP_Pay);
-            this.panel1.Controls.Add(this.lbl_IP_Trade);
-            this.panel1.Controls.Add(this.btn_IP_SO);
-            this.panel1.Controls.Add(this.btn_IP_SD);
-            this.panel1.Controls.Add(this.btn_IP_Destn);
-            this.panel1.Controls.Add(this.btn_IP_Ship);
-            this.panel1.Controls.Add(this.btn_IP_CustID);
-            this.panel1.Controls.Add(this.button3);
-            this.panel1.Controls.Add(this.btn_IP_SDate);
-            this.panel1.Controls.Add(this.btn_IP_ODate);
-            this.panel1.Controls.Add(this.label14);
-            this.panel1.Controls.Add(this.txt_IP_SO);
-            this.panel1.Controls.Add(this.label15);
-            this.panel1.Controls.Add(this.txt_IP_Ship);
-            this.panel1.Controls.Add(this.label16);
-            this.panel1.Controls.Add(this.txt_IP_SNum);
-            this.panel1.Controls.Add(this.label9);
-            this.panel1.Controls.Add(this.txt_IP_Destn);
-            this.panel1.Controls.Add(this.label10);
-            this.panel1.Controls.Add(this.txt_IP_Pay);
-            this.panel1.Controls.Add(this.label11);
-            this.panel1.Controls.Add(this.txt_IP_Trade);
-            this.panel1.Controls.Add(this.label12);
-            this.panel1.Controls.Add(this.txt_IP_SDate);
-            this.panel1.Controls.Add(this.label8);
-            this.panel1.Controls.Add(this.txt_IP_ODate);
-            this.panel1.Controls.Add(this.label7);
-            this.panel1.Controls.Add(this.txt_IP_CustID);
-            this.panel1.Controls.Add(this.label6);
-            this.panel1.Controls.Add(this.txt_IP_BNum);
-            this.panel1.Controls.Add(this.label4);
-            this.panel1.Location = new System.Drawing.Point(6, 49);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1190, 183);
-            this.panel1.TabIndex = 0;
+            this.panel_IP_Search.Controls.Add(this.lbl_IP_FROM);
+            this.panel_IP_Search.Controls.Add(this.label15);
+            this.panel_IP_Search.Controls.Add(this.txt_IP_FROM);
+            this.panel_IP_Search.Controls.Add(this.btn_IP_CITY);
+            this.panel_IP_Search.Controls.Add(this.btn_IP_FROM);
+            this.panel_IP_Search.Controls.Add(this.lbl_IP_CustID);
+            this.panel_IP_Search.Controls.Add(this.label22);
+            this.panel_IP_Search.Controls.Add(this.cbo_ERPUP建立者);
+            this.panel_IP_Search.Controls.Add(this.lbl_IP_Ship);
+            this.panel_IP_Search.Controls.Add(this.lbl_IP_TO);
+            this.panel_IP_Search.Controls.Add(this.lbl_IP_CITY);
+            this.panel_IP_Search.Controls.Add(this.txt_IP_CITY);
+            this.panel_IP_Search.Controls.Add(this.lbl_IP_Pay);
+            this.panel_IP_Search.Controls.Add(this.lbl_IP_Trade);
+            this.panel_IP_Search.Controls.Add(this.btn_IP_TO);
+            this.panel_IP_Search.Controls.Add(this.btn_IP_Ship);
+            this.panel_IP_Search.Controls.Add(this.btn_IP_CustID);
+            this.panel_IP_Search.Controls.Add(this.button3);
+            this.panel_IP_Search.Controls.Add(this.btn_IP_SDate);
+            this.panel_IP_Search.Controls.Add(this.btn_IP_ODate);
+            this.panel_IP_Search.Controls.Add(this.label14);
+            this.panel_IP_Search.Controls.Add(this.txt_IP_Ship);
+            this.panel_IP_Search.Controls.Add(this.label16);
+            this.panel_IP_Search.Controls.Add(this.txt_IP_SNum);
+            this.panel_IP_Search.Controls.Add(this.label9);
+            this.panel_IP_Search.Controls.Add(this.txt_IP_TO);
+            this.panel_IP_Search.Controls.Add(this.label10);
+            this.panel_IP_Search.Controls.Add(this.txt_IP_Pay);
+            this.panel_IP_Search.Controls.Add(this.label11);
+            this.panel_IP_Search.Controls.Add(this.txt_IP_Trade);
+            this.panel_IP_Search.Controls.Add(this.label12);
+            this.panel_IP_Search.Controls.Add(this.txt_IP_SDate);
+            this.panel_IP_Search.Controls.Add(this.label8);
+            this.panel_IP_Search.Controls.Add(this.txt_IP_ODate);
+            this.panel_IP_Search.Controls.Add(this.label7);
+            this.panel_IP_Search.Controls.Add(this.txt_IP_CustID);
+            this.panel_IP_Search.Controls.Add(this.label6);
+            this.panel_IP_Search.Controls.Add(this.txt_IP_BNum);
+            this.panel_IP_Search.Controls.Add(this.label4);
+            this.panel_IP_Search.Enabled = false;
+            this.panel_IP_Search.Location = new System.Drawing.Point(6, 49);
+            this.panel_IP_Search.Name = "panel_IP_Search";
+            this.panel_IP_Search.Size = new System.Drawing.Size(1190, 183);
+            this.panel_IP_Search.TabIndex = 0;
+            // 
+            // lbl_IP_FROM
+            // 
+            this.lbl_IP_FROM.BackColor = System.Drawing.SystemColors.Info;
+            this.lbl_IP_FROM.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.lbl_IP_FROM.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lbl_IP_FROM.Location = new System.Drawing.Point(229, 93);
+            this.lbl_IP_FROM.Name = "lbl_IP_FROM";
+            this.lbl_IP_FROM.Size = new System.Drawing.Size(218, 34);
+            this.lbl_IP_FROM.TabIndex = 72;
+            this.lbl_IP_FROM.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label15.Location = new System.Drawing.Point(15, 96);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(72, 25);
+            this.label15.TabIndex = 68;
+            this.label15.Text = "出口地";
+            // 
+            // txt_IP_FROM
+            // 
+            this.txt_IP_FROM.Location = new System.Drawing.Point(113, 93);
+            this.txt_IP_FROM.Name = "txt_IP_FROM";
+            this.txt_IP_FROM.Size = new System.Drawing.Size(66, 34);
+            this.txt_IP_FROM.TabIndex = 69;
+            // 
+            // btn_IP_CITY
+            // 
+            this.btn_IP_CITY.Image = ((System.Drawing.Image)(resources.GetObject("btn_IP_CITY.Image")));
+            this.btn_IP_CITY.Location = new System.Drawing.Point(610, 141);
+            this.btn_IP_CITY.Name = "btn_IP_CITY";
+            this.btn_IP_CITY.Size = new System.Drawing.Size(35, 33);
+            this.btn_IP_CITY.TabIndex = 70;
+            this.btn_IP_CITY.Click += new System.EventHandler(this.btn_IP_CITY_Click);
+            // 
+            // btn_IP_FROM
+            // 
+            this.btn_IP_FROM.Image = ((System.Drawing.Image)(resources.GetObject("btn_IP_FROM.Image")));
+            this.btn_IP_FROM.Location = new System.Drawing.Point(188, 94);
+            this.btn_IP_FROM.Name = "btn_IP_FROM";
+            this.btn_IP_FROM.Size = new System.Drawing.Size(35, 33);
+            this.btn_IP_FROM.TabIndex = 71;
+            this.btn_IP_FROM.Click += new System.EventHandler(this.btn_IP_FROM_Click);
+            // 
+            // lbl_IP_CustID
+            // 
+            this.lbl_IP_CustID.BackColor = System.Drawing.SystemColors.Info;
+            this.lbl_IP_CustID.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.lbl_IP_CustID.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lbl_IP_CustID.Location = new System.Drawing.Point(487, 6);
+            this.lbl_IP_CustID.Name = "lbl_IP_CustID";
+            this.lbl_IP_CustID.Size = new System.Drawing.Size(149, 34);
+            this.lbl_IP_CustID.TabIndex = 67;
+            this.lbl_IP_CustID.Text = " 請先選";
+            this.lbl_IP_CustID.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label22
             // 
@@ -390,52 +452,36 @@
             this.lbl_IP_Ship.Name = "lbl_IP_Ship";
             this.lbl_IP_Ship.Size = new System.Drawing.Size(203, 34);
             this.lbl_IP_Ship.TabIndex = 64;
-            this.lbl_IP_Ship.Text = " 請先選";
             this.lbl_IP_Ship.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // lbl_IP_Destn
+            // lbl_IP_TO
             // 
-            this.lbl_IP_Destn.BackColor = System.Drawing.SystemColors.Info;
-            this.lbl_IP_Destn.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.lbl_IP_Destn.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lbl_IP_Destn.Location = new System.Drawing.Point(270, 91);
-            this.lbl_IP_Destn.Name = "lbl_IP_Destn";
-            this.lbl_IP_Destn.Size = new System.Drawing.Size(174, 34);
-            this.lbl_IP_Destn.TabIndex = 63;
-            this.lbl_IP_Destn.Text = " 請先選";
-            this.lbl_IP_Destn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lbl_IP_TO.BackColor = System.Drawing.SystemColors.Info;
+            this.lbl_IP_TO.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.lbl_IP_TO.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lbl_IP_TO.Location = new System.Drawing.Point(273, 140);
+            this.lbl_IP_TO.Name = "lbl_IP_TO";
+            this.lbl_IP_TO.Size = new System.Drawing.Size(174, 34);
+            this.lbl_IP_TO.TabIndex = 63;
+            this.lbl_IP_TO.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // lbl_IP_SD
+            // lbl_IP_CITY
             // 
-            this.lbl_IP_SD.BackColor = System.Drawing.SystemColors.Info;
-            this.lbl_IP_SD.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.lbl_IP_SD.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lbl_IP_SD.Location = new System.Drawing.Point(651, 141);
-            this.lbl_IP_SD.Name = "lbl_IP_SD";
-            this.lbl_IP_SD.Size = new System.Drawing.Size(203, 34);
-            this.lbl_IP_SD.TabIndex = 62;
-            this.lbl_IP_SD.Text = " 請先選";
-            this.lbl_IP_SD.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lbl_IP_CITY.BackColor = System.Drawing.SystemColors.Info;
+            this.lbl_IP_CITY.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.lbl_IP_CITY.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lbl_IP_CITY.Location = new System.Drawing.Point(651, 141);
+            this.lbl_IP_CITY.Name = "lbl_IP_CITY";
+            this.lbl_IP_CITY.Size = new System.Drawing.Size(203, 34);
+            this.lbl_IP_CITY.TabIndex = 62;
+            this.lbl_IP_CITY.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // lbl_IP_SO
+            // txt_IP_CITY
             // 
-            this.lbl_IP_SO.BackColor = System.Drawing.SystemColors.Info;
-            this.lbl_IP_SO.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.lbl_IP_SO.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lbl_IP_SO.Location = new System.Drawing.Point(226, 140);
-            this.lbl_IP_SO.Name = "lbl_IP_SO";
-            this.lbl_IP_SO.Size = new System.Drawing.Size(218, 34);
-            this.lbl_IP_SO.TabIndex = 61;
-            this.lbl_IP_SO.Text = " 請先選";
-            this.lbl_IP_SO.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // txt_IP_SD
-            // 
-            this.txt_IP_SD.Location = new System.Drawing.Point(538, 143);
-            this.txt_IP_SD.Name = "txt_IP_SD";
-            this.txt_IP_SD.Size = new System.Drawing.Size(66, 34);
-            this.txt_IP_SD.TabIndex = 60;
-            this.txt_IP_SD.Text = "S0001";
+            this.txt_IP_CITY.Location = new System.Drawing.Point(538, 143);
+            this.txt_IP_CITY.Name = "txt_IP_CITY";
+            this.txt_IP_CITY.Size = new System.Drawing.Size(66, 34);
+            this.txt_IP_CITY.TabIndex = 60;
             // 
             // lbl_IP_Pay
             // 
@@ -446,7 +492,7 @@
             this.lbl_IP_Pay.Name = "lbl_IP_Pay";
             this.lbl_IP_Pay.Size = new System.Drawing.Size(327, 34);
             this.lbl_IP_Pay.TabIndex = 59;
-            this.lbl_IP_Pay.Text = " 請先選";
+            this.lbl_IP_Pay.Text = " 請先";
             this.lbl_IP_Pay.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lbl_IP_Trade
@@ -458,32 +504,16 @@
             this.lbl_IP_Trade.Name = "lbl_IP_Trade";
             this.lbl_IP_Trade.Size = new System.Drawing.Size(67, 34);
             this.lbl_IP_Trade.TabIndex = 58;
-            this.lbl_IP_Trade.Text = "DAP";
             this.lbl_IP_Trade.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // btn_IP_SO
+            // btn_IP_TO
             // 
-            this.btn_IP_SO.Image = ((System.Drawing.Image)(resources.GetObject("btn_IP_SO.Image")));
-            this.btn_IP_SO.Location = new System.Drawing.Point(185, 141);
-            this.btn_IP_SO.Name = "btn_IP_SO";
-            this.btn_IP_SO.Size = new System.Drawing.Size(35, 33);
-            this.btn_IP_SO.TabIndex = 57;
-            // 
-            // btn_IP_SD
-            // 
-            this.btn_IP_SD.Image = ((System.Drawing.Image)(resources.GetObject("btn_IP_SD.Image")));
-            this.btn_IP_SD.Location = new System.Drawing.Point(610, 142);
-            this.btn_IP_SD.Name = "btn_IP_SD";
-            this.btn_IP_SD.Size = new System.Drawing.Size(35, 33);
-            this.btn_IP_SD.TabIndex = 56;
-            // 
-            // btn_IP_Destn
-            // 
-            this.btn_IP_Destn.Image = ((System.Drawing.Image)(resources.GetObject("btn_IP_Destn.Image")));
-            this.btn_IP_Destn.Location = new System.Drawing.Point(229, 92);
-            this.btn_IP_Destn.Name = "btn_IP_Destn";
-            this.btn_IP_Destn.Size = new System.Drawing.Size(35, 33);
-            this.btn_IP_Destn.TabIndex = 55;
+            this.btn_IP_TO.Image = ((System.Drawing.Image)(resources.GetObject("btn_IP_TO.Image")));
+            this.btn_IP_TO.Location = new System.Drawing.Point(232, 141);
+            this.btn_IP_TO.Name = "btn_IP_TO";
+            this.btn_IP_TO.Size = new System.Drawing.Size(35, 33);
+            this.btn_IP_TO.TabIndex = 55;
+            this.btn_IP_TO.Click += new System.EventHandler(this.btn_IP_TO_Click);
             // 
             // btn_IP_Ship
             // 
@@ -492,6 +522,7 @@
             this.btn_IP_Ship.Name = "btn_IP_Ship";
             this.btn_IP_Ship.Size = new System.Drawing.Size(35, 33);
             this.btn_IP_Ship.TabIndex = 54;
+            this.btn_IP_Ship.Click += new System.EventHandler(this.btn_IP_Ship_Click);
             // 
             // btn_IP_CustID
             // 
@@ -517,6 +548,7 @@
             this.btn_IP_SDate.Name = "btn_IP_SDate";
             this.btn_IP_SDate.Size = new System.Drawing.Size(35, 33);
             this.btn_IP_SDate.TabIndex = 51;
+            this.btn_IP_SDate.Click += new System.EventHandler(this.btn_IP_SDate_Click);
             // 
             // btn_IP_ODate
             // 
@@ -525,6 +557,7 @@
             this.btn_IP_ODate.Name = "btn_IP_ODate";
             this.btn_IP_ODate.Size = new System.Drawing.Size(35, 33);
             this.btn_IP_ODate.TabIndex = 50;
+            this.btn_IP_ODate.Click += new System.EventHandler(this.btn_IP_ODate_Click);
             // 
             // label14
             // 
@@ -534,25 +567,7 @@
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(92, 25);
             this.label14.TabIndex = 48;
-            this.label14.Text = "目的港口";
-            // 
-            // txt_IP_SO
-            // 
-            this.txt_IP_SO.Location = new System.Drawing.Point(110, 140);
-            this.txt_IP_SO.Name = "txt_IP_SO";
-            this.txt_IP_SO.Size = new System.Drawing.Size(66, 34);
-            this.txt_IP_SO.TabIndex = 47;
-            this.txt_IP_SO.Text = "S0001";
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label15.Location = new System.Drawing.Point(12, 143);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(92, 25);
-            this.label15.TabIndex = 46;
-            this.label15.Text = "出口港口";
+            this.label14.Text = "到貨城市";
             // 
             // txt_IP_Ship
             // 
@@ -577,7 +592,7 @@
             this.txt_IP_SNum.Name = "txt_IP_SNum";
             this.txt_IP_SNum.Size = new System.Drawing.Size(154, 34);
             this.txt_IP_SNum.TabIndex = 43;
-            this.txt_IP_SNum.Text = "4500240756";
+            this.txt_IP_SNum.Text = "8000012669";
             // 
             // label9
             // 
@@ -589,18 +604,18 @@
             this.label9.TabIndex = 42;
             this.label9.Text = "樣品單號";
             // 
-            // txt_IP_Destn
+            // txt_IP_TO
             // 
-            this.txt_IP_Destn.Location = new System.Drawing.Point(110, 91);
-            this.txt_IP_Destn.Name = "txt_IP_Destn";
-            this.txt_IP_Destn.Size = new System.Drawing.Size(113, 34);
-            this.txt_IP_Destn.TabIndex = 41;
+            this.txt_IP_TO.Location = new System.Drawing.Point(113, 140);
+            this.txt_IP_TO.Name = "txt_IP_TO";
+            this.txt_IP_TO.Size = new System.Drawing.Size(113, 34);
+            this.txt_IP_TO.TabIndex = 41;
             // 
             // label10
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label10.Location = new System.Drawing.Point(12, 94);
+            this.label10.Location = new System.Drawing.Point(15, 143);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(72, 25);
             this.label10.TabIndex = 40;
@@ -680,7 +695,7 @@
             this.txt_IP_CustID.Name = "txt_IP_CustID";
             this.txt_IP_CustID.Size = new System.Drawing.Size(113, 34);
             this.txt_IP_CustID.TabIndex = 31;
-            this.txt_IP_CustID.Text = "WCSOT";
+            this.txt_IP_CustID.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txt_IP_CustID_KeyDown);
             // 
             // label6
             // 
@@ -1080,18 +1095,6 @@
             this.Btn_date_s.Size = new System.Drawing.Size(35, 33);
             this.Btn_date_s.TabIndex = 11;
             // 
-            // lbl_IP_CustID
-            // 
-            this.lbl_IP_CustID.BackColor = System.Drawing.SystemColors.Info;
-            this.lbl_IP_CustID.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.lbl_IP_CustID.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lbl_IP_CustID.Location = new System.Drawing.Point(487, 6);
-            this.lbl_IP_CustID.Name = "lbl_IP_CustID";
-            this.lbl_IP_CustID.Size = new System.Drawing.Size(149, 34);
-            this.lbl_IP_CustID.TabIndex = 67;
-            this.lbl_IP_CustID.Text = " 請先選";
-            this.lbl_IP_CustID.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
             // fm_Acc_INVPL
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
@@ -1106,7 +1109,7 @@
             this.tabControl2.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_IP_Order)).EndInit();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
             this.tsp_Order.ResumeLayout(false);
@@ -1115,8 +1118,8 @@
             this.panel4.PerformLayout();
             this.tsp_IP.ResumeLayout(false);
             this.tsp_IP.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.panel_IP_Search.ResumeLayout(false);
+            this.panel_IP_Search.PerformLayout();
             this.tabPage2.ResumeLayout(false);
             this.tabControl1.ResumeLayout(false);
             this.tab_MonthSum.ResumeLayout(false);
@@ -1139,18 +1142,16 @@
 
         private System.Windows.Forms.TabControl tabControl2;
         private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panel_IP_Search;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button btn_IP_SDate;
         private System.Windows.Forms.Button btn_IP_ODate;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.TextBox txt_IP_SO;
-        private System.Windows.Forms.Label label15;
         private System.Windows.Forms.TextBox txt_IP_Ship;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.TextBox txt_IP_SNum;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox txt_IP_Destn;
+        private System.Windows.Forms.TextBox txt_IP_TO;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox txt_IP_Pay;
         private System.Windows.Forms.Label label11;
@@ -1197,15 +1198,12 @@
         private System.Windows.Forms.Button Btn_date_s;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Label lbl_IP_Ship;
-        private System.Windows.Forms.Label lbl_IP_Destn;
-        private System.Windows.Forms.Label lbl_IP_SD;
-        private System.Windows.Forms.Label lbl_IP_SO;
-        private System.Windows.Forms.TextBox txt_IP_SD;
+        private System.Windows.Forms.Label lbl_IP_TO;
+        private System.Windows.Forms.Label lbl_IP_CITY;
+        private System.Windows.Forms.TextBox txt_IP_CITY;
         private System.Windows.Forms.Label lbl_IP_Pay;
         private System.Windows.Forms.Label lbl_IP_Trade;
-        private System.Windows.Forms.Button btn_IP_SO;
-        private System.Windows.Forms.Button btn_IP_SD;
-        private System.Windows.Forms.Button btn_IP_Destn;
+        private System.Windows.Forms.Button btn_IP_TO;
         private System.Windows.Forms.Button btn_IP_Ship;
         private System.Windows.Forms.Button btn_IP_CustID;
         private System.Windows.Forms.ToolStrip tsp_IP;
@@ -1216,7 +1214,7 @@
         private System.Windows.Forms.ToolStripButton tspbtn_IP_Del;
         private System.Windows.Forms.ToolStripButton tspbtn_IP_Print;
         private System.Windows.Forms.Panel panel6;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgv_IP_Order;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.ToolStrip tsp_Order;
         private System.Windows.Forms.ToolStripButton tspbtn_Order_Add;
@@ -1225,5 +1223,10 @@
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.ComboBox cbo_ERPUP建立者;
         private System.Windows.Forms.Label lbl_IP_CustID;
+        private System.Windows.Forms.Label lbl_IP_FROM;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.TextBox txt_IP_FROM;
+        private System.Windows.Forms.Button btn_IP_CITY;
+        private System.Windows.Forms.Button btn_IP_FROM;
     }
 }

@@ -22,6 +22,9 @@ namespace TOYOINK_dev.SingleQuery
             MyCode.strDbCon = MyCode.strDbConLeader;
             //this.sqlConnection1.ConnectionString = MyCode.strDbConLeader;
 
+            MyCode.strDbCon = MyCode.strDbConTemp;
+            //this.sqlConnection1.ConnectionString = MyCode.strDbConLeader;
+
             //MyCode.strDbCon = MyCode.strDbConA01A;
             //this.sqlConnection1.ConnectionString = MyCode.strDbConA01A;
         }
@@ -57,13 +60,27 @@ namespace TOYOINK_dev.SingleQuery
                 QP_dict_Result_Temp.Add(dgv_Result.Columns[i].HeaderText.ToString(),dgv_Result.Rows[a].Cells[i].Value.ToString().Trim());
                 i += 1;
             }
+
             QP_dict_Result = QP_dict_Result_Temp;
+            ACC.fm_Acc_INVPL fm_Acc_INVPL = (ACC.fm_Acc_INVPL)this.Owner;
+            fm_Acc_INVPL.show_fm_QueryPublic_QP_dict_Result(QP_dict_Result);
+            //Application.Exit();
+            this.Close();
         }
 
         public void show_fm_QueryPublic_QP_dict_Result(Dictionary<string, string> data_QP_dict_Result)
         {
             QP_dict_Result = data_QP_dict_Result;
         }
+
+        private void txt_Value_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                btn_Search.PerformClick();
+            }
+        }
+
         public void show_fm_QueryPublic_QP_Value(string data_QP_Value)
         {
             QP_Value = data_QP_Value;

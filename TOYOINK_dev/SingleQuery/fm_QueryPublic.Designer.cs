@@ -70,6 +70,7 @@
             this.txt_Value.Name = "txt_Value";
             this.txt_Value.Size = new System.Drawing.Size(288, 34);
             this.txt_Value.TabIndex = 2;
+            this.txt_Value.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txt_Value_KeyDown);
             // 
             // cbo_Cond
             // 
@@ -109,9 +110,11 @@
             this.dgv_Result.AllowUserToAddRows = false;
             this.dgv_Result.AllowUserToDeleteRows = false;
             this.dgv_Result.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dgv_Result.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgv_Result.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_Result.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgv_Result.Location = new System.Drawing.Point(0, 0);
+            this.dgv_Result.MultiSelect = false;
             this.dgv_Result.Name = "dgv_Result";
             this.dgv_Result.ReadOnly = true;
             this.dgv_Result.RowHeadersWidth = 51;

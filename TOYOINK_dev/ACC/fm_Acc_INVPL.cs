@@ -36,11 +36,14 @@ namespace TOYOINK_dev.ACC
         {
             InitializeComponent();
             MyCode = new Myclass.MyClass();
-			
+
             //MyCode.strDbCon = MyCode.strDbConLeader;
             //this.sqlConnection1.ConnectionString = MyCode.strDbConLeader;
 
-            MyCode.strDbCon = MyCode.strDbConA01A;
+            MyCode.strDbCon = MyCode.strDbConTemp;
+            //this.sqlConnection1.ConnectionString = MyCode.strDbConLeader;
+
+            //MyCode.strDbCon = MyCode.strDbConA01A;
             //this.sqlConnection1.ConnectionString = MyCode.strDbConA01A;
 
             temp_excel_5a = @"\\192.168.128.219\Company\MIS自開發主檔\會計報表公版\銷貨成本分析月報5a_temp.xlsx";
@@ -355,13 +358,59 @@ namespace TOYOINK_dev.ACC
         //}
         public string loginid = "";
         public string loginName = "", LoginFormName = "", loginDep = "";
-        
+
+     
+
         public void show_fmlogin_FormName(string data_LoginFormName)
         {
             LoginFormName = data_LoginFormName;
         }
 
         public string QP_Item = "", QP_Value = "", QP_SQL = "";
+
+        //開航日期
+        private void btn_IP_SDate_Click(object sender, EventArgs e)
+        {
+            this.fm_月曆 = new 月曆(this.txt_IP_SDate, this.btn_IP_ODate, "開航日期");
+        }
+
+        private void tspbtn_IP_Build_Click(object sender, EventArgs e)
+        {
+            panel_IP_Search.Enabled = true;
+            tspbtn_IP_Build.Enabled = false;
+        }
+
+        private void tspbtn_IP_Save_Click(object sender, EventArgs e)
+        {
+            panel_IP_Search.Enabled = false;
+            tspbtn_IP_Build.Enabled = true;
+        }
+
+        private void txt_IP_CustID_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                QP_SQL_Return("客戶代號", "MA001");
+            }
+           
+        }
+
+        private void tspbtn_Order_Add_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        //單據日期
+        private void btn_IP_ODate_Click(object sender, EventArgs e)
+        {
+            this.fm_月曆 = new 月曆(this.txt_IP_ODate, this.btn_IP_ODate, "單據日期");
+        }
+
+        private void btn_IP_Ship_Click(object sender, EventArgs e)
+        {
+            QP_SQL_Return("運輸方式代號", "NJ001");
+        }
+
         public Dictionary<string, string> QP_dict_Item = new Dictionary<string, string>();
         public Dictionary<string, string> QP_dict_Result = new Dictionary<string, string>();
         public void show_fm_QueryPublic_QP_Item(Dictionary<string, string> data_QP_dict_Item)
@@ -464,18 +513,75 @@ namespace TOYOINK_dev.ACC
 
         }
 
+        private void btn_IP_FROM_Click(object sender, EventArgs e)
+        {
+            QP_SQL_Return("出口地全名", "NS003");
+        }
+
+        private void btn_IP_TO_Click(object sender, EventArgs e)
+        {
+            QP_SQL_Return("目的地全名", "NS003");
+        }
+
+        private void btn_IP_CITY_Click(object sender, EventArgs e)
+        {
+            QP_SQL_Return("到貨城市全名", "NS003");
+        }
+
+
+
+
         public void QP_SQL_Return(string str_Name, string str_ID)
         {
             QP_dict_Item.Clear();
-            QP_Value = txt_IP_CustID.Text.ToString();
+            //QP_Value = txt_IP_CustID.Text.ToString();
             QP_dict_Item.Add(str_Name, str_ID);
 
-            QP_SQL = @"select MA001 as '客戶代號',MA002 as '客戶簡稱',MA083 as '付款條件代號',NA003 as '付款條件'
-,MA048 as '運輸方式代號',NJ002 as '運輸方式中文',MA051 as '目的地',MA052 as '海運港口',MA109 as '交易條件代號' ,NK002 as '交易條件名稱' 
+            switch (str_Name)
+            {
+                case "客戶代號":
+                    QP_Value = txt_IP_CustID.Text.ToString();
+                    QP_SQL = @"select TOP(50) MA001 as '客戶代號',MA002 as '客戶簡稱',MA083 as '付款條件代號',NA003 as '付款條件'
+,MA048 as '運輸方式代號',NJ003 as '運輸方式英文'
+,(select NS001 from CMSNS where NS001 like 'AT%' and NS003 = trim(MA051)) as '目的地代號',MA051 as '目的地全名'
+,(select NS001 from CMSNS where NS001 like 'AF%' and NS003 = trim(MA052)) as '出口地代號',MA052 as '出口地全名'
+,(select NS001 from CMSNS where NS001 like 'AC%' and NS003 = trim(MA053)) as '到貨城市代號',MA053 as '到貨城市全名'
+,MA109 as '交易條件代號' ,NK002 as '交易條件名稱' 
 from COPMA 
 left join CMSNJ on NJ001 = MA048 
 left join CMSNA on NA002 = MA083 and NA001 = '2'
 left join CMSNK on NK001 = MA109 where 1=1";
+                    break;
+                case "運輸方式代號":
+                    QP_Value = txt_IP_Ship.Text.ToString();
+                    QP_SQL = @"select TOP(50) NJ001 as '運輸方式代號',NJ002 as '運輸方式中文',NJ003 as '運輸方式英文'
+from CMSNJ 
+where 1=1";
+                    break;
+                    break;
+                case "目的地全名":
+                    QP_Value = lbl_IP_TO.Text.ToString();
+                    QP_SQL = @"select TOP(50) NS001 as '目的地代號', NS002 as '目的地簡稱', NS003 as '目的地全名'
+, NS004 as '國家別代號', (select MR003 from CMSMR where MR001 = '4' and MR002 = NS004) as 國家別名稱
+, NS005 as '海空港代號', (case NS005　when '1' then '空運'　when '2' then '海運' END) as '海空港名稱' from CMSNS 
+where 1=1 and NS001 like 'AT%'";
+                    break;
+                case "出口地全名":
+                    QP_Value = lbl_IP_FROM.Text.ToString();
+                    QP_SQL = @"select TOP(50) NS001 as '出口地代號', NS002 as '出口地簡稱', NS003 as '出口地全名'
+, NS004 as '國家別代號', (select MR003 from CMSMR where MR001 = '4' and MR002 = NS004) as 國家別名稱
+, NS005 as '海空港代號', (case NS005　when '1' then '空運'　when '2' then '海運' END) as '海空港名稱' from CMSNS 
+where 1=1 and NS001 like 'AF%'";
+                    break;
+                case "到貨城市全名":
+                    QP_Value = lbl_IP_CITY.Text.ToString();
+                    QP_SQL = @"select TOP(50) NS001 as '到貨城市代號', NS002 as '到貨城市簡稱', NS003 as '到貨城市全名'
+, NS004 as '國家別代號', (select MR003 from CMSMR where MR001 = '4' and MR002 = NS004) as 國家別名稱
+, NS005 as '海空港代號', (case NS005　when '1' then '空運'　when '2' then '海運' END) as '海空港名稱' from CMSNS 
+where 1=1 and NS001 like 'AC%'";
+                    break;
+            }
+
 
             SingleQuery.fm_QueryPublic fm_QueryPublic = new SingleQuery.fm_QueryPublic();
             fm_QueryPublic.show_fm_QueryPublic_QP_Item(QP_dict_Item);
@@ -503,7 +609,7 @@ left join CMSNK on NK001 = MA109 where 1=1";
                     case "運輸方式代號":
                         txt_IP_Ship.Text = OneItem.Value;
                         break;
-                    case "運輸方式中文":
+                    case "運輸方式英文":
                         lbl_IP_Ship.Text = OneItem.Value;
                         break;
                     case "交易條件代號":
@@ -512,18 +618,28 @@ left join CMSNK on NK001 = MA109 where 1=1";
                     case "交易條件名稱":
                         lbl_IP_Trade.Text = OneItem.Value;
                         break;
-                    case "目的地":
-                        txt_IP_Destn.Text = OneItem.Value;
+                    case "目的地代號":
+                        txt_IP_TO.Text = OneItem.Value;
                         break;
-                    case "海運港口":
-                        lbl_IP_Trade.Text = OneItem.Value;
+                    case "目的地全名":
+                        lbl_IP_TO.Text = OneItem.Value;
                         break;
-                    case "目的港口":
-                        txt_IP_SD.Text = OneItem.Value;
+                    case "出口地代號":
+                        txt_IP_FROM.Text = OneItem.Value;
                         break;
-                    case "出貨港口":
-                        txt_IP_SO.Text = OneItem.Value;
+                    case "出口地全名":
+                        lbl_IP_FROM.Text = OneItem.Value;
                         break;
+                    //case "海運港口":
+                    //    lbl_IP_Trade.Text = OneItem.Value;
+                    //    break;
+                    case "到貨城市代號":
+                        txt_IP_CITY.Text = OneItem.Value;
+                        break;
+                    case "到貨城市全名":
+                        lbl_IP_CITY.Text = OneItem.Value;
+                        break;
+                    
                 }
             }
         }
