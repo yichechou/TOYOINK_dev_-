@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fm_Query_INVPL_Order));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btn_Clear = new System.Windows.Forms.Button();
             this.txt_Value3 = new System.Windows.Forms.TextBox();
             this.cbo_Cond3 = new System.Windows.Forms.ComboBox();
             this.cbo_Item3 = new System.Windows.Forms.ComboBox();
@@ -44,7 +45,6 @@
             this.dgv_Result = new System.Windows.Forms.DataGridView();
             this.btn_Save = new System.Windows.Forms.Button();
             this.btn_Exit = new System.Windows.Forms.Button();
-            this.btn_Clear = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Result)).BeginInit();
@@ -67,6 +67,16 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(693, 121);
             this.panel1.TabIndex = 4;
+            // 
+            // btn_Clear
+            // 
+            this.btn_Clear.Location = new System.Drawing.Point(568, 79);
+            this.btn_Clear.Name = "btn_Clear";
+            this.btn_Clear.Size = new System.Drawing.Size(115, 34);
+            this.btn_Clear.TabIndex = 10;
+            this.btn_Clear.Text = "清除欄位";
+            this.btn_Clear.UseVisualStyleBackColor = true;
+            this.btn_Clear.Click += new System.EventHandler(this.btn_Clear_Click);
             // 
             // txt_Value3
             // 
@@ -224,16 +234,6 @@
             this.btn_Exit.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btn_Exit.UseVisualStyleBackColor = true;
             // 
-            // btn_Clear
-            // 
-            this.btn_Clear.Location = new System.Drawing.Point(568, 79);
-            this.btn_Clear.Name = "btn_Clear";
-            this.btn_Clear.Size = new System.Drawing.Size(115, 34);
-            this.btn_Clear.TabIndex = 10;
-            this.btn_Clear.Text = "清除欄位";
-            this.btn_Clear.UseVisualStyleBackColor = true;
-            this.btn_Clear.Click += new System.EventHandler(this.btn_Clear_Click);
-            // 
             // fm_Query_INVPL_Order
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
@@ -246,6 +246,7 @@
             this.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "fm_Query_INVPL_Order";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "客戶訂單查詢";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

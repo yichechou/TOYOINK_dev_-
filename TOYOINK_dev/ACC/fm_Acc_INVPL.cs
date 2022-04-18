@@ -397,7 +397,8 @@ namespace TOYOINK_dev.ACC
 
         private void tspbtn_Order_Add_Click(object sender, EventArgs e)
         {
-
+            SingleQuery.fm_Query_INVPL_Order fm_QueryPublic = new SingleQuery.fm_Query_INVPL_Order();
+            fm_QueryPublic.ShowDialog(this);
         }
 
         //單據日期

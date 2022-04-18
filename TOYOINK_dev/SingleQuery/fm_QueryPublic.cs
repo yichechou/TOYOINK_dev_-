@@ -19,7 +19,7 @@ namespace TOYOINK_dev.SingleQuery
             InitializeComponent();
 
             MyCode = new Myclass.MyClass();
-            MyCode.strDbCon = MyCode.strDbConLeader;
+            //MyCode.strDbCon = MyCode.strDbConLeader;
             //this.sqlConnection1.ConnectionString = MyCode.strDbConLeader;
 
             MyCode.strDbCon = MyCode.strDbConTemp;
