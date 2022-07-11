@@ -45,7 +45,7 @@ namespace TOYOINK_dev
         {
             txt_id.Select();
             txt_id.Text = "1901329";
-            txt_pw.Text = "zxcv673690";
+            txt_pw.Text = "asdf673690";
 
         }
 
