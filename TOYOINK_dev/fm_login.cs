@@ -81,6 +81,8 @@ namespace TOYOINK_dev
                 {
                     loginName = dt_login.Rows[0]["NAME"].ToString().Trim();
                     loginDep = dt_login.Rows[0]["dep"].ToString().Trim();
+                    //MyCode.pub_loginID = loginid;
+                    //MyCode.Pub_loginName = loginName;
                     //fm_menu.show_form1_data(loginName);
                     //fm_COP fm_COP = new fm_COP();
                     //fm_menu.Show();
@@ -122,7 +124,12 @@ namespace TOYOINK_dev
                             fm_AUO_NF_COPTC.show_fmlogin_CheckForm(1);
                             fm_AUO_NF_COPTC.Show();
                             break;
-
+                        case "fm_PC_PURTC":
+                            fm_PC_PURTC fm_PC_PURTC = new fm_PC_PURTC();
+                            fm_PC_PURTC.show_fmlogin_loginName(loginName);
+                            fm_PC_PURTC.show_fmlogin_CheckForm(1);
+                            fm_PC_PURTC.Show();
+                            break;
                         default:
                             break;
                     }

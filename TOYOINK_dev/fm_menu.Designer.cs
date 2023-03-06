@@ -44,6 +44,7 @@
             this.btn_AUOPlannedOrderInput = new System.Windows.Forms.Button();
             this.btn_AUOPlannedOrder = new System.Windows.Forms.Button();
             this.btn_Proc_premium = new System.Windows.Forms.Button();
+            this.btn_PC_PURTC = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -162,6 +163,7 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.btn_PC_PURTC);
             this.tabPage2.Controls.Add(this.btn_AUO_NF_COPTC);
             this.tabPage2.Controls.Add(this.btn_AUOCOPTC);
             this.tabPage2.Controls.Add(this.btn_AUOPlannedOrderUpdate);
@@ -179,9 +181,9 @@
             // btn_AUO_NF_COPTC
             // 
             this.btn_AUO_NF_COPTC.Font = new System.Drawing.Font("微軟正黑體", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.btn_AUO_NF_COPTC.Location = new System.Drawing.Point(253, 171);
+            this.btn_AUO_NF_COPTC.Location = new System.Drawing.Point(241, 162);
             this.btn_AUO_NF_COPTC.Name = "btn_AUO_NF_COPTC";
-            this.btn_AUO_NF_COPTC.Size = new System.Drawing.Size(210, 60);
+            this.btn_AUO_NF_COPTC.Size = new System.Drawing.Size(223, 70);
             this.btn_AUO_NF_COPTC.TabIndex = 6;
             this.btn_AUO_NF_COPTC.Text = "AUO北廠";
             this.btn_AUO_NF_COPTC.UseVisualStyleBackColor = true;
@@ -245,6 +247,17 @@
             this.btn_Proc_premium.UseVisualStyleBackColor = true;
             this.btn_Proc_premium.Click += new System.EventHandler(this.btn_Proc_premium_Click);
             // 
+            // btn_PC_PURTC
+            // 
+            this.btn_PC_PURTC.Font = new System.Drawing.Font("微軟正黑體", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.btn_PC_PURTC.Location = new System.Drawing.Point(13, 238);
+            this.btn_PC_PURTC.Name = "btn_PC_PURTC";
+            this.btn_PC_PURTC.Size = new System.Drawing.Size(222, 70);
+            this.btn_PC_PURTC.TabIndex = 7;
+            this.btn_PC_PURTC.Text = "採購單匯入";
+            this.btn_PC_PURTC.UseVisualStyleBackColor = true;
+            this.btn_PC_PURTC.Click += new System.EventHandler(this.btn_PC_PURTC_Click);
+            // 
             // fm_menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
@@ -282,6 +295,7 @@
         private System.Windows.Forms.Button btn_AUO_NF_COPTC;
         private System.Windows.Forms.Button btn_Acc_F22_1;
         private System.Windows.Forms.Button btn_Acc_RelatedVOU;
+        private System.Windows.Forms.Button btn_PC_PURTC;
     }
 }
 

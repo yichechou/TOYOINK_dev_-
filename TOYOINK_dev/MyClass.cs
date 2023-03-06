@@ -68,8 +68,6 @@ namespace Myclass
         public String str_enter = ((char)13).ToString() + ((char)10).ToString();
         public String DIRNAME = Application.StartupPath + @"\Log\";
 
-
-
         SqlConnection objCon, appCon, DBconn;
         SqlCommand objCmd;
 
@@ -548,6 +546,11 @@ namespace Myclass
             }
             return dt;
         }
+
+        //public void loginIDName(string loginID) 
+        //{
+
+        //}
 
         //public string QP_ItemKey = "", QP_ItemValue = "", QP_Value = "", QP_SQL = ""/*, str_QP_Cond = "", str_QP_Value = ""*/;
         //public Dictionary<string, string> QP_dict_Item { get; set; } = new Dictionary<string, string>();

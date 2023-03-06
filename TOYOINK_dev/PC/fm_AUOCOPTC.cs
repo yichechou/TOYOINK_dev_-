@@ -1119,3 +1119,32 @@ namespace TOYOINK_dev
 
     }
 }
+/*
+ * A01A 
+ SELECT COLUMN_NAME AS 欄位名稱,
+DATA_TYPE AS 欄位型態,
+CHARACTER_MAXIMUM_LENGTH AS 長度限制,
+IS_NULLABLE AS 是否允許空值, 
+COLUMN_DEFAULT AS 預設值
+FROM INFORMATION_SCHEMA.COLUMNS 
+WHERE TABLE_NAME = N'CFIPO'
+
+ * 欄位名稱	欄位型態	長度限制	是否允許空值	預設值
+ERP_Num	int	NULL	YES	NULL
+ERP_序號	nvarchar	4	YES	NULL
+ERP_客代	nvarchar	50	YES	NULL
+ERP_客單	nvarchar	50	YES	NULL
+ERP_幣別	nvarchar	50	YES	NULL
+線別	nvarchar	50	YES	NULL
+Sample	nvarchar	50	YES	NULL
+Number	nvarchar	50	YES	NULL
+Item	nvarchar	50	YES	NULL
+Item Description	nvarchar	100	YES	NULL
+UOM	nvarchar	50	YES	NULL
+Shipment Amount	decimal	NULL	YES	NULL
+Quantity	decimal	NULL	YES	NULL
+Supplier	nvarchar	50	YES	NULL
+Currency	nvarchar	50	YES	NULL
+Need By Date	nvarchar	50	YES	NULL
+備註	nvarchar	100	YES	NULL
+ */

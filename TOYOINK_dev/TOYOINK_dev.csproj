@@ -74,10 +74,10 @@
     <SignManifests>true</SignManifests>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestCertificateThumbprint>F4374FB650CDE256313B2D84684307E4525AFF52</ManifestCertificateThumbprint>
+    <ManifestCertificateThumbprint>970D5516E1661B9D4CAE3E44864126B9EA498999</ManifestCertificateThumbprint>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestKeyFile>TOYOINK_dev_TemporaryKey.pfx</ManifestKeyFile>
+    <ManifestKeyFile>TOYOINK_dev_1_TemporaryKey.pfx</ManifestKeyFile>
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationIcon>MIS自開發.ico</ApplicationIcon>
@@ -286,6 +286,12 @@
     <Compile Include="ACC\fm_Premium.Designer.cs">
       <DependentUpon>fm_Premium.cs</DependentUpon>
     </Compile>
+    <Compile Include="PC\fm_PC_PURTC.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PC\fm_PC_PURTC.Designer.cs">
+      <DependentUpon>fm_PC_PURTC.cs</DependentUpon>
+    </Compile>
     <Compile Include="PC\fm_AUO_NF_COPTC.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -360,6 +366,9 @@
     <EmbeddedResource Include="ACC\fm_Trademark.resx">
       <DependentUpon>fm_Trademark.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="PC\fm_PC_PURTC.resx">
+      <DependentUpon>fm_PC_PURTC.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="PC\fm_AUO_NF_COPTC.resx">
       <DependentUpon>fm_AUO_NF_COPTC.cs</DependentUpon>
     </EmbeddedResource>
@@ -397,6 +406,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="TOYOINK_dev_1_TemporaryKey.pfx" />
     <None Include="TOYOINK_dev_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>

@@ -14,15 +14,10 @@ using Myclass;
 namespace TOYOINK_dev
 {
 
-    public partial class fm_AUO_NF_COPTC : Form
+    public partial class fm_PC_PURTC : Form
     {
         /*
-         * 20210623 開發完成，生管林玲禎提出，參考 客戶訂單For 友達(fm_AUOCOPTC)，修改來源Excel判別
-         * 20210901 生管林玲禎提出 TD201 希望交貨日改為空值【CFIPO.[Need By Date] as TD201】 ->【'' as TD201】，
-         *          經了解，[希望交貨日]為個案欄位，目前已無使用，了解使用者需求，初判該欄位應可使用標準[排定交貨日]應用，
-         *          個案書內容 W71565_016.W71565_018.W71565_022.W71565_064
-         * 20210913 升級GP4單身增加兩個欄位，計價數量(TD076).計價單位(TD077)，同原欄位 數量(TD008).單位(TD010) 及更新連線方式改由MyClass代入
-         * ,CFIPO.Quantity as TD076,CFIPO.UOM as TD077,
+         * 
          * 
          */
         /// <summary>
@@ -35,17 +30,23 @@ namespace TOYOINK_dev
         string str_sql = "", str_sql_c = "", str_sql_d = "", str_sql_coptc = "", str_sql_coptd = "";
         string str_sql_log = "", str_sql_logs = "";
         string str_enter = ((char)13).ToString() + ((char)10).ToString();
-        string str_key_客訂單號 = "";
         string errtable = "";
-        string str_廠別 = "A01A", str_建立者ID = "", str_建立者GP = "", str_建立日期 = "";
-        月曆 fm_月曆;
         int i, j, x, y;
-        DataTable dt_建立者;
-        double ft_sum採購金額 = 0, ft_sum數量合計 = 0, ft_sum包裝數量合計 = 0;
+        月曆 fm_月曆;
+        string str_key_TC002 = "";
+        string str_Company = "A01A", str_Creater_ID = "", str_Creater_GP = "", str_CreaterDate = "";
+        DataTable dt_Creater,dt_PURTC002;
+        //PURTC	採購單單頭資料檔：TC019 採購金額、TC023 數量合計、TC029 包裝數量合計
+        double ft_sum_TC019 = 0, ft_sum_TC023 = 0, ft_sum_TC029 = 0;
+
+        //string str_key_TC002 = "";
+        //string str_Company = "A01A", str_Creater_ID = "", str_Creater_GP = "", str_CreaterDate = "";
+        //DataTable dt_Creater;
+        //double ft_sum_TC019 = 0, ft_sum_TC023 = 0, ft_sum_TC029 = 0;
 
         //TODO: 右上角訊息視窗，自動捲動置底
-       
-        public fm_AUO_NF_COPTC()
+
+        public fm_PC_PURTC()
         {
             InitializeComponent();
             MyCode = new Myclass.MyClass();
@@ -99,12 +100,11 @@ namespace TOYOINK_dev
             CheckForm = data_CheckForm;
         }
 
-        //TODO:建立者下拉式清單
-        private void cob_建立者_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            this.str_建立者ID = this.dt_建立者.Rows[this.cob_建立者.SelectedIndex]["MF001"].ToString().Trim();
-            this.str_建立者GP = this.dt_建立者.Rows[this.cob_建立者.SelectedIndex]["MF004"].ToString().Trim();
-        }
+        
+        //private void cob_建立者_SelectedIndexChanged(object sender, EventArgs e)
+        //{
+            
+        //}
 
         private void btn_NeedDate_Click(object sender, EventArgs e)
         {
@@ -121,7 +121,7 @@ namespace TOYOINK_dev
                     lab_status.Text = "請 選擇檔案";
                     txt_path.Text = "";
                     dgv_excel.DataSource = null;
-                    dgv_cfipo.DataSource = null;
+                    dgv_trans.DataSource = null;
                     tabCtl_data.SelectedIndex = 0;
                     btn_toerp.Enabled = false;
                     btn_toerp.BackColor = System.Drawing.SystemColors.Control;
@@ -158,86 +158,57 @@ namespace TOYOINK_dev
             txterr.ScrollToCaret();  //跳到遊標處 
         }
 
-        private void textBox_單據日期_TextChanged(object sender, EventArgs e)
+        private void panel2_Paint(object sender, PaintEventArgs e)
         {
-            //資料上傳ERP後，textBox_單據日期 會清空，需重新選擇
-            if (string.IsNullOrEmpty(textBox_單據日期.Text))
-            {
-                return;
-            }
 
-            string num2_ym = "";
-            string now_ym = "";
-            string txt_date = textBox_單據日期.ToString();
-
-            DateTime num2_date = DateTime.ParseExact((textBox_單據日期.Text.ToString()), "yyyyMMdd", System.Globalization.CultureInfo.CurrentCulture);
-
-            TaiwanCalendar nowdate = new TaiwanCalendar();
-            //顯示民國日期格式為eee/mm/dd(105/09/29)  
-            //月份或日期為1位數，想在前面補0湊成2位數，這種方法為PadLeft(2,'0')。
-            now_ym = nowdate.GetYear(num2_date).ToString() + nowdate.GetMonth(num2_date).ToString().PadLeft(2, '0');
-            num2_ym = now_ym.Substring(1, 4);
-
-            //TODO:查詢最後一筆ERP使用單號
-            str_sql =
-                "select top 1 TC002 from COPTC" + str_enter +
-                "where TC001 = '220'" + "and TC002 like '" + num2_ym.ToString() + "%'" + str_enter +
-                "order by TC002 desc";
-            this.sqlDataAdapter1.SelectCommand.CommandText = str_sql;
-            DataTable dt_temp = new DataTable();
-            this.sqlDataAdapter1.Fill(dt_temp);
-            //MyCode.Sql_dt(str_sql, dt_temp);
-
-            if (dt_temp.Rows.Count == 0)
-            {
-                str_key_客訂單號 = num2_ym.ToString() + "001";
-                lab_num2.Text = this.str_key_客訂單號.PadLeft(7, '0');
-            }
-            else
-            {
-                this.str_key_客訂單號 = (Convert.ToInt32(dt_temp.Rows[0][0].ToString()) + 1).ToString();
-                this.lab_num2.Text = this.str_key_客訂單號.PadLeft(7, '0');
-            }
         }
 
-        private void fm_AUO_NF_COPTC_Load(object sender, EventArgs e)
+        private void txt_FormDate_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        //TODO:建立者下拉式清單
+        //private void cob_Creater_SelectedIndexChanged(object sender, EventArgs e)
+        //{
+        //    this.str_Creater_ID = this.dt_Creater.Rows[this.cob_Creater.SelectedIndex]["MF001"].ToString().Trim();
+        //    this.str_Creater_GP = this.dt_Creater.Rows[this.cob_Creater.SelectedIndex]["MF004"].ToString().Trim();
+        //}
+
+        private void cbo_Supplier_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //this.str_Creater_ID = this.dt_Creater.Rows[this.cob_Creater.SelectedIndex]["MF001"].ToString().Trim();
+            //this.str_Creater_GP = this.dt_Creater.Rows[this.cob_Creater.SelectedIndex]["MF004"].ToString().Trim();
+        }
+
+        private void fm_PC_PURTC_Load(object sender, EventArgs e)
         {
             //TODO:匯入ERP 可建立客戶訂單 使用者清單
-            dt_建立者 = new DataTable();
-            this.sqlDataAdapter1.SelectCommand.CommandText = "select MF001,MF001 + MF002 as 人員,MF002,MF004 from ADMMF";
-            this.sqlDataAdapter1.Fill(dt_建立者);
+            dt_Creater = new DataTable();
+            this.sqlDataAdapter1.SelectCommand.CommandText 
+                = String.Format(@"select MF001,MF001 + MF002 as userIDNAME,MF002,MF004 from CMSMK 
+                                    left  join ADMMF on MF001 = MK002 
+                                    where MF001 like '[0-9]%' and len(MF001) = '7' and MK003 = '4' and MF002 = '{0}'", loginName);
+            this.sqlDataAdapter1.Fill(dt_Creater);
 
-            //str_sql = "select MF001,MF001 + MF002 as 人員,MF002,MF004 from ADMMF";
-            //MyCode.Sql_dt(str_sql, dt_建立者);
-
-            this.cob_建立者.Items.Clear();
-
-            string str_建立者 = "";
-            int check = 0;
-
-
-            for (int i = 0; i < dt_建立者.Rows.Count; i++)
+            if (dt_Creater.Rows.Count == 1)
             {
-                str_建立者 = this.dt_建立者.Rows[i]["MF002"].ToString().Trim();
-                this.cob_建立者.Items.Add(dt_建立者.Rows[i]["人員"].ToString().Trim());
-
-                if (str_建立者 == loginName || loginName == "周怡甄")
-                {
-                    this.cob_建立者.SelectedIndex = i;
-                    check = 1;
-                }
-
+                lab_loginIDName.Text = dt_Creater.Rows[0]["userIDNAME"].ToString();
+                str_Creater_ID = dt_Creater.Rows[0]["MF001"].ToString().Trim();
+                str_Creater_GP = dt_Creater.Rows[0]["MF004"].ToString().Trim();
             }
-            if (check == 0)
+            else 
             {
+                lab_loginIDName.Text = dt_Creater.Rows[0]["userIDNAME"].ToString();
+
                 MessageBox.Show("非採購人員不能使用", "警告訊息", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 txterr.Text += Environment.NewLine +
                            DateTime.Now.ToString() + Environment.NewLine +
                            "非採購人員不能使用" + Environment.NewLine +
                            "===========";
                 btn_file.Enabled = false;
-                button_單據日期.Enabled = false;
-                cob_建立者.Enabled = false;
+                btn_FormDate.Enabled = false;
+                //cob_Creater.Enabled = false;
 
                 //fm_login fm_login = new fm_login();
 
@@ -246,61 +217,72 @@ namespace TOYOINK_dev
                 return;
             }
 
+
+
+            //str_sql = "select MF001,MF001 + MF002 as userIDNAME,MF002,MF004 from ADMMF";
+            //MyCode.Sql_dt(str_sql, dt_Creater);
+
+            //lab_loginIDName.Text = MyCode.Pub_loginName;
+            //+ " " + MyCode.pub_loginName;
+
+            //this.cob_Creater.Items.Clear();
+
+            //foreach (DataRow userRow in dt_Creater.Rows)
+            //{
+            //    this.cob_Creater.Items.Add(userRow["userIDNAME"].ToString().Trim());
+            //}
+
+            //int index = cob_Creater.FindString(loginName);
+            //cob_Creater.SelectedIndex = index;
+
+            string str_Creater = "";
+            int check = 0;
+
+
+            //for (int i = 0; i < dt_Creater.Rows.Count; i++)
+            //{
+            //    str_Creater = this.dt_Creater.Rows[i]["MF002"].ToString().Trim();
+            //    this.cob_Creater.Items.Add(dt_Creater.Rows[i]["userIDNAME"].ToString().Trim());
+
+            //    if (str_Creater == loginName || loginName == "周怡甄")
+            //    {
+            //        this.cob_Creater.SelectedIndex = i;
+            //        check = 1;
+            //    }
+
+            //}
+            //if (check == 0)
+            //{
+            //    MessageBox.Show("非採購userIDNAME不能使用", "警告訊息", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            //    txterr.Text += Environment.NewLine +
+            //               DateTime.Now.ToString() + Environment.NewLine +
+            //               "非採購userIDNAME不能使用" + Environment.NewLine +
+            //               "===========";
+            //    btn_file.Enabled = false;
+            //    button_單據日期.Enabled = false;
+            //    cob_Creater.Enabled = false;
+
+            //    //fm_login fm_login = new fm_login();
+
+            //    //fm_login.Show();
+            //    //this.Hide();
+            //    return;
+            //}
+
             //TODO:格式化 建立日期
-            lab_Nowdate.Text = DateTime.Now.ToString("yyyyMMdd");
-            textBox_單據日期.Text = DateTime.Now.ToString("yyyyMMdd");
-            str_建立日期 = lab_Nowdate.Text.ToString().Trim();
+            //lab_Nowdate.Text = DateTime.Now.ToString("yyyyMMdd");
+            txt_FormDate.Text = DateTime.Now.ToString("yyyyMMdd");
+            //str_CreaterDate = lab_Nowdate.Text.ToString().Trim();
+
+            //TODO:取得最後一筆採購單330 採購單號
+            dt_Creater = new DataTable();
+            this.sqlDataAdapter1.SelectCommand.CommandText
+                = String.Format(@"select top 1 TC002 from PURTC 
+                                    where TC001 = '330'
+                                    order by TC002 desc");
+            this.sqlDataAdapter1.Fill(dt_Creater);
         }
 
-        private void button_單據日期_Click(object sender, EventArgs e)
-        {
-            //TODO:單頭及單身若不為空值，表示已轉換ERP格式，需重新轉換 或 資料已上傳ERP，需重新選擇日期
-            //資料上傳ERP後，dgv_excel會清空
-            //if (dgv_tc.DataSource != null || dgv_td.DataSource != null || dgv_excel.DataSource != null)
-            if (btn_toerp.Enabled == true || btn_erpup.Enabled == true )
-
-            {
-                DialogResult Result = MessageBox.Show("修改 單據日期 後，需重新【選擇檔案】", "Excel檔案已匯入", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button2);
-
-                if (Result == DialogResult.OK)
-                {
-                    lab_status.Text = "請 選擇檔案";
-                    txt_path.Text = "";
-                    dgv_excel.DataSource = null;
-                    dgv_cfipo.DataSource = null;
-                    tabCtl_data.SelectedIndex = 0;
-                    btn_toerp.Enabled = false;
-                    btn_toerp.BackColor = System.Drawing.SystemColors.Control;
-                    btn_toerp.ForeColor = System.Drawing.SystemColors.ControlText;
-                    btn_erpup.Enabled = false;
-                    btn_erpup.BackColor = System.Drawing.SystemColors.Control;
-                    btn_erpup.ForeColor = System.Drawing.SystemColors.ControlText;
-                    dgv_tc.DataSource = null;
-                    dgv_td.DataSource = null;
-
-                    txterr.Text += Environment.NewLine +
-                               DateTime.Now.ToString() + Environment.NewLine +
-                               " 修改單據日期，請重新【選擇檔案】" + Environment.NewLine +
-                               "===========";
-
-                    this.fm_月曆 = new 月曆(this.textBox_單據日期, this.button_單據日期, "單據日期");
-                }
-                else if (Result == DialogResult.Cancel)
-                {
-                    return;
-                }
-            }
-            else
-            {
-                this.fm_月曆 = new 月曆(this.textBox_單據日期, this.button_單據日期, "單據日期");
-                btn_file.Enabled = true;
-                lab_status.Text = "請 選擇檔案";
-
-            }
-
-        }
-
-       
 
         private void btn_file_Click(object sender, EventArgs e)
         {
@@ -482,7 +464,7 @@ namespace TOYOINK_dev
                                                        "請先檢查【來源Excel-[PO NO]欄位】重新上傳 或 連絡MIS" + Environment.NewLine +
                                                        "===========";
 
-                                        dgv_cfipo.DataSource = null;
+                                        dgv_trans.DataSource = null;
                                         tabCtl_data.SelectedIndex = 0;
                                         btn_toerp.Enabled = false;
                                         btn_toerp.BackColor = System.Drawing.SystemColors.Control;
@@ -514,7 +496,7 @@ namespace TOYOINK_dev
                                                        "===========";
 
                                         txt_path.Text = "";
-                                        dgv_cfipo.DataSource = null;
+                                        dgv_trans.DataSource = null;
                                         tabCtl_data.SelectedIndex = 0;
                                         btn_toerp.Enabled = false;
                                         btn_toerp.BackColor = System.Drawing.SystemColors.Control;
@@ -595,7 +577,7 @@ namespace TOYOINK_dev
                                     str_sql_value = this.get_sql_value(data_type, txt_NeedDate.Text.ToString().Trim());
 
                                     DateTime needdate = DateTime.ParseExact(txt_NeedDate.Text.ToString().Trim(), "yyyyMMdd", null, System.Globalization.DateTimeStyles.AllowWhiteSpaces);
-                                    DateTime keydate = DateTime.ParseExact(textBox_單據日期.Text.ToString(), "yyyyMMdd", null, System.Globalization.DateTimeStyles.AllowWhiteSpaces);
+                                    DateTime keydate = DateTime.ParseExact(txt_FormDate.Text.ToString(), "yyyyMMdd", null, System.Globalization.DateTimeStyles.AllowWhiteSpaces);
 
                                     //判別 單據日期 大於 預交日期 則中斷，並關閉 轉換ERP格式按鈕
                                     if (keydate > needdate)
@@ -613,7 +595,7 @@ namespace TOYOINK_dev
                                                        "===========";
 
                                         txt_path.Text = "";
-                                        dgv_cfipo.DataSource = null;
+                                        dgv_trans.DataSource = null;
                                         tabCtl_data.SelectedIndex = 0;
                                         btn_toerp.Enabled = false;
                                         btn_toerp.BackColor = System.Drawing.SystemColors.Control;
@@ -662,7 +644,7 @@ namespace TOYOINK_dev
                     DataTable dt_cfipo = new DataTable();
                     this.sqlDataAdapter1.SelectCommand.CommandText = "select * from CFIPO order by ERP_Num";
                     this.sqlDataAdapter1.Fill(dt_cfipo);
-                    dgv_cfipo.DataSource = dt_cfipo;
+                    dgv_trans.DataSource = dt_cfipo;
 
                     //str_sql = "select * from CFIPO order by ERP_Num";
                     //MyCode.Sql_dgv(str_sql, dt_cfipo, dgv_cfipo);
@@ -712,7 +694,7 @@ namespace TOYOINK_dev
             }
 
             //匯入 cfipo 成功，開啟 ERP轉換格式 按鈕
-            if (dgv_cfipo.DataSource != null)
+            if (dgv_trans.DataSource != null)
             {
                 btn_toerp.Enabled = true;
                 btn_toerp.BackColor = System.Drawing.Color.SeaGreen;
@@ -742,24 +724,24 @@ namespace TOYOINK_dev
         private void btn_toerp_Click(object sender, EventArgs e)
         {
             //判別當月第一筆
-            if (str_key_客訂單號.Length >= 7 && str_key_客訂單號.Substring(4, 3).ToString() == "001")
+            if (str_key_TC002.Length >= 7 && str_key_TC002.Substring(4, 3).ToString() == "001")
             {
-                str_key_客訂單號 = str_key_客訂單號.Substring(0, 4).ToString() + "000";
+                str_key_TC002 = str_key_TC002.Substring(0, 4).ToString() + "000";
             }
             else
             {
-                str_key_客訂單號 = (Convert.ToInt32(lab_num2.Text.ToString()) - 1).ToString().PadLeft(7, '0');
+                //str_key_TC002 = (Convert.ToInt32(lab_num2.Text.ToString()) - 1).ToString().PadLeft(7, '0');
             }
             //單身 ERP格式
             //20210111 CONVERT(varchar(6) 改為 CONVERT(varchar(7)
-            //", REPLICATE('0', (7 - LEN(CONVERT(varchar(6), (CFIPO.ERP_Num + " + str_key_客訂單號 + "))))) +CONVERT(varchar(6), (CFIPO.ERP_Num + " + str_key_客訂單號 + ")) as TD002" + str_enter +
+            //", REPLICATE('0', (7 - LEN(CONVERT(varchar(6), (CFIPO.ERP_Num + " + str_key_TC002 + "))))) +CONVERT(varchar(6), (CFIPO.ERP_Num + " + str_key_TC002 + ")) as TD002" + str_enter +
             //20210901 生管林玲禎提出 TD201 希望交貨日改為空值【CFIPO.[Need By Date] as TD201】 ->【'' as TD201】
             //20210913 升級GP4單身增加兩個欄位，計價數量(TD076).計價單位(TD077)，同原欄位 數量(TD008).單位(TD010)
             //,CFIPO.Quantity as TD076,CFIPO.UOM as TD077,
             DataTable dt_單身 = new DataTable();
             string str_sql_td =
             "SELECT '220' as TD001" + str_enter +
-            ", REPLICATE('0', (7 - LEN(CONVERT(varchar(7), (CFIPO.ERP_Num + " + str_key_客訂單號 + "))))) +CONVERT(varchar(7), (CFIPO.ERP_Num + " + str_key_客訂單號 + ")) as TD002" + str_enter +
+            ", REPLICATE('0', (7 - LEN(CONVERT(varchar(7), (CFIPO.ERP_Num + " + str_key_TC002 + "))))) +CONVERT(varchar(7), (CFIPO.ERP_Num + " + str_key_TC002 + ")) as TD002" + str_enter +
             ",CFIPO.ERP_序號 as TD003,INVMB.MB001 as TD004,INVMB.MB002 as TD005,INVMB.MB003 as TD006" + str_enter +
             ",INVMB.MB017 as TD007,CFIPO.Quantity as TD008,'0' as TD009,CFIPO.UOM as TD010" + str_enter +
             ",COPMB.MB008 as TD011,(COPMB.MB008 * CFIPO.Quantity) as TD012,CFIPO.[Need By Date] as TD013" + str_enter +
@@ -795,7 +777,7 @@ namespace TOYOINK_dev
             string str_sql_column_d = "", str_sql_value_d = "", str_sql_columns_d = "", str_sql_values_d = "";
             string data_type_d = "", data_type_c = "";
             bool bol_to_insert = false;
-            this.ft_sum採購金額 = 0; this.ft_sum數量合計 = 0; this.ft_sum包裝數量合計 = 0;
+            this.ft_sum_TC019 = 0; this.ft_sum_TC023 = 0; this.ft_sum_TC029 = 0;
 
             // 準備ERP上傳 字串
             str_sql_coptc = "";
@@ -824,10 +806,10 @@ namespace TOYOINK_dev
             //TODO: 填入[COMPANY],[CREATOR],[USR_GROUP] ,[CREATE_DATE] ,[MODIFIER],[MODI_DATE] ,[FLAG]
             string[] str_basic =
                 {
-                    this.str_廠別,
-                    this.str_建立者ID,
-                    this.str_建立者GP,
-                    this.str_建立日期,
+                    this.str_Company,
+                    this.str_Creater_ID,
+                    this.str_Creater_GP,
+                    this.str_CreaterDate,
                     "",
                     "",
                     "0"
@@ -927,30 +909,30 @@ namespace TOYOINK_dev
                         //MyCode.sqlExecuteNonQuery(str_sql_d);
 
                         //加總
-                        ft_sum採購金額 += Convert.ToDouble(dt.Rows[i]["TD012"].ToString());
-                        ft_sum數量合計 += Convert.ToDouble(dt.Rows[i]["TD008"].ToString()); ;
-                        ft_sum包裝數量合計 += Convert.ToDouble(dt.Rows[i]["TD032"].ToString()); ;
+                        ft_sum_TC019 += Convert.ToDouble(dt.Rows[i]["TD012"].ToString());
+                        ft_sum_TC023 += Convert.ToDouble(dt.Rows[i]["TD008"].ToString()); ;
+                        ft_sum_TC029 += Convert.ToDouble(dt.Rows[i]["TD032"].ToString()); ;
 
                         //TODO:判別 單身單號與下一筆不同 則新增 單頭
                         //20210111 CONVERT(varchar(6) 改為 CONVERT(varchar(7)
-                        // ", REPLICATE('0', (7 - LEN(CONVERT(varchar(6), (CFIPO.ERP_Num + " + str_key_客訂單號 + "))))) +CONVERT(varchar(6), (CFIPO.ERP_Num + " + str_key_客訂單號 + ")) as TC002" + str_enter +
+                        // ", REPLICATE('0', (7 - LEN(CONVERT(varchar(6), (CFIPO.ERP_Num + " + str_key_TC002 + "))))) +CONVERT(varchar(6), (CFIPO.ERP_Num + " + str_key_TC002 + ")) as TC002" + str_enter +
                         if ((i != dt.Rows.Count - 1 && (dt.Rows[i]["TD002"].ToString() != dt.Rows[i + 1]["TD002"].ToString())) || i == dt.Rows.Count - 1)
                         {
                             DataTable dt_單頭 = new DataTable();
                             string str_sql_tc =
                             "select * from (select'220' as TC001" + str_enter +
-                            ", REPLICATE('0', (7 - LEN(CONVERT(varchar(7), (CFIPO.ERP_Num + " + str_key_客訂單號 + "))))) +CONVERT(varchar(7), (CFIPO.ERP_Num + " + str_key_客訂單號 + ")) as TC002" + str_enter +
-                            ",'" + textBox_單據日期.Text.ToString().Trim() + "' as TC003 ,CFIPO.ERP_客代 as TC004,'' as TC005" + str_enter +
+                            ", REPLICATE('0', (7 - LEN(CONVERT(varchar(7), (CFIPO.ERP_Num + " + str_key_TC002 + "))))) +CONVERT(varchar(7), (CFIPO.ERP_Num + " + str_key_TC002 + ")) as TC002" + str_enter +
+                            ",'" + txt_FormDate.Text.ToString().Trim() + "' as TC003 ,CFIPO.ERP_客代 as TC004,'' as TC005" + str_enter +
                             ",CFIPO.線別 as TC006,'002' as TC007,COPMA.MA014 as TC008 " + str_enter +
                             ",(select MG004 from CMSMG where MG001 = COPMA.MA014 and MG002 = (select MAX(MG002) from CMSMG where MG001 = COPMA.MA014))  as TC009" + str_enter +
                             ",(COPMA.MA080 + ' ' +COPMA.MA027) as TC010,COPMA.MA064 as TC011,CFIPO.ERP_客單 as TC012,COPMA.MA030 as TC013,COPMA.MA031 as TC014" + str_enter +
                             ",'' as TC015,COPMA.MA038 as TC016,'' as TC017,COPMA.MA005 as TC018,COPMA.MA048 as TC019,'' as TC020" + str_enter +
                             ",'' as TC021,COPMA.MA056 as TC022,COPMA.MA057 as TC023,COPMA.MA058 as TC024,'' as TC025,COPMA.MA059 as TC026" + str_enter +
-                            ",'N' as TC027,'0' as TC028,'" + ft_sum採購金額 + "' as TC029,'0' as TC030,'" + ft_sum數量合計 + "' as TC031" + str_enter +
+                            ",'N' as TC027,'0' as TC028,'" + ft_sum_TC019 + "' as TC029,'0' as TC030,'" + ft_sum_TC023 + "' as TC031" + str_enter +
                             ",CFIPO.ERP_客代 as TC032,'' as TC033,'' as TC034,COPMA.MA051 as TC035,'' as TC036,'' as TC037,'' as TC038" + str_enter +
-                            ",'" + textBox_單據日期.Text.ToString().Trim() + "' as TC039,'' as TC040" + str_enter +
+                            ",'" + txt_FormDate.Text.ToString().Trim() + "' as TC039,'' as TC040" + str_enter +
                             ",(select NN004 from CMSNN where NN001 = (select MA118 from COPMA where MA001 = CFIPO.ERP_客代))  as TC041" + str_enter +
-                            ",COPMA.MA083 as TC042,'0' as TC043,'0' as TC044,COPMA.MA095 as TC045,'" + ft_sum包裝數量合計 + "' as TC046" + str_enter +
+                            ",COPMA.MA083 as TC042,'0' as TC043,'0' as TC044,COPMA.MA095 as TC045,'" + ft_sum_TC029 + "' as TC046" + str_enter +
                             ",'' as TC047,'N' as TC048,'' as TC049,'N' as TC050,'' as TC051,'0' as TC052,COPMA.MA003 as TC053" + str_enter +
                             ",'' as TC054,'' as TC055,'1' as TC056,'N' as TC057,'' as TC058,'' as TC059,'N' as TC060,'' as TC061" + str_enter +
                             ",'' as TC062,(COPMA.MA079 + ' ' + COPMA.MA025) as TC063,COPMA.MA026 as TC064,COPMA.MA003 as TC065,COPMA.MA006 as TC066" + str_enter +
@@ -1028,15 +1010,15 @@ namespace TOYOINK_dev
                                 //sqlapp log
                                 str_sql_log = String.Format(
                                           @"insert into develop_app_log VALUES('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}')"
-                                          , str_建立者ID, str_建立日期, dt_單頭.Rows[x]["TC001"], dt_單頭.Rows[x]["TC002"], "COPTC", "fm_AUO_NF_COPTC", "新增客戶訂單單頭", DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss"));
+                                          , str_Creater_ID, str_CreaterDate, dt_單頭.Rows[x]["TC001"], dt_單頭.Rows[x]["TC002"], "COPTC", "fm_AUO_NF_COPTC", "新增客戶訂單單頭", DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss"));
 
                                 // 上傳ERP Log字串整理後，屆時一次上傳
                                 str_sql_logs += str_sql_log + str_enter;
 
                                 //已新增資料 重新累計
-                                this.ft_sum包裝數量合計 = 0;
-                                this.ft_sum採購金額 = 0;
-                                this.ft_sum數量合計 = 0;
+                                this.ft_sum_TC029 = 0;
+                                this.ft_sum_TC019 = 0;
+                                this.ft_sum_TC023 = 0;
 
                                 str_sql_columns_c = "";
                                 str_sql_values_c = "";
@@ -1077,13 +1059,13 @@ namespace TOYOINK_dev
                     DataTable dt_coptc = new DataTable();
                     this.sqlDataAdapter1.SelectCommand.CommandText =
                         "select TC001 as 單別,TC002 as 單號,TC003 as 訂單日期,TC004 as 客戶代號,TC005 as 部門代號" +
-                        ",TC006 as 業務人員,TC008 as 交易幣別,TC009 as 匯率,TC041 as 營業稅率,TC012 as 客戶單號" +
+                        ",TC006 as 業務userIDNAME,TC008 as 交易幣別,TC009 as 匯率,TC041 as 營業稅率,TC012 as 客戶單號" +
                         ",TC029 as 訂單金額,TC030 as 訂單稅額,TC031 as 總數量,TC046 as 總包裝數量,TC053 as 客戶全名" +
                         ",TC010 as 送貨地址_一,TC014 as 付款條件,TC018 as 連絡人 from COPTC " +
                         "where TC001 ='220' and TC002 between '" + dt.Rows[0]["TD002"].ToString() + "' and '" + dt.Rows[i - 1]["TD002"].ToString() + "' order by TC002";
                     //str_sql =
                     //    "select TC001 as 單別,TC002 as 單號,TC003 as 訂單日期,TC004 as 客戶代號,TC005 as 部門代號" +
-                    //    ",TC006 as 業務人員,TC008 as 交易幣別,TC009 as 匯率,TC041 as 營業稅率,TC012 as 客戶單號" +
+                    //    ",TC006 as 業務userIDNAME,TC008 as 交易幣別,TC009 as 匯率,TC041 as 營業稅率,TC012 as 客戶單號" +
                     //    ",TC029 as 訂單金額,TC030 as 訂單稅額,TC031 as 總數量,TC046 as 總包裝數量,TC053 as 客戶全名" +
                     //    ",TC010 as 送貨地址_一,TC014 as 付款條件,TC018 as 連絡人 from COPTC " +
                     //    "where TC001 ='220' and TC002 between '" + dt.Rows[0]["TD002"].ToString() + "' and '" + dt.Rows[i - 1]["TD002"].ToString() + "' order by TC002";
@@ -1163,11 +1145,11 @@ namespace TOYOINK_dev
                                    "===========";
                         //TODO:上傳 ERP系統完成後，將單據號碼.單據日期.檔案路徑.EXCEL匯入.CFIPO畫面清除，
                         //並關閉 轉換ERP格式及上傳ERP按鈕
-                        lab_num2.Text = "";
-                        textBox_單據日期.Text = "";
+                        //lab_num2.Text = "";
+                        txt_FormDate.Text = "";
                         txt_path.Text = "";
                         dgv_excel.DataSource = null;
-                        dgv_cfipo.DataSource = null;
+                        dgv_trans.DataSource = null;
 
                         btn_toerp.Enabled = false;
                         btn_toerp.BackColor = System.Drawing.SystemColors.Control;
@@ -1232,33 +1214,3 @@ namespace TOYOINK_dev
 
     }
 }
-
-/*
- * A01A 
- SELECT COLUMN_NAME AS 欄位名稱,
-DATA_TYPE AS 欄位型態,
-CHARACTER_MAXIMUM_LENGTH AS 長度限制,
-IS_NULLABLE AS 是否允許空值, 
-COLUMN_DEFAULT AS 預設值
-FROM INFORMATION_SCHEMA.COLUMNS 
-WHERE TABLE_NAME = N'CFIPO'
-
- * 欄位名稱	欄位型態	長度限制	是否允許空值	預設值
-ERP_Num	int	NULL	YES	NULL
-ERP_序號	nvarchar	4	YES	NULL
-ERP_客代	nvarchar	50	YES	NULL
-ERP_客單	nvarchar	50	YES	NULL
-ERP_幣別	nvarchar	50	YES	NULL
-線別	nvarchar	50	YES	NULL
-Sample	nvarchar	50	YES	NULL
-Number	nvarchar	50	YES	NULL
-Item	nvarchar	50	YES	NULL
-Item Description	nvarchar	100	YES	NULL
-UOM	nvarchar	50	YES	NULL
-Shipment Amount	decimal	NULL	YES	NULL
-Quantity	decimal	NULL	YES	NULL
-Supplier	nvarchar	50	YES	NULL
-Currency	nvarchar	50	YES	NULL
-Need By Date	nvarchar	50	YES	NULL
-備註	nvarchar	100	YES	NULL
- */
