@@ -44,7 +44,13 @@ namespace TOYOINK_dev
         6.【8a總表】新增及修正
         (1) 新增【報廢估列、報廢迴轉、銷貨調整】列
         (2) 修改 庫存異動單 報廢 新增單別 116A
-      ************************/
+      * 20230331 財務 邱鈺婷提出，明細分類帳查詢條件修正
+        1.先從摘要內，篩選關鍵字及會計科目
+        2.[項目.成本]，通常以會計科目指定"名稱"，[產品別]，通常以摘要內#字標示
+        or (ML009 like '%存貨評價%' and ML006 新增 '510601','510603','510604','510605'，同'510602'
+        or (ML009 like '%報廢估列%' and ML006 新增 '510704','510705','510706'，同'510702'
+* 
+************************/
     public partial class fm_Package5a8a : Form
     {
         public MyClass MyCode;
@@ -947,10 +953,16 @@ namespace TOYOINK_dev
                     group by MB001,MB002,MB003,MA007", cond_ACTMB, Date_S, Date_E);
 
             ////dt_ACTML.Clear();   //明細分類帳
+            // 1.先從摘要內，篩選關鍵字及會計科目
+            // 2.[項目.成本]，通常以會計科目指定"名稱"，[產品別]，通常以摘要內#字標示
+            /* 修改 ,(select MA003 from ACTMA where MA001 = ACTML.ML006) as 科目名稱，原ACTML.ML001
+             * or (ML009 like '%存貨評價%' and ML006 新增 '510601','510603','510604','510605'，同'510602'
+	           or (ML009 like '%報廢估列%' and ML006 新增 '510704','510705','510706'，同'510702'
+             */
             sql_str_ACTML = String.Format(
                                 @"select * from (
                                   select ML006 as 科目編號 
-                                    ,(select MA003 from ACTMA where MA001 = ACTML.ML001) as 科目名稱
+                                    ,(select MA003 from ACTMA where MA001 = ACTML.ML006) as 科目名稱
                                     ,SUBSTRING(ML002,1,6) as 傳票年月 ,ML003+'-'+ML004+' -'+ML005 as 傳票編號
                                     ,ML009 as 摘要 ,TB012 as 備註
                                     ,(case ML007 when '1' then ML008 else 0 end) as 本幣借方金額
@@ -967,6 +979,13 @@ namespace TOYOINK_dev
 		                                when '510204' then '成本調整'
 		                                when '510202' then '報廢估列'
 		                                when '510702' then '報廢估列'
+                                        when '510601' then '評價'
+                                        when '510603' then '評價'
+                                        when '510604' then '評價'
+                                        when '510605' then '評價'
+                                        when '510704' then '報廢估列'
+                                        when '510705' then '報廢估列'
+                                        when '510706' then '報廢估列'
 	                                 end as 項目
 	                                 ,case ML006
 		                                when '510502' then SUBSTRING(ML009,12,4)
@@ -977,6 +996,13 @@ namespace TOYOINK_dev
 		                                when '510204' then '材料成本'
 		                                when '510202' then '材料成本'
 		                                when '510702' then '材料成本'
+                                        when '510601' then '材料成本'
+                                        when '510603' then '材料成本'
+										when '510604' then '材料成本'
+										when '510605' then '材料成本'
+                                        when '510704' then '材料成本'
+                                        when '510705' then '材料成本'
+                                        when '510706' then '材料成本'
 	                                 end as 成本
 	                                ,case ML006
 		                                when '510502' then '52'
@@ -987,6 +1013,13 @@ namespace TOYOINK_dev
 		                                when '510204' then SUBSTRING(ML009,CHARINDEX('#',ML009)+1,2)
 		                                when '510202' then SUBSTRING(ML009,CHARINDEX('#',ML009)+1,2)
 		                                when '510702' then SUBSTRING(ML009,CHARINDEX('#',ML009)+1,2)
+                                        when '510601' then SUBSTRING(ML009,CHARINDEX('#',ML009)+1,2)
+                                        when '510603' then SUBSTRING(ML009,CHARINDEX('#',ML009)+1,2)
+										when '510604' then SUBSTRING(ML009,CHARINDEX('#',ML009)+1,2)
+										when '510605' then SUBSTRING(ML009,CHARINDEX('#',ML009)+1,2)
+                                        when '510704' then SUBSTRING(ML009,CHARINDEX('#',ML009)+1,2)
+                                        when '510705' then SUBSTRING(ML009,CHARINDEX('#',ML009)+1,2)
+                                        when '510706' then SUBSTRING(ML009,CHARINDEX('#',ML009)+1,2)
 	                                 end as 產品別
                                     from ACTML
 	                                    left JOIN ACTMA on ACTMA.MA001 = ACTML.ML006
@@ -994,10 +1027,10 @@ namespace TOYOINK_dev
                                     where (
 	                                (ML009 like '%閒置%' and ML006 = '510502') 
 	                                or (ML009 like '%稅額調整%' and ML006 = '410202') 
-	                                or (ML009 like '%存貨評價%' and ML006 = '510602') 
+	                                or (ML009 like '%存貨評價%' and ML006 in ('510602','510601','510603','510604','510605')) 
 	                                or ML006 = '510902' 
 	                                or (ML009 like '%成本調整%' and ML006 in('510104','510204'))
-	                                or (ML009 like '%報廢估列%' and ML006 in ('510202','510702'))
+	                                or (ML009 like '%報廢估列%' and ML006 in ('510202','510702','510704','510705','510706'))
 	                                )) ACTML_ALL
                             where 傳票年月 between '{0}' and '{1}'
                             order by 傳票年月,科目編號", Date_S, Date_E);

@@ -110,7 +110,7 @@
             this.btn_FormDate.Name = "btn_FormDate";
             this.btn_FormDate.Size = new System.Drawing.Size(35, 33);
             this.btn_FormDate.TabIndex = 18;
-            this.btn_FormDate.Click += new System.EventHandler(this.btn_NeedDate_Click);
+            this.btn_FormDate.Click += new System.EventHandler(this.btn_FormDate_Click);
             // 
             // label5
             // 
@@ -393,7 +393,6 @@
             this.txt_FormDate.ReadOnly = true;
             this.txt_FormDate.Size = new System.Drawing.Size(114, 34);
             this.txt_FormDate.TabIndex = 19;
-            this.txt_FormDate.TextChanged += new System.EventHandler(this.txt_FormDate_TextChanged);
             // 
             // sqlDataAdapter1
             // 

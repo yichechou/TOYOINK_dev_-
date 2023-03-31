@@ -158,15 +158,11 @@ namespace TOYOINK_dev
             txterr.ScrollToCaret();  //跳到遊標處 
         }
 
-        private void panel2_Paint(object sender, PaintEventArgs e)
+        private void btn_FormDate_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void txt_FormDate_TextChanged(object sender, EventArgs e)
-        {
-
-        }
 
         //TODO:建立者下拉式清單
         //private void cob_Creater_SelectedIndexChanged(object sender, EventArgs e)
@@ -274,13 +270,34 @@ namespace TOYOINK_dev
             txt_FormDate.Text = DateTime.Now.ToString("yyyyMMdd");
             //str_CreaterDate = lab_Nowdate.Text.ToString().Trim();
 
-            //TODO:取得最後一筆採購單330 採購單號
-            dt_Creater = new DataTable();
+            //TODO:取得最後一筆採購單330 採購單號，該欄位使用者可自行編輯
+            dt_PURTC002 = new DataTable();
             this.sqlDataAdapter1.SelectCommand.CommandText
                 = String.Format(@"select top 1 TC002 from PURTC 
                                     where TC001 = '330'
                                     order by TC002 desc");
-            this.sqlDataAdapter1.Fill(dt_Creater);
+            this.sqlDataAdapter1.Fill(dt_PURTC002);
+            this.txt_TC002.Text = (Convert.ToInt32(dt_PURTC002.Rows[0][0].ToString()) + 1).ToString();
+
+            //TODO:供應商清單，預設TVS
+            string str_sql_Cust = "select MA001,MA001 + MA002 as 簡稱 from COPMA order by MA001";
+            //MyCode.Sql_dt(str_sql_Cust, dt_Cust);
+
+            //for (int i = 0; i < dt_Cust.Rows.Count; i++)
+            //{
+            //    str_CustID = this.dt_Cust.Rows[i]["MA001"].ToString().Trim();
+            //    this.cbo_ERPUP_Cust.Items.Add(dt_Cust.Rows[i]["MA001"].ToString().Trim());
+
+            //    if (str_CustID == "AU-TY")
+            //    {
+            //        this.cbo_ERPUP_Cust.SelectedIndex = i;
+            //    }
+            //}
+
+
+            //TODO:匯入格式清單
+            //TODO:幣別
+
         }
 
 
